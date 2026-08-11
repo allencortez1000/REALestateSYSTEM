@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
@@ -58,7 +60,11 @@ export default function CustomerShell({ title, description, children }: { title:
             <div className="section-label">Account</div>
             <div className="mt-3 text-sm font-semibold text-[#08122c]">Customer Demo</div>
             <div className="text-xs text-slate-500">customer@rhbcrealestate.com</div>
-            <Link href="/" className="mt-4 inline-flex rounded-full bg-[#08122c] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0f1d45]">
+            <Link
+              href="/"
+              className="mt-4 inline-flex rounded-full bg-[#08122c] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0f1d45]"
+              onClick={() => window.localStorage.removeItem('amicaCustomerSignedIn')}
+            >
               Logout
             </Link>
           </div>

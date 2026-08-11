@@ -21,7 +21,6 @@ export default function Footer() {
               <a href="/search" className="transition hover:text-white">Search</a>
               <a href="/blog" className="transition hover:text-white">Journal</a>
               <a href="/dashboard/customer" className="transition hover:text-white">Customer Portal</a>
-              <a href="/dashboard/admin" className="transition hover:text-white">Admin Portal</a>
             </div>
           </div>
 

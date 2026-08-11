@@ -1,7 +1,17 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  function handleSignIn() {
+    window.localStorage.setItem('amicaCustomerSignedIn', 'true');
+    router.push('/dashboard/customer');
+  }
+
   return (
     <main className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
       <section className="mx-auto max-w-[1200px]">
@@ -27,7 +37,13 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <form className="bg-white p-8 sm:p-10 lg:p-12">
+            <form
+              className="bg-white p-8 sm:p-10 lg:p-12"
+              onSubmit={(event) => {
+                event.preventDefault();
+                handleSignIn();
+              }}
+            >
               <span className="badge bg-white/80 shadow-soft">Welcome back</span>
               <h2 className="mt-6 text-[clamp(2rem,4vw,3.4rem)] font-semibold tracking-[-0.06em] text-[#08122c]">Customer sign in</h2>
               <p className="mt-4 text-sm leading-7 text-slate-600">Use your customer account to manage model houses, bookings, and conversations across Metro Manila and beyond.</p>
@@ -43,7 +59,7 @@ export default function LoginPage() {
               <div className="mt-8 grid gap-4">
                 <input className="input" placeholder="Email address" defaultValue="customer@rhbcrealestate.com" />
                 <input className="input" type="password" placeholder="Password" defaultValue="customer123" />
-                <Link href="/dashboard/customer" className="btn-primary mt-2 w-full text-center">Sign in</Link>
+                <button type="submit" className="btn-primary mt-2 w-full text-center">Sign in</button>
               </div>
 
               <div className="mt-6 flex flex-col items-center gap-3 text-center text-sm text-slate-500 sm:flex-row sm:justify-between">
