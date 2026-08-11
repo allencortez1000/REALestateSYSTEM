@@ -5,46 +5,46 @@ import { useEffect, useState } from 'react';
 
 const slides = [
   {
-    title: 'ATHENA MODEL HOUSE',
-    location: 'Philippines',
-    price: 'Starting at PHP 6,800,000.00',
-    area: '80 SQM lot • 162 SQM floor • premium family residence',
-    image: '/athena-model-house.png'
-  },
-  {
     title: 'HERA MODEL HOUSE',
-    location: 'Philippines',
+    location: 'Rabino Home Builders Corporation',
     price: 'PHP 8,000,000.00',
-    area: '100–120 SQM lot • 206 SQM floor • elevated contemporary home',
+    area: '80 SQM / 100–120 SQM lot • 162 SQM / 206 SQM floor',
     image: '/hera-model-house.png'
   },
   {
-    title: 'JOYCE MODEL HOUSE',
-    location: 'Philippines',
-    price: 'PHP 3,600,000.00',
-    area: '80 SQM lot • 69 SQM floor • in-house financing residence',
-    image: '/joyce-model-house.png'
-  },
-  {
-    title: 'KARLA MODEL HOUSE',
-    location: 'Philippines',
-    price: 'PRICE STARTS PHP 5,500,000.00',
-    area: '100–120 SQM lot • 124 SQM floor • refined family home',
-    image: '/karla-model-house.png'
+    title: 'ATHENA MODEL HOUSE',
+    location: 'Rabino Home Builders Corporation',
+    price: 'Price not shown',
+    area: 'Luxury residence • exterior architectural design reference',
+    image: '/athena-model-house.png'
   },
   {
     title: 'KASANDRA MODEL HOUSE',
-    location: 'Philippines',
-    price: 'PHP 4,100,000.00',
-    area: '80 SQM lot • 85 SQM floor • Pag-IBIG-ready model house',
+    location: 'Rabino Home Builders Corporation',
+    price: 'PHP 4,000,000.00',
+    area: 'House only • in-house financing reference',
     image: '/kasandra-model-house.png'
   },
   {
     title: 'MELVIN MODEL HOUSE',
-    location: 'Philippines',
+    location: 'Rabino Home Builders Corporation',
     price: 'PHP 2,950,000.00',
-    area: '80 SQM lot • 51.6 SQM floor • compact luxury residence',
+    area: 'House & lot • beautifully designed duplex home',
     image: '/melvin-model-house.png'
+  },
+  {
+    title: 'JOYCE MODEL HOUSE',
+    location: 'Rabino Home Builders Corporation',
+    price: 'PHP 3,000,000.00',
+    area: 'House only • in-house financing reference',
+    image: '/joyce-model-house.png'
+  },
+  {
+    title: 'LOW COST HOUSING PROJECT',
+    location: 'Low Cost Housing Project',
+    price: 'PHP 950,000.00 – PHP 1,400,000.00',
+    area: 'Bungalow and duplex bungalow options • 32.5 SQM floor',
+    image: '/kasandra-model-house.png'
   }
 ] as const;
 

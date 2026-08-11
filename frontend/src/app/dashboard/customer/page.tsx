@@ -30,9 +30,9 @@ const sellerCards = [
 ];
 
 const savedHomes = [
-  { title: 'ATHENA MODEL HOUSE', note: 'For Sale • 80 SQM', status: 'Saved' },
-  { title: 'HERA MODEL HOUSE', note: 'New Launching • 206 SQM', status: 'Shortlisted' },
-  { title: 'JOYCE MODEL HOUSE', note: 'In-House Financing • 69 SQM', status: 'Viewed' }
+  { title: 'HERA MODEL HOUSE', note: 'House Only / Model House • PHP 8,000,000.00', status: 'Saved' },
+  { title: 'KASANDRA MODEL HOUSE', note: 'House Only • PHP 4,000,000.00', status: 'Shortlisted' },
+  { title: 'LOW COST HOUSING PROJECT', note: 'Bungalow / Duplex • PHP 950,000.00 – PHP 1,400,000.00', status: 'Viewed' }
 ];
 
 export default function CustomerDashboardPage() {
@@ -82,7 +82,7 @@ export default function CustomerDashboardPage() {
             <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(135deg,#071426_0%,#0d2342_100%)] p-5 text-white">
               <div className="section-label text-[#d7be8a]">Upcoming viewings</div>
               <div className="mt-4 grid gap-3">
-                {['Athena model house • Thursday, 10:00 AM', 'Hera model house • Friday, 2:30 PM', 'Karla model • Saturday, 11:00 AM'].map((item) => (
+                {['Hera model house • Thursday, 10:00 AM', 'Kasandra model house • Friday, 2:30 PM', 'Low cost housing project • Saturday, 11:00 AM'].map((item) => (
                   <div key={item} className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 text-sm text-white/78">{item}</div>
                 ))}
               </div>
@@ -99,7 +99,7 @@ export default function CustomerDashboardPage() {
         <div className="rounded-[1.75rem] border border-[#e7dcc8] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
           <div className="section-label">Recent notifications</div>
           <div className="mt-4 grid gap-3">
-            {['Viewing confirmed for Athena model house', 'New AMICA model-house match', 'Agent replied to your inquiry', 'Document upload approved'].map((item) => (
+            {['Viewing confirmed for Hera model house', 'New RHBC low-cost housing match', 'Agent replied to your inquiry', 'Document upload approved'].map((item) => (
               <div key={item} className="rounded-2xl bg-[#f8fbff] px-4 py-3 text-sm text-slate-600">{item}</div>
             ))}
           </div>

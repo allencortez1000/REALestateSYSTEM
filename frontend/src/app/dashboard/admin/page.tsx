@@ -20,9 +20,9 @@ const recentItems = [
 ];
 
 const priorityQueue = [
-  { title: 'Athena model house', meta: '2 new inquiries • 1 viewing pending' },
-  { title: 'Hera model house', meta: 'Featured launch • 6 leads this week' },
-  { title: 'Kasandra model house', meta: 'Pag-IBIG interest • 4 follow-ups' }
+  { title: 'Hera model house', meta: 'Merged house-only and model-house references • PHP 8,000,000.00' },
+  { title: 'Kasandra model house', meta: 'House-only package • PHP 4,000,000.00' },
+  { title: 'Low cost housing project', meta: 'Bungalow and duplex options • 4 follow-ups' }
 ];
 
 export default function AdminDashboardPage() {

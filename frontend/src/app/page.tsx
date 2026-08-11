@@ -10,25 +10,25 @@ const featureBullets = [
 
 const communities = [
   {
-    title: 'ATHENA MODEL HOUSE',
-    area: '80 SQM • 162 SQM',
-    price: 'Starting at PHP 6,800,000.00',
-    summary: 'A refined family residence with a balanced interior flow and elegant AMICA presentation.',
-    accent: 'bg-[#0d2342]'
-  },
-  {
     title: 'HERA MODEL HOUSE',
-    area: '100–120 SQM • 206 SQM',
+    area: '80 / 100–120 SQM • 162 / 206 SQM',
     price: 'PHP 8,000,000.00',
-    summary: 'A larger luxury home with generous proportions and elevated contemporary detailing.',
+    summary: 'Combined HERA reference covering the house-only and model-house marketing specifications.',
     accent: 'bg-[#b98a3d]'
   },
   {
     title: 'KASANDRA MODEL HOUSE',
-    area: '80 SQM • 85 SQM',
-    price: 'PHP 4,100,000.00',
-    summary: 'A practical Pag-IBIG-ready home with a premium look and a measured floor plan.',
+    area: 'Size not shown',
+    price: 'PHP 4,000,000.00',
+    summary: 'A house-only model designed for real living with flexible in-house financing.',
     accent: 'bg-[#17365f]'
+  },
+  {
+    title: 'LOW COST HOUSING PROJECT',
+    area: '50 / 80 SQM • 32.5 SQM',
+    price: 'PHP 950,000.00 – PHP 1,400,000.00',
+    summary: 'Merged bungalow and duplex bungalow options for affordable home ownership.',
+    accent: 'bg-[#0d2342]'
   }
 ];
 

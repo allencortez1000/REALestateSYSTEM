@@ -1,25 +1,49 @@
 const comparisonListings = [
   {
-    title: 'ATHENA MODEL HOUSE',
-    bedrooms: '3 Bedrooms',
-    bathrooms: '2 Common T&B',
-    price: 'Starting at PHP 6,800,000.00',
-    status: 'For Sale',
-    type: 'Model House',
-    currency: 'PHP',
+    title: 'HERA MODEL HOUSE',
+    size: '80 / 100–120 SQM lot • 162 / 206 SQM floor',
+    price: 'PHP 8,000,000.00',
+    features: 'Living Area, 4 Bedrooms, Dining Area, Carport, Kitchen, Powder Room, 2 T&B / 2 Common T&B, Fence and Gate, Roof Deck',
+    type: 'House Only / Model House',
   },
   {
-    title: 'HERA MODEL HOUSE',
-    bedrooms: '4 Bedrooms',
-    bathrooms: '2 Common T&B',
-    price: 'PHP 8,000,000.00',
-    status: 'New Launching',
-    type: 'Model House',
-    currency: 'PHP',
+    title: 'ATHENA MODEL HOUSE',
+    size: 'Not shown',
+    price: 'Not shown',
+    features: 'Exterior architectural design reference; detailed features not shown',
+    type: 'Luxury Residence',
+  },
+  {
+    title: 'KASANDRA MODEL HOUSE',
+    size: 'Not shown',
+    price: 'PHP 4,000,000.00',
+    features: 'House-only in-house financing reference',
+    type: 'House Only',
+  },
+  {
+    title: 'MELVIN MODEL HOUSE',
+    size: 'Not shown',
+    price: 'PHP 2,950,000.00',
+    features: 'Beautifully designed duplex home',
+    type: 'House & Lot',
+  },
+  {
+    title: 'JOYCE MODEL HOUSE',
+    size: 'Not shown',
+    price: 'PHP 3,000,000.00',
+    features: 'House-only in-house financing reference',
+    type: 'House Only',
+  },
+  {
+    title: 'LOW COST HOUSING PROJECT',
+    size: '50 / 80 SQM lot • 32.5 SQM floor',
+    price: 'PHP 950,000.00 – PHP 1,400,000.00',
+    features: 'Bungalow and duplex bungalow options: Toilet & Bath, Kitchen, Bare Type, optional 2 Carport for duplex',
+    type: 'Low-Cost Housing',
   },
 ];
 
-const features = ['Bedrooms', 'Bathrooms', 'Price', 'Status', 'Type', 'Currency'];
+const features = ['Size', 'Price', 'Features', 'Type'];
 
 export default function ComparePage() {
   return (
@@ -41,7 +65,7 @@ export default function ComparePage() {
         </div>
 
         <div className="mt-10 overflow-hidden rounded-[2rem] border border-[#e5dcc9] bg-white/80 shadow-deep backdrop-blur">
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-[180px_repeat(6,minmax(220px,1fr))] overflow-x-auto">
             <div className="border-r border-[#e5dcc9] bg-[#faf8f3] p-6">
               <div className="text-xs font-bold uppercase tracking-widest text-slate-500">Feature</div>
             </div>
@@ -53,16 +77,14 @@ export default function ComparePage() {
             ))}
           </div>
           {features.map((feature) => (
-            <div key={feature} className="grid grid-cols-3 border-t border-[#e5dcc9]">
+            <div key={feature} className="grid grid-cols-[180px_repeat(6,minmax(220px,1fr))] border-t border-[#e5dcc9]">
               <div className="border-r border-[#e5dcc9] bg-[#faf8f3] p-4 text-sm font-semibold text-[#08122c]">{feature}</div>
               {comparisonListings.map((property) => (
                 <div key={`${property.title}-${feature}`} className="border-r border-[#e5dcc9] last:border-r-0 p-4 text-sm text-slate-600">
-                  {feature === 'Bedrooms' && property.bedrooms}
-                  {feature === 'Bathrooms' && property.bathrooms}
+                  {feature === 'Size' && property.size}
                   {feature === 'Price' && property.price}
-                  {feature === 'Status' && property.status}
+                  {feature === 'Features' && property.features}
                   {feature === 'Type' && property.type}
-                  {feature === 'Currency' && property.currency}
                 </div>
               ))}
             </div>

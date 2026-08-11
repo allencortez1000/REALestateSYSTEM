@@ -1,21 +1,21 @@
 const favoriteListings = [
   {
-    title: 'ATHENA MODEL HOUSE',
-    price: 'Starting at PHP 6,800,000.00',
-    slug: '/properties/athena-model-house',
-    image: '/athena-model-house.png',
-  },
-  {
     title: 'HERA MODEL HOUSE',
     price: 'PHP 8,000,000.00',
     slug: '/properties/hera-model-house',
     image: '/hera-model-house.png',
   },
   {
-    title: 'JOYCE MODEL HOUSE',
-    price: 'PHP 3,600,000.00',
-    slug: '/properties/joyce-model-house',
-    image: '/joyce-model-house.png',
+    title: 'KASANDRA MODEL HOUSE',
+    price: 'PHP 4,000,000.00',
+    slug: '/properties/kasandra-model-house',
+    image: '/kasandra-model-house.png',
+  },
+  {
+    title: 'LOW COST HOUSING PROJECT',
+    price: 'PHP 950,000.00 – PHP 1,400,000.00',
+    slug: '/properties/low-cost-housing',
+    image: '/kasandra-model-house.png',
   },
 ];
 

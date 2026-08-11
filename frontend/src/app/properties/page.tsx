@@ -2,52 +2,52 @@ import Image from 'next/image';
 
 const featuredListings = [
   {
-    title: 'ATHENA MODEL HOUSE',
-    price: 'Starting at PHP 6,800,000.00',
-    lotArea: '80 SQM',
-    floorArea: '162 SQM',
-    href: '/properties/athena-model-house',
-    image: '/athena-model-house.png'
-  },
-  {
     title: 'HERA MODEL HOUSE',
     price: 'PHP 8,000,000.00',
-    lotArea: '100–120 SQM',
-    floorArea: '206 SQM',
+    lotArea: '80 SQM / 100–120 SQM',
+    floorArea: '162 SQM / 206 SQM',
     href: '/properties/hera-model-house',
     image: '/hera-model-house.png'
   },
   {
-    title: 'JOYCE MODEL HOUSE',
-    price: 'PHP 3,600,000.00',
-    lotArea: '80 SQM',
-    floorArea: '69 SQM',
-    href: '/properties/joyce-model-house',
-    image: '/joyce-model-house.png'
-  },
-  {
-    title: 'KARLA MODEL HOUSE',
-    price: 'PRICE STARTS PHP 5,500,000.00',
-    lotArea: '100–120 SQM',
-    floorArea: '124 SQM',
-    href: '/properties/karla-model-house',
-    image: '/karla-model-house.png'
+    title: 'ATHENA MODEL HOUSE',
+    price: 'Price not shown',
+    lotArea: 'Not shown',
+    floorArea: 'Not shown',
+    href: '/properties/athena-model-house',
+    image: '/athena-model-house.png'
   },
   {
     title: 'KASANDRA MODEL HOUSE',
-    price: 'PHP 4,100,000.00',
-    lotArea: '80 SQM',
-    floorArea: '85 SQM',
+    price: 'PHP 4,000,000.00',
+    lotArea: 'Not shown',
+    floorArea: 'Not shown',
     href: '/properties/kasandra-model-house',
     image: '/kasandra-model-house.png'
   },
   {
     title: 'MELVIN MODEL HOUSE',
     price: 'PHP 2,950,000.00',
-    lotArea: '80 SQM',
-    floorArea: '51.6 SQM',
+    lotArea: 'Not shown',
+    floorArea: 'Not shown',
     href: '/properties/melvin-model-house',
     image: '/melvin-model-house.png'
+  },
+  {
+    title: 'JOYCE MODEL HOUSE',
+    price: 'PHP 3,000,000.00',
+    lotArea: 'Not shown',
+    floorArea: 'Not shown',
+    href: '/properties/joyce-model-house',
+    image: '/joyce-model-house.png'
+  },
+  {
+    title: 'LOW COST HOUSING PROJECT',
+    price: 'PHP 950,000.00 – PHP 1,400,000.00',
+    lotArea: '50 SQM / 80 SQM',
+    floorArea: '32.5 SQM',
+    href: '/properties/low-cost-housing',
+    image: '/kasandra-model-house.png'
   }
 ];
 
