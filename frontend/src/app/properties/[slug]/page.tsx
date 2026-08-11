@@ -153,8 +153,13 @@ const listings = {
   },
 } as const;
 
-export default function PropertyDetailPage({ params }: { params: { slug: string } }) {
-  const listing = listings[params.slug as keyof typeof listings];
+type PropertyDetailPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function PropertyDetailPage({ params }: PropertyDetailPageProps) {
+  const { slug } = await params;
+  const listing = listings[slug as keyof typeof listings];
 
   if (!listing) {
     return (

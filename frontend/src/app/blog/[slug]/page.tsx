@@ -3,8 +3,13 @@ import { mockBlogPosts } from '@/data/mockData';
 
 const posts = Object.fromEntries(mockBlogPosts.map((post) => [post.slug, post]));
 
-export default function BlogDetailPage({ params }: { params: { slug: string } }) {
-  const post = posts[params.slug as keyof typeof posts];
+type BlogDetailPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
+  const { slug } = await params;
+  const post = posts[slug as keyof typeof posts];
 
   if (!post) {
     return (
