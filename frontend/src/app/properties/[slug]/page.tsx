@@ -258,10 +258,14 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   </div>
 
                   <div className="mt-6 rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.82)] p-5">
-                    <div className="section-label">Key details</div>
+                    <div className="section-label">Main features</div>
+                    <p className="mt-2 text-sm leading-6 text-slate-500">Quick view of the most important spaces and inclusions for this model.</p>
                     <div className="mt-4 grid gap-3">
                       {listing.highlights.map((item) => (
-                        <div key={item} className="rounded-2xl border border-[rgba(231,220,200,0.85)] bg-white px-4 py-3 text-sm font-medium text-[#071426]">{item}</div>
+                        <div key={item} className="flex items-center gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-white px-4 py-3 text-sm font-medium text-[#071426]">
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#071426] text-[10px] font-bold text-white">✓</span>
+                          <span>{item}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -280,21 +284,28 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
             <div className="grid gap-6 lg:grid-cols-3">
               <section className="card p-8 lg:col-span-2">
-                <div className="section-label">Overview</div>
+                <div className="section-label">Model overview</div>
                 <h2 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.05em] text-[#071426]">{listing.title}</h2>
                 <p className="mt-4 text-lg leading-8 text-slate-600">{listing.description}</p>
 
                 <div className="mt-8 grid gap-4 sm:grid-cols-3">
                   {[
-                    ['Style', 'Luxury model house'],
-                    ['Suitability', 'Family living'],
-                    ['Status', listing.availability]
+                    ['Design type', listing.availability],
+                    ['Best for', 'Family living'],
+                    ['Developer', listing.location]
                   ].map(([label, value]) => (
                     <div key={String(label)} className="rounded-2xl border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.82)] p-4">
                       <div className="text-xs uppercase tracking-[0.3em] text-slate-500">{label}</div>
                       <div className="mt-2 text-base font-semibold text-[#071426]">{String(value)}</div>
                     </div>
                   ))}
+                </div>
+
+                <div className="mt-8 rounded-[1.75rem] border border-[#e7dcc8] bg-white p-5">
+                  <div className="section-label text-[#b98a3d]">How to read this page</div>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    Review the model overview first, then check the design inclusions, house features, size details, and payment computation. If a value says "Not shown," it means the supplied marketing reference did not include that specific detail.
+                  </p>
                 </div>
               </section>
 
@@ -325,49 +336,59 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
           <div className="space-y-6 xl:sticky xl:top-28 xl:self-start">
             <section className="card p-8">
-              <div className="section-label">Amenities</div>
-              <div className="mt-4 grid gap-3">
+              <div className="section-label">Design and package details</div>
+              <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">What is included</h3>
+              <p className="mt-2 text-sm leading-7 text-slate-600">These items explain the design previews, package type, and notable selling points from the reference materials.</p>
+              <div className="mt-5 grid gap-3">
                 {listing.amenities.map((item, index) => (
-                  <div key={item} className="rounded-2xl border border-[rgba(231,220,200,0.85)] bg-[rgba(247,243,234,0.82)] px-4 py-3 text-sm text-[#071426]">
-                    <span className="mr-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#b98a3d]">0{index + 1}</span>
-                    {item}
+                  <div key={item} className="flex gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-[rgba(247,243,234,0.82)] px-4 py-3 text-sm text-[#071426]">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#b98a3d]">{String(index + 1).padStart(2, '0')}</span>
+                    <span>{item}</span>
                   </div>
                 ))}
               </div>
             </section>
 
             <section className="card p-8">
-              <div className="section-label">Nearby landmarks</div>
-              <div className="mt-4 grid gap-3">
-                {listing.nearby.map((item, index) => (
-                  <div key={item} className="rounded-2xl border border-[rgba(231,220,200,0.85)] bg-[rgba(247,243,234,0.82)] px-4 py-3 text-sm text-[#071426]">
-                    <span className="mr-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8a6428]">0{index + 1}</span>
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="card p-8">
-              <div className="section-label">Floor features</div>
-              <div className="mt-4 grid gap-3">
+              <div className="section-label">House features</div>
+              <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Rooms and layout notes</h3>
+              <p className="mt-2 text-sm leading-7 text-slate-600">Use this section to understand the spaces, floor-plan notes, and functional areas included in the model.</p>
+              <div className="mt-5 grid gap-3">
                 {listing.floorFeatures.map((item, index) => (
-                  <div key={item} className="rounded-2xl border border-[rgba(231,220,200,0.85)] bg-[rgba(247,243,234,0.82)] px-4 py-3 text-sm text-[#071426]">
-                    <span className="mr-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8a6428]">0{index + 1}</span>
-                    {item}
+                  <div key={item} className="flex gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-white px-4 py-3 text-sm text-[#071426]">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8a6428]">{String(index + 1).padStart(2, '0')}</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="card p-8">
+              <div className="section-label">Location access</div>
+              <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Nearby conveniences</h3>
+              <p className="mt-2 text-sm leading-7 text-slate-600">A simple guide to the community access points and nearby essentials mentioned for this listing.</p>
+              <div className="mt-5 grid gap-3">
+                {listing.nearby.map((item, index) => (
+                  <div key={item} className="flex gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-[rgba(247,243,234,0.82)] px-4 py-3 text-sm text-[#071426]">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8a6428]">{String(index + 1).padStart(2, '0')}</span>
+                    <span>{item}</span>
                   </div>
                 ))}
               </div>
             </section>
 
             {'computation' in listing ? (
-              <section className="card p-8">
-                <div className="section-label">Computation</div>
-                <div className="mt-4 grid gap-3">
+              <section className="card overflow-hidden p-0">
+                <div className="border-b border-[#e7dcc8] bg-[linear-gradient(135deg,#071426_0%,#0d2342_100%)] p-6 text-white">
+                  <div className="section-label text-[#d7be8a]">Payment guide</div>
+                  <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">Sample computation</h3>
+                  <p className="mt-2 text-sm leading-7 text-white/72">Use this as a quick reference for reservation, down payment, balance, and monthly terms shown in the supplied material.</p>
+                </div>
+                <div className="grid divide-y divide-[#e7dcc8]">
                   {listing.computation?.map(([label, value]) => (
-                    <div key={label} className="rounded-2xl border border-[rgba(231,220,200,0.85)] bg-[rgba(247,243,234,0.82)] px-4 py-3">
-                      <div className="text-xs uppercase tracking-[0.3em] text-slate-500">{label}</div>
-                      <div className="mt-1 text-sm font-semibold text-[#071426]">{value}</div>
+                    <div key={label} className="grid gap-2 bg-white px-6 py-4 sm:grid-cols-[1fr_auto] sm:items-center">
+                      <div className="text-sm font-medium text-slate-600">{label}</div>
+                      <div className="text-base font-semibold text-[#071426] sm:text-right">{value}</div>
                     </div>
                   ))}
                 </div>
