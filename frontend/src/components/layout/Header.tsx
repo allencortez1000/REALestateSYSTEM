@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import CommandPalette from '../navigation/CommandPalette';
 
@@ -13,13 +14,13 @@ const navItems = [
 
 function NavLink({ href, label, active }: { href: string; label: string; active: boolean }) {
   return (
-    <a
+    <Link
       href={href}
       className={`relative rounded-full px-4 py-2 text-sm font-medium transition ${active ? 'text-[#071426]' : 'text-slate-600 hover:text-[#071426]'}`}
     >
       {label}
       <span className={`absolute inset-x-4 -bottom-0.5 h-px origin-left scale-x-0 bg-[#b98a3d] transition-transform duration-300 ${active ? 'scale-x-100' : 'group-hover:scale-x-100'}`} />
-    </a>
+    </Link>
   );
 }
 
@@ -37,9 +38,9 @@ export default function Header() {
             : 'border-[rgba(232,220,196,0.9)] bg-[rgba(255,255,255,0.92)]'
         }`}
       >
-        <a href="/" className="flex items-center gap-3 pl-1">
+        <Link href="/" className="flex items-center gap-3 pl-1">
           <Image src="/amicarealestate.jpg" alt="AMICA Condominium Realty Corporation" width={168} height={44} className="h-10 w-auto object-contain" priority />
-        </a>
+        </Link>
 
         {!hidePublicNav && (
           <nav className="hidden flex-1 items-center justify-center gap-1 rounded-full border border-[rgba(232,220,196,0.92)] bg-[rgba(247,243,234,0.84)] p-1 lg:flex">
@@ -51,10 +52,10 @@ export default function Header() {
 
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
           <CommandPalette />
-          {!hidePublicNav ? <a href="/search" className="hidden rounded-full border border-[rgba(231,220,200,0.9)] bg-white px-4 py-2 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0] sm:inline-flex">Search</a> : null}
-          {!hidePublicNav ? <a href="/auth/login" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-[#071426] transition hover:bg-[#071426]/5 sm:inline-flex">Login</a> : null}
-          {!hidePublicNav ? <a href="/auth/login/admin" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-[#8a6428] transition hover:bg-[#f2cf5b]/20 sm:inline-flex">Admin</a> : null}
-          <a href="/auth/register" className="rounded-full bg-[#071426] px-4 py-2.5 text-sm font-semibold text-white shadow-luxury transition hover:bg-[#0d2342]">Register</a>
+          {!hidePublicNav ? <Link href="/search" className="hidden rounded-full border border-[rgba(231,220,200,0.9)] bg-white px-4 py-2 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0] sm:inline-flex">Search</Link> : null}
+          {!hidePublicNav ? <Link href="/auth/login" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-[#071426] transition hover:bg-[#071426]/5 sm:inline-flex">Login</Link> : null}
+          {!hidePublicNav ? <Link href="/auth/login/admin" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-[#8a6428] transition hover:bg-[#f2cf5b]/20 sm:inline-flex">Admin</Link> : null}
+          <Link href="/auth/register" className="rounded-full bg-[#071426] px-4 py-2.5 text-sm font-semibold text-white shadow-luxury transition hover:bg-[#0d2342]">Register</Link>
         </div>
       </div>
 
@@ -67,12 +68,12 @@ export default function Header() {
           <div className="border-t border-[#ece1d0] p-3">
             <div className="grid gap-2">
               {navItems.map((item) => (
-                <a key={item.href} href={item.href} className="rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-[#faf8f3] hover:text-[#071426]">
+                <Link key={item.href} href={item.href} className="rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-[#faf8f3] hover:text-[#071426]">
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <a href="/search" className="rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-[#faf8f3] hover:text-[#071426]">Quick search</a>
-              <a href="/auth/login/admin" className="rounded-2xl px-4 py-3 text-sm font-medium text-[#8a6428] transition hover:bg-[#faf8f3] hover:text-[#071426]">Admin login</a>
+              <Link href="/search" className="rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-[#faf8f3] hover:text-[#071426]">Quick search</Link>
+              <Link href="/auth/login/admin" className="rounded-2xl px-4 py-3 text-sm font-medium text-[#8a6428] transition hover:bg-[#faf8f3] hover:text-[#071426]">Admin login</Link>
             </div>
           </div>
         </details>

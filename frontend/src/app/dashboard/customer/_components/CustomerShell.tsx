@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { signOutMockUser } from '@/lib/mockAuth';
 
 const sections = [
   { href: '/dashboard/customer', label: 'Dashboard' },
@@ -63,7 +64,7 @@ export default function CustomerShell({ title, description, children }: { title:
             <Link
               href="/"
               className="mt-4 inline-flex rounded-full bg-[#08122c] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0f1d45]"
-              onClick={() => window.localStorage.removeItem('amicaCustomerSignedIn')}
+              onClick={() => signOutMockUser('customer')}
             >
               Logout
             </Link>

@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { mockBlogPosts } from '@/data/mockData';
+
+export const metadata: Metadata = {
+  title: 'AMICA Journal',
+  description: 'Read RHBC/AMICA real estate articles about buying, design, location, and Philippine property market guidance.'
+};
 
 export default function BlogPage() {
   return (

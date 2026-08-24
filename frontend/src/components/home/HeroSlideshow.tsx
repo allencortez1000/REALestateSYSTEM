@@ -1,52 +1,11 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { heroModelHouseSlides } from '@/data/modelHouses';
 
-const slides = [
-  {
-    title: 'HERA MODEL HOUSE',
-    location: 'Rabino Home Builders Corporation',
-    price: 'PHP 8,000,000.00',
-    area: '80 SQM / 100–120 SQM lot • 162 SQM / 206 SQM floor',
-    image: '/hera-model-house.png'
-  },
-  {
-    title: 'ATHENA MODEL HOUSE',
-    location: 'Rabino Home Builders Corporation',
-    price: 'Price not shown',
-    area: 'Luxury residence • exterior architectural design reference',
-    image: '/athena-model-house.png'
-  },
-  {
-    title: 'KASANDRA MODEL HOUSE',
-    location: 'Rabino Home Builders Corporation',
-    price: 'PHP 4,000,000.00',
-    area: 'House only • in-house financing reference',
-    image: '/kasandra-model-house.png'
-  },
-  {
-    title: 'MELVIN MODEL HOUSE',
-    location: 'Rabino Home Builders Corporation',
-    price: 'PHP 2,950,000.00',
-    area: 'House & lot • beautifully designed duplex home',
-    image: '/melvin-model-house.png'
-  },
-  {
-    title: 'JOYCE MODEL HOUSE',
-    location: 'Rabino Home Builders Corporation',
-    price: 'PHP 3,000,000.00',
-    area: 'House only • in-house financing reference',
-    image: '/joyce-model-house.png'
-  },
-  {
-    title: 'LOW COST HOUSING PROJECT',
-    location: 'Low Cost Housing Project',
-    price: 'PHP 950,000.00 – PHP 1,400,000.00',
-    area: 'Bungalow and duplex bungalow options • 32.5 SQM floor',
-    image: '/kasandra-model-house.png'
-  }
-] as const;
+const slides = heroModelHouseSlides;
 
 export default function HeroSlideshow() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -85,7 +44,7 @@ export default function HeroSlideshow() {
           <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-xs font-medium tracking-[0.18em] text-white/70">
             Featured AMICA listing
           </span>
-          <a href="/properties" className="btn-primary px-5 py-3">View properties</a>
+          <Link href="/properties" className="btn-primary px-5 py-3">View properties</Link>
         </div>
       </div>
 

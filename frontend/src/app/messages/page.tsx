@@ -1,11 +1,10 @@
-import { mockMessages } from '@/data/mockData';
+import type { Metadata } from 'next';
+import MessagesExperience from './MessagesExperience';
 
-const chat = [
-  { id: 1, from: 'them', text: "Hello! I'm interested in the BGC property." },
-  { id: 2, from: 'me', text: 'Hi! Great choice. When would you like to visit?' },
-  { id: 3, from: 'them', text: 'This Saturday if possible — around 3 PM?' },
-  { id: 4, from: 'me', text: "Perfect. I'll confirm the booking for you now." }
-];
+export const metadata: Metadata = {
+  title: 'Messages',
+  description: 'Review buyer, seller, and agent conversations across the RHBC/AMICA real estate platform.'
+};
 
 export default function MessagesPage() {
   return (
@@ -26,48 +25,7 @@ export default function MessagesPage() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-7 lg:grid-cols-[340px_1fr]">
-          <aside className="card p-5">
-            <div className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-500">Conversations</div>
-            <div className="grid gap-2">
-              {mockMessages.map((msg) => (
-                <div key={msg.id} className="flex cursor-pointer items-center gap-3 rounded-2xl bg-[#fbf8f0] p-4 transition hover:bg-[#f3f7fc]">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#071426] text-sm font-bold text-white">{msg.name.charAt(0)}</div>
-                  <div className="overflow-hidden">
-                    <div className="font-semibold text-[#071426]">{msg.name}</div>
-                    <div className="truncate text-xs text-slate-500">{msg.preview}</div>
-                  </div>
-                  <div className="ml-auto shrink-0 text-[10px] text-slate-400">{msg.time}</div>
-                </div>
-              ))}
-            </div>
-          </aside>
-
-          <div className="card flex flex-col justify-between p-7" style={{ minHeight: '560px' }}>
-            <div>
-              <div className="flex items-center gap-3 border-b border-[#e8dfc8] pb-5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#071426] text-base font-bold text-white">M</div>
-                <div>
-                  <div className="font-semibold text-[#071426]">Maria Santos</div>
-                  <div className="text-xs text-[#8a6428]">● Online</div>
-                </div>
-              </div>
-              <div className="mt-6 space-y-4">
-                {chat.map((msg) => (
-                  <div key={msg.id} className={`flex ${msg.from === 'me' ? 'justify-end' : ''}`}>
-                    <div className={`max-w-[75%] rounded-2xl px-5 py-3 text-sm leading-6 ${msg.from === 'me' ? 'bg-[#071426] text-white' : 'bg-[#fbf8f0] text-slate-800'}`}>
-                      {msg.text}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <form className="mt-6 flex gap-3">
-              <input className="input flex-1" placeholder="Type a message…" />
-              <button className="btn-primary px-6">Send</button>
-            </form>
-          </div>
-        </div>
+        <MessagesExperience />
       </section>
     </main>
   );

@@ -1,23 +1,10 @@
-const favoriteListings = [
-  {
-    title: 'HERA MODEL HOUSE',
-    price: 'PHP 8,000,000.00',
-    slug: '/properties/hera-model-house',
-    image: '/hera-model-house.png',
-  },
-  {
-    title: 'KASANDRA MODEL HOUSE',
-    price: 'PHP 4,000,000.00',
-    slug: '/properties/kasandra-model-house',
-    image: '/kasandra-model-house.png',
-  },
-  {
-    title: 'LOW COST HOUSING PROJECT',
-    price: 'PHP 950,000.00 – PHP 1,400,000.00',
-    slug: '/properties/low-cost-housing',
-    image: '/kasandra-model-house.png',
-  },
-];
+import type { Metadata } from 'next';
+import FavoritesList from './FavoritesList';
+
+export const metadata: Metadata = {
+  title: 'Favorites',
+  description: 'Review saved RHBC/AMICA model houses and return to shortlisted listings for comparison.'
+};
 
 export default function FavoritesPage() {
   return (
@@ -38,24 +25,7 @@ export default function FavoritesPage() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
-          {favoriteListings.map((property) => (
-            <article key={property.title} className="card card-hover group overflow-hidden">
-              <div className="relative h-52 overflow-hidden bg-[linear-gradient(150deg,_#08122c,_#0b2d66_60%,_#7fd34e_180%)]">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_45%)] transition group-hover:scale-110" />
-                <button className="absolute right-4 top-4 rounded-full bg-white/20 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur transition hover:bg-red-500">♥ Remove</button>
-              </div>
-              <div className="p-6">
-                <h2 className="text-xl font-bold text-[#08122c]">{property.title}</h2>
-                <div className="mt-3 text-2xl font-bold text-[#0b2d66]">{property.price}</div>
-                <div className="mt-5 flex gap-3">
-                  <a href={property.slug} className="btn-outline px-5 py-2 text-xs">View</a>
-                  <a href="/compare" className="btn-primary px-5 py-2 text-xs">Compare</a>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+        <FavoritesList />
       </section>
     </main>
   );

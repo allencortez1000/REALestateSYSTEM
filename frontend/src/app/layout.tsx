@@ -1,11 +1,27 @@
+import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Manrope, Playfair_Display } from 'next/font/google';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import './globals.css';
 
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'], variable: '--font-playfair', display: 'swap' });
+
+export const metadata: Metadata = {
+  title: {
+    default: 'RHBC Real Estate | AMICA Model Houses',
+    template: '%s | RHBC Real Estate'
+  },
+  description: 'Explore RHBC and AMICA model houses, sample computations, viewing inquiries, comparison tools, and customer portal previews.',
+  keywords: ['RHBC real estate', 'AMICA model houses', 'Philippine homes', 'house and lot', 'low cost housing'],
+  openGraph: {
+    title: 'RHBC Real Estate | AMICA Model Houses',
+    description: 'Premium model-house browsing, comparison, and inquiry experience for Philippine buyers.',
+    type: 'website',
+    locale: 'en_PH'
+  }
+};
 
 type LayoutProps = { children: ReactNode };
 

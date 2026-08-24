@@ -1,55 +1,21 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
+import FavoriteButton from '@/components/properties/FavoriteButton';
+import { featuredModelHouses, getModelHouseHref } from '@/data/modelHouses';
 
-const featuredListings = [
-  {
-    title: 'HERA MODEL HOUSE',
-    price: 'PHP 8,000,000.00',
-    lotArea: '80 SQM / 100–120 SQM',
-    floorArea: '162 SQM / 206 SQM',
-    href: '/properties/hera-model-house',
-    image: '/hera-model-house.png'
-  },
-  {
-    title: 'ATHENA MODEL HOUSE',
-    price: 'Price not shown',
-    lotArea: 'Not shown',
-    floorArea: 'Not shown',
-    href: '/properties/athena-model-house',
-    image: '/athena-model-house.png'
-  },
-  {
-    title: 'KASANDRA MODEL HOUSE',
-    price: 'PHP 4,000,000.00',
-    lotArea: 'Not shown',
-    floorArea: 'Not shown',
-    href: '/properties/kasandra-model-house',
-    image: '/kasandra-model-house.png'
-  },
-  {
-    title: 'MELVIN MODEL HOUSE',
-    price: 'PHP 2,950,000.00',
-    lotArea: 'Not shown',
-    floorArea: 'Not shown',
-    href: '/properties/melvin-model-house',
-    image: '/melvin-model-house.png'
-  },
-  {
-    title: 'JOYCE MODEL HOUSE',
-    price: 'PHP 3,000,000.00',
-    lotArea: 'Not shown',
-    floorArea: 'Not shown',
-    href: '/properties/joyce-model-house',
-    image: '/joyce-model-house.png'
-  },
-  {
-    title: 'LOW COST HOUSING PROJECT',
-    price: 'PHP 950,000.00 – PHP 1,400,000.00',
-    lotArea: '50 SQM / 80 SQM',
-    floorArea: '32.5 SQM',
-    href: '/properties/low-cost-housing',
-    image: '/kasandra-model-house.png'
-  }
+export const metadata: Metadata = {
+  title: 'Model Houses',
+  description: 'Browse RHBC and AMICA model houses with prices, lot areas, floor areas, and buyer guidance.'
+};
+
+const buyingGuide = [
+  { title: 'Check the package type', text: 'Confirm whether the option is House Only, House & Lot, Model House, or Low-Cost Housing.' },
+  { title: 'Review size details', text: 'Compare lot area and floor area when available. If marked Not shown, the reference did not include that detail.' },
+  { title: 'Compare computations', text: 'Open the detail page to review reservation, down payment, balance, and monthly terms.' },
+  { title: 'Schedule a viewing', text: 'Use the inquiry section once you have shortlisted the model that fits your needs.' }
 ];
+
 
 export default function PropertiesPage() {
   return (
@@ -85,8 +51,29 @@ export default function PropertiesPage() {
           </div>
         </div>
 
+        <section className="mt-10 rounded-[2.25rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#ffffff_0%,#fbf8f0_100%)] p-6 shadow-[0_18px_50px_rgba(9,21,64,0.07)] sm:p-8">
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <div className="section-label text-[#b98a3d]">Buying guide</div>
+              <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.8rem)] font-semibold tracking-[-0.05em] text-[#071426]">How to choose the right model</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">Use these quick reminders before opening a model-house detail page or comparing options.</p>
+            </div>
+            <Link href="/compare" className="rounded-full border border-[#e7dcc8] bg-white px-5 py-3 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0]">Open comparison</Link>
+          </div>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {buyingGuide.map((item, index) => (
+              <article key={item.title} className="rounded-[1.5rem] border border-[#e7dcc8] bg-white p-5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#071426] text-xs font-bold text-white">0{index + 1}</div>
+                <h3 className="mt-4 text-base font-semibold text-[#071426]">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {featuredListings.map((listing) => (
+          {featuredModelHouses.map((listing) => (
             <article key={listing.title} className="card card-hover group overflow-hidden">
               <div className="relative h-48 overflow-hidden bg-[#071426]">
                 <Image src={listing.image} alt={listing.title} fill className="object-cover transition duration-700 group-hover:scale-105" />
@@ -94,11 +81,17 @@ export default function PropertiesPage() {
                 <div className="absolute left-4 top-4 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-md">Featured</div>
               </div>
               <div className="p-6">
-                <div className="section-label text-[#b98a3d]">Luxury residence</div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="section-label text-[#b98a3d]">Luxury residence</div>
+                  <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6428]">{listing.bestFor}</span>
+                </div>
                 <h2 className="mt-3 text-[clamp(2rem,3vw,2.75rem)] leading-[0.95] tracking-[-0.06em] text-[#071426]">{listing.title}</h2>
                 <p className="mt-3 text-sm leading-6 text-slate-500">{listing.lotArea} • {listing.floorArea}</p>
                 <div className="mt-5 text-2xl font-semibold text-[#b98a3d]">{listing.price}</div>
-                <a href={listing.href} className="btn-primary mt-6 inline-flex">View details</a>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link href={getModelHouseHref(listing.slug)} className="btn-primary inline-flex">View details</Link>
+                  <FavoriteButton slug={listing.slug} />
+                </div>
               </div>
             </article>
           ))}

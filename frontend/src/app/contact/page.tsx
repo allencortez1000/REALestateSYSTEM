@@ -1,3 +1,24 @@
+import type { Metadata } from 'next';
+import ContactForm, { inquiryTopics } from './ContactForm';
+
+export const metadata: Metadata = {
+  title: 'Contact RHBC',
+  description: 'Send a model-house inquiry, ask about payment computations, schedule viewings, or request buyer guidance.'
+};
+
+
+const contactMethods = [
+  { label: 'Email', value: 'hello@amica.com', note: 'Send model-house and document inquiries anytime.' },
+  { label: 'Phone', value: '+63 912 345 6789', note: 'Call for viewing schedules and quick computation questions.' },
+  { label: 'Location', value: 'Metro Manila, Philippines', note: 'Serving buyers across Metro Manila and nearby key cities.' }
+];
+
+const responseSteps = [
+  { step: '01', title: 'Submit inquiry', text: 'Tell us which model or housing project you are interested in.' },
+  { step: '02', title: 'Sales review', text: 'Our team reviews your preferred schedule, budget, and questions.' },
+  { step: '03', title: 'Get guidance', text: 'Receive next steps for viewing, computation, documents, or reservation.' }
+];
+
 export default function ContactPage() {
   return (
     <main className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
@@ -5,46 +26,53 @@ export default function ContactPage() {
         <div className="overflow-hidden rounded-[2.75rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,243,234,0.88))] shadow-[0_24px_80px_rgba(9,21,64,0.10)] backdrop-blur-sm">
           <div className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
             <div className="p-6 sm:p-8 lg:p-10">
-              <span className="badge bg-white/80 shadow-soft">Let's talk</span>
-              <h1 className="mt-6 max-w-3xl text-[clamp(2.8rem,6vw,5.3rem)] leading-[0.9] tracking-[-0.085em] text-[#071426]">Contact AMICA.</h1>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">Speak with our advisors about your goals, private viewings, or any enquiry across Metro Manila and nearby key cities.</p>
+              <span className="badge bg-white/80 shadow-soft">Model-house inquiry</span>
+              <h1 className="mt-6 max-w-3xl text-[clamp(2.8rem,6vw,5.3rem)] leading-[0.9] tracking-[-0.085em] text-[#071426]">Ask about a model house.</h1>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">Use this page to ask about viewing schedules, payment computations, requirements, or which RHBC model best fits your budget and lifestyle.</p>
+              <div className="mt-7 flex flex-wrap gap-2">
+                {inquiryTopics.slice(0, 4).map((topic) => (
+                  <span key={topic} className="rounded-full border border-[#e7dcc8] bg-white px-3 py-2 text-xs font-semibold text-[#8a6428]">{topic}</span>
+                ))}
+              </div>
             </div>
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_62%,#13273f_100%)] p-6 text-white sm:p-8 lg:p-10">
               <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">Concierge support</div>
-              <div className="mt-4 text-3xl font-semibold leading-tight">Fast, personal, premium service with a concierge touch.</div>
-              <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">We respond with clarity and guide every inquiry with care and discretion.</p>
+              <div className="mt-4 text-3xl font-semibold leading-tight">Clear guidance from inquiry to viewing.</div>
+              <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">We help buyers understand model options, sample computations, schedule requirements, and next steps before reservation.</p>
+              <div className="mt-7 grid gap-3">
+                {responseSteps.map((item) => (
+                  <div key={item.step} className="rounded-[1.35rem] border border-white/10 bg-white/8 p-4">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#d7be8a]">{item.step}</div>
+                    <div className="mt-2 text-sm font-semibold text-white">{item.title}</div>
+                    <p className="mt-1 text-sm leading-6 text-white/68">{item.text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-10 grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
           <div className="space-y-4">
-            {[
-              { label: 'Email', value: 'hello@amica.com' },
-              { label: 'Phone', value: '+63 912 345 6789' },
-              { label: 'Location', value: 'Metro Manila, Philippines' }
-            ].map((item) => (
+            {contactMethods.map((item) => (
               <div key={item.label} className="card p-6">
                 <div className="section-label">{item.label}</div>
                 <div className="mt-2 text-lg font-semibold text-[#071426]">{item.value}</div>
+                <p className="mt-2 text-sm leading-6 text-slate-500">{item.note}</p>
               </div>
             ))}
+
+            <div className="rounded-[1.75rem] border border-[#e7dcc8] bg-[linear-gradient(135deg,#071426_0%,#0d2342_100%)] p-6 text-white shadow-[0_16px_50px_rgba(9,21,64,0.08)]">
+              <div className="section-label text-[#d7be8a]">Common inquiry topics</div>
+              <div className="mt-4 grid gap-2">
+                {inquiryTopics.map((topic) => (
+                  <div key={topic} className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 text-sm text-white/78">{topic}</div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <form className="card p-8 md:p-10">
-            <div className="section-label">Send us a message</div>
-            <h2 className="mt-3 text-[clamp(2rem,4vw,2.8rem)] font-semibold text-[#071426]">We'd love to hear from you</h2>
-            <div className="mt-7 grid gap-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <input className="input" placeholder="First name" />
-                <input className="input" placeholder="Last name" />
-              </div>
-              <input className="input" placeholder="Email address" />
-              <input className="input" placeholder="Phone number" />
-              <textarea className="input resize-none" rows={6} placeholder="Your message…" />
-              <button className="btn-primary w-full text-center">Send message</button>
-            </div>
-          </form>
+          <ContactForm />
         </div>
       </section>
     </main>

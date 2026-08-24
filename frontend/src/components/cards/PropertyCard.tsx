@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { formatCurrency } from '@/lib/utils';
 import type { Property } from '@/types';
 
@@ -20,9 +21,9 @@ export default function PropertyCard({ property }: { property: Property }) {
         <p className="mt-3 text-sm leading-6 text-slate-500">{property.bedrooms} BR • {property.bathrooms} BA • Curated for premium living.</p>
         <div className="mt-5 flex items-end justify-between gap-3 border-t border-[rgba(231,220,200,0.95)] pt-4">
           <div className="text-xl font-semibold text-[#b98a3d]">{formatCurrency(property.price, property.currency)}</div>
-          <a href={`/properties/${property.slug}`} className="inline-flex rounded-full border border-[#071426] px-4 py-2 text-xs font-semibold text-[#071426] transition hover:bg-[#071426] hover:text-white">
+          <Link href={`/properties/${property.slug}`} className="inline-flex rounded-full border border-[#071426] px-4 py-2 text-xs font-semibold text-[#071426] transition hover:bg-[#071426] hover:text-white">
             View
-          </a>
+          </Link>
         </div>
       </div>
     </article>

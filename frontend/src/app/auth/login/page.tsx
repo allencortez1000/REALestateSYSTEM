@@ -3,12 +3,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { signInMockUser } from '@/lib/mockAuth';
 
 export default function LoginPage() {
   const router = useRouter();
 
   function handleSignIn() {
-    window.localStorage.setItem('amicaCustomerSignedIn', 'true');
+    signInMockUser('customer');
     router.push('/dashboard/customer');
   }
 
@@ -57,14 +58,20 @@ export default function LoginPage() {
               </div>
 
               <div className="mt-8 grid gap-4">
-                <input className="input" placeholder="Email address" defaultValue="customer@rhbcrealestate.com" />
-                <input className="input" type="password" placeholder="Password" defaultValue="customer123" />
+                <label className="grid gap-2">
+                  <span className="sr-only">Email address</span>
+                  <input className="input" name="email" type="email" autoComplete="email" placeholder="Email address" defaultValue="customer@rhbcrealestate.com" />
+                </label>
+                <label className="grid gap-2">
+                  <span className="sr-only">Password</span>
+                  <input className="input" name="password" type="password" autoComplete="current-password" placeholder="Password" defaultValue="customer123" />
+                </label>
                 <button type="submit" className="btn-primary mt-2 w-full text-center">Sign in</button>
               </div>
 
               <div className="mt-6 flex flex-col items-center gap-3 text-center text-sm text-slate-500 sm:flex-row sm:justify-between">
-                <p>Don't have an account? <a href="/auth/register" className="font-semibold text-[#0b2d66] underline underline-offset-4">Register</a></p>
-                <a href="/auth/login/admin" className="font-semibold text-[#8a6428] underline underline-offset-4">Admin login</a>
+                <p>Don't have an account? <Link href="/auth/register" className="font-semibold text-[#0b2d66] underline underline-offset-4">Register</Link></p>
+                <Link href="/auth/login/admin" className="font-semibold text-[#8a6428] underline underline-offset-4">Admin login</Link>
               </div>
             </form>
           </div>

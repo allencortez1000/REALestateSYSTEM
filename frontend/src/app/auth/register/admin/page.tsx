@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { signInMockUser } from '@/lib/mockAuth';
 
 export default function AdminRegisterPage() {
   const router = useRouter();
@@ -36,6 +37,7 @@ export default function AdminRegisterPage() {
               className="bg-white p-8 sm:p-10 lg:p-12"
               onSubmit={(event) => {
                 event.preventDefault();
+                signInMockUser('admin');
                 router.push('/dashboard/admin');
               }}
             >
@@ -44,9 +46,18 @@ export default function AdminRegisterPage() {
               <p className="mt-4 text-sm leading-7 text-slate-600">Set up an internal admin profile for the AMICA portal and management team.</p>
 
               <div className="mt-8 grid gap-4">
-                <input className="input" placeholder="Full name" defaultValue="AMICA Admin" />
-                <input className="input" placeholder="Admin email" defaultValue="admin@rhbcrealestate.com" />
-                <input className="input" type="password" placeholder="Password" defaultValue="admin123" />
+                <label className="grid gap-2">
+                  <span className="sr-only">Full name</span>
+                  <input className="input" name="fullName" autoComplete="name" placeholder="Full name" defaultValue="AMICA Admin" />
+                </label>
+                <label className="grid gap-2">
+                  <span className="sr-only">Admin email</span>
+                  <input className="input" name="email" type="email" autoComplete="email" placeholder="Admin email" defaultValue="admin@rhbcrealestate.com" />
+                </label>
+                <label className="grid gap-2">
+                  <span className="sr-only">Password</span>
+                  <input className="input" name="password" type="password" autoComplete="new-password" placeholder="Password" defaultValue="admin123" />
+                </label>
                 <button type="submit" className="btn-primary mt-2 w-full text-center">Create admin account</button>
               </div>
 

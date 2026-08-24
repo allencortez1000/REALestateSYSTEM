@@ -1,12 +1,12 @@
-import { mockBookings } from '@/data/mockData';
+import type { Metadata } from 'next';
+import BookingsExperience from './BookingsExperience';
+
+export const metadata: Metadata = {
+  title: 'Bookings',
+  description: 'Manage model-house viewing requests and booking schedules in the AMICA customer experience.'
+};
 
 export default function BookingsPage() {
-  const statusColor: Record<string, string> = {
-    confirmed: 'bg-emerald-100 text-emerald-700',
-    pending: 'bg-amber-100 text-amber-700',
-    rescheduled: 'bg-blue-100 text-blue-700'
-  };
-
   return (
     <main className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
       <section className="mx-auto max-w-[1500px]">
@@ -25,35 +25,7 @@ export default function BookingsPage() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <div className="card p-7 md:col-span-2">
-            <div className="section-label">Schedule a new viewing</div>
-            <div className="mt-5 grid gap-4 md:grid-cols-4">
-              <input className="input" placeholder="Property name" />
-              <input className="input" placeholder="Date" />
-              <input className="input" placeholder="Time" />
-              <button className="btn-primary w-full text-center">Confirm</button>
-            </div>
-          </div>
-
-          {mockBookings.map((booking) => (
-            <div key={booking.id} className="card card-hover p-6">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="font-bold text-[#071426]">{booking.propertyTitle}</div>
-                  <div className="mt-1 text-sm text-slate-500">{booking.date} at {booking.time}</div>
-                </div>
-                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusColor[booking.status] ?? 'bg-[#f8f3e8] text-[#8a6428]'}`}>
-                  {booking.status}
-                </span>
-              </div>
-              <div className="mt-5 flex gap-2">
-                <button className="btn-outline py-2 px-4 text-xs">Reschedule</button>
-                <button className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-4 py-2 text-xs font-semibold text-[#8a6428] transition hover:bg-[#f4ead7]">Cancel</button>
-              </div>
-            </div>
-          ))}
-        </div>
+        <BookingsExperience />
       </section>
     </main>
   );

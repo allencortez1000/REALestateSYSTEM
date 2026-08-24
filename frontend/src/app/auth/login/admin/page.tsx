@@ -1,7 +1,9 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { signInMockUser } from '@/lib/mockAuth';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -35,6 +37,7 @@ export default function AdminLoginPage() {
               className="bg-white p-8 sm:p-10 lg:p-12"
               onSubmit={(event) => {
                 event.preventDefault();
+                signInMockUser('admin');
                 router.push('/dashboard/admin');
               }}
             >
@@ -51,12 +54,18 @@ export default function AdminLoginPage() {
               </div>
 
               <div className="mt-8 grid gap-4">
-                <input className="input" placeholder="Admin email" defaultValue="admin@rhbcrealestate.com" />
-                <input className="input" type="password" placeholder="Password" defaultValue="admin123" />
+                <label className="grid gap-2">
+                  <span className="sr-only">Admin email</span>
+                  <input className="input" name="email" type="email" autoComplete="email" placeholder="Admin email" defaultValue="admin@rhbcrealestate.com" />
+                </label>
+                <label className="grid gap-2">
+                  <span className="sr-only">Password</span>
+                  <input className="input" name="password" type="password" autoComplete="current-password" placeholder="Password" defaultValue="admin123" />
+                </label>
                 <button type="submit" className="btn-primary mt-2 w-full text-center">Login to admin</button>
               </div>
 
-              <p className="mt-6 text-center text-sm text-slate-500">Back to customer login? <a href="/auth/login" className="font-semibold text-[#0b2d66] underline underline-offset-4">Sign in here</a></p>
+              <p className="mt-6 text-center text-sm text-slate-500">Back to customer login? <Link href="/auth/login" className="font-semibold text-[#0b2d66] underline underline-offset-4">Sign in here</Link></p>
             </form>
           </div>
         </div>

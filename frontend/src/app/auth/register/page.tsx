@@ -1,6 +1,12 @@
+'use client';
+
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { signInMockUser } from '@/lib/mockAuth';
 
 export default function RegisterPage() {
+  const router = useRouter();
   return (
     <main className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
       <section className="mx-auto max-w-[1200px]">
@@ -26,19 +32,35 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <form className="bg-white p-8 sm:p-10 lg:p-12">
+            <form
+              className="bg-white p-8 sm:p-10 lg:p-12"
+              onSubmit={(event) => {
+                event.preventDefault();
+                signInMockUser('customer');
+                router.push('/dashboard/customer');
+              }}
+            >
               <span className="badge bg-white/80 shadow-soft">Join AMICA</span>
               <h2 className="mt-6 text-[clamp(2rem,4vw,3.4rem)] font-semibold tracking-[-0.06em] text-[#08122c]">Create account</h2>
               <p className="mt-4 text-sm leading-7 text-slate-600">Set up a customer profile to start saving model houses and booking private viewings.</p>
 
               <div className="mt-8 grid gap-4">
-                <input className="input" placeholder="Full name" />
-                <input className="input" placeholder="Email address" />
-                <input className="input" type="password" placeholder="Password" />
-                <button className="btn-primary mt-2 w-full text-center">Create account</button>
+                <label className="grid gap-2">
+                  <span className="sr-only">Full name</span>
+                  <input className="input" name="fullName" autoComplete="name" placeholder="Full name" />
+                </label>
+                <label className="grid gap-2">
+                  <span className="sr-only">Email address</span>
+                  <input className="input" name="email" type="email" autoComplete="email" placeholder="Email address" />
+                </label>
+                <label className="grid gap-2">
+                  <span className="sr-only">Password</span>
+                  <input className="input" name="password" type="password" autoComplete="new-password" placeholder="Password" />
+                </label>
+                <button type="submit" className="btn-primary mt-2 w-full text-center">Create account</button>
               </div>
 
-              <p className="mt-6 text-center text-sm text-slate-500">Already have an account? <a href="/auth/login" className="font-semibold text-[#0b2d66] underline underline-offset-4">Sign in</a></p>
+              <p className="mt-6 text-center text-sm text-slate-500">Already have an account? <Link href="/auth/login" className="font-semibold text-[#0b2d66] underline underline-offset-4">Sign in</Link></p>
             </form>
           </div>
         </div>

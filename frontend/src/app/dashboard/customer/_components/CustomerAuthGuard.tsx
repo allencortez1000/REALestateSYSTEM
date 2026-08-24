@@ -2,13 +2,14 @@
 
 import { useRouter } from 'next/navigation';
 import { type ReactNode, useEffect, useState } from 'react';
+import { isMockUserSignedIn } from '@/lib/mockAuth';
 
 export default function CustomerAuthGuard({ children }: { children: ReactNode }) {
   const router = useRouter();
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
   useEffect(() => {
-    const isSignedIn = window.localStorage.getItem('amicaCustomerSignedIn') === 'true';
+    const isSignedIn = isMockUserSignedIn('customer');
 
     if (!isSignedIn) {
       router.replace('/auth/login');

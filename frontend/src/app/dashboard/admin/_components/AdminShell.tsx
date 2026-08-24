@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { signOutMockUser } from '@/lib/mockAuth';
 
 const sections = [
   { href: '/dashboard/admin', label: 'Dashboard' },
@@ -63,7 +66,7 @@ export default function AdminShell({ title, description, children }: { title: st
             <div className="section-label">Account</div>
             <div className="mt-3 text-sm font-semibold text-[#08122c]">Super Admin</div>
             <div className="text-xs text-slate-500">admin@rhbcrealestate.com</div>
-            <Link href="/" className="mt-4 inline-flex rounded-full bg-[#08122c] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0f1d45]">
+            <Link href="/" onClick={() => signOutMockUser('admin')} className="mt-4 inline-flex rounded-full bg-[#08122c] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0f1d45]">
               Logout
             </Link>
           </div>

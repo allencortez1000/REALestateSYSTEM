@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -9,7 +10,8 @@ export default function Footer() {
             <Image src="/amicarealestate.jpg" alt="AMICA Condominium Realty Corporation" width={260} height={86} className="h-16 w-auto object-contain" />
             <p className="mt-4 max-w-md text-sm leading-7 text-white/72">A premium Philippine real estate platform presenting model houses, residences, and luxury developments with clarity, trust, and editorial restraint.</p>
             <div className="mt-6 flex max-w-md gap-2 rounded-full border border-white/12 bg-white/8 p-1.5 backdrop-blur">
-              <input className="w-full bg-transparent px-3 text-sm text-white placeholder:text-white/45 outline-none" placeholder="Your email for updates" />
+              <label className="sr-only" htmlFor="footer-email">Your email for updates</label>
+              <input id="footer-email" name="email" type="email" autoComplete="email" className="w-full bg-transparent px-3 text-sm text-white placeholder:text-white/45 outline-none" placeholder="Your email for updates" />
               <button className="shrink-0 rounded-full bg-[#d7be8a] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#071426] transition hover:bg-[#e4cf9f]">Subscribe</button>
             </div>
           </div>
@@ -17,10 +19,10 @@ export default function Footer() {
           <div>
             <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#d7be8a]">Explore</div>
             <div className="mt-4 grid gap-3 text-sm text-white/75">
-              <a href="/properties" className="transition hover:text-white">Model Houses</a>
-              <a href="/search" className="transition hover:text-white">Search</a>
-              <a href="/blog" className="transition hover:text-white">Journal</a>
-              <a href="/dashboard/customer" className="transition hover:text-white">Customer Portal</a>
+              <Link href="/properties" className="transition hover:text-white">Model Houses</Link>
+              <Link href="/search" className="transition hover:text-white">Search</Link>
+              <Link href="/blog" className="transition hover:text-white">Journal</Link>
+              <Link href="/dashboard/customer" className="transition hover:text-white">Customer Portal</Link>
             </div>
           </div>
 
@@ -36,10 +38,10 @@ export default function Footer() {
           <div>
             <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#d7be8a]">Legal</div>
             <div className="mt-4 grid gap-3 text-sm text-white/75">
-              <a href="#" className="transition hover:text-white">Privacy policy</a>
-              <a href="#" className="transition hover:text-white">Terms and conditions</a>
-              <a href="#" className="transition hover:text-white">Cookie settings</a>
-              <a href="#" className="transition hover:text-white">Accessibility</a>
+              <Link href="/privacy" className="transition hover:text-white">Privacy policy</Link>
+              <Link href="/terms" className="transition hover:text-white">Terms and conditions</Link>
+              <Link href="/cookies" className="transition hover:text-white">Cookie settings</Link>
+              <Link href="/accessibility" className="transition hover:text-white">Accessibility</Link>
             </div>
           </div>
         </div>
@@ -47,9 +49,9 @@ export default function Footer() {
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/48 md:flex-row md:items-center md:justify-between">
           <span>© 2026 AMICA Condominium Realty Corporation</span>
           <div className="flex flex-wrap gap-4">
-            <a href="/properties" className="transition hover:text-white">Model Houses</a>
-            <a href="/search" className="transition hover:text-white">Search</a>
-            <a href="/blog" className="transition hover:text-white">Journal</a>
+            <Link href="/properties" className="transition hover:text-white">Model Houses</Link>
+            <Link href="/search" className="transition hover:text-white">Search</Link>
+            <Link href="/blog" className="transition hover:text-white">Journal</Link>
           </div>
         </div>
       </div>

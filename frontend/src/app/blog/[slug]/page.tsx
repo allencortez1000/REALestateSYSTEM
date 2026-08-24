@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { mockBlogPosts } from '@/data/mockData';
 
@@ -6,6 +8,28 @@ const posts = Object.fromEntries(mockBlogPosts.map((post) => [post.slug, post]))
 type BlogDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateMetadata({ params }: BlogDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = posts[slug as keyof typeof posts];
+
+  if (!post) {
+    return {
+      title: 'Journal post not found',
+      description: 'The requested AMICA journal article could not be found.'
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article'
+    }
+  };
+}
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { slug } = await params;
@@ -16,7 +40,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       <main className="flex min-h-[60vh] items-center justify-center px-6">
         <div className="card p-14 text-center">
           <h1 className="section-title">Post not found</h1>
-          <a href="/blog" className="btn-primary mt-6 inline-flex">← Back to Journal</a>
+          <Link href="/blog" className="btn-primary mt-6 inline-flex">← Back to Journal</Link>
         </div>
       </main>
     );
