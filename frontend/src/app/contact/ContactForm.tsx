@@ -23,8 +23,8 @@ export default function ContactForm() {
     if (!submitted) return null;
 
     return selectedModel && inquiryType
-      ? `Your ${inquiryType.toLowerCase()} inquiry for ${selectedModel} has been prepared for the RHBC/AMICA team.`
-      : 'Your inquiry has been prepared for the RHBC/AMICA team.';
+      ? `Your ${inquiryType.toLowerCase()} inquiry for ${selectedModel} has been prepared for the Amica Residences by Rabino Home Builders Corporation team.`
+      : 'Your inquiry has been prepared for the Amica Residences by Rabino Home Builders Corporation team.';
   }, [inquiryType, selectedModel, submitted]);
 
   return (

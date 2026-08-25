@@ -41,18 +41,18 @@ export default function FinancingCalculator({ price }: FinancingCalculatorProps)
 
   return (
     <section className="card overflow-hidden p-0">
-      <div className="border-b border-[#e7dcc8] bg-[linear-gradient(135deg,#fbf8f0_0%,#ffffff_100%)] p-6">
+      <div className="border-b border-[#e7dcc8] bg-[linear-gradient(135deg,#fbf8f0_0%,#ffffff_100%)] p-5 sm:p-6">
         <div className="section-label text-[#b98a3d]">Financing calculator</div>
-        <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Estimate your monthly payment</h3>
+        <h3 className="mt-3 text-xl font-semibold tracking-[-0.04em] text-[#071426] sm:text-2xl">Estimate your monthly payment</h3>
         <p className="mt-2 text-sm leading-7 text-slate-600">
           Adjust the sample values below to understand possible payment ranges. This is a UI estimate only and is subject to approval, final computation, and prevailing interest rates.
         </p>
       </div>
 
-      <div className="grid gap-0 lg:grid-cols-[1fr_0.9fr]">
-        <div className="grid gap-4 border-b border-[#e7dcc8] p-6 lg:border-b-0 lg:border-r">
+      <div className="grid gap-0 2xl:grid-cols-[minmax(0,1fr)_minmax(260px,0.9fr)]">
+        <div className="grid gap-4 border-b border-[#e7dcc8] p-5 sm:p-6 2xl:border-b-0 2xl:border-r">
           <label className="grid gap-2">
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Total price</span>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 sm:text-xs sm:tracking-[0.28em]">Total price</span>
             <input
               className="input"
               type="number"
@@ -63,7 +63,7 @@ export default function FinancingCalculator({ price }: FinancingCalculatorProps)
           </label>
 
           <label className="grid gap-2">
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Reservation fee</span>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 sm:text-xs sm:tracking-[0.28em]">Reservation fee</span>
             <input
               className="input"
               type="number"
@@ -73,9 +73,9 @@ export default function FinancingCalculator({ price }: FinancingCalculatorProps)
             />
           </label>
 
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-3 2xl:grid-cols-1 min-[1700px]:grid-cols-3">
             <label className="grid gap-2">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Down payment</span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500 sm:text-xs sm:tracking-[0.22em]">Down payment</span>
               <select className="input" value={downPaymentRate} onChange={(event) => setDownPaymentRate(Number(event.target.value))}>
                 <option value={10}>10%</option>
                 <option value={20}>20%</option>
@@ -85,7 +85,7 @@ export default function FinancingCalculator({ price }: FinancingCalculatorProps)
             </label>
 
             <label className="grid gap-2">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Term</span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500 sm:text-xs sm:tracking-[0.22em]">Term</span>
               <select className="input" value={termYears} onChange={(event) => setTermYears(Number(event.target.value))}>
                 <option value={5}>5 years</option>
                 <option value={10}>10 years</option>
@@ -97,7 +97,7 @@ export default function FinancingCalculator({ price }: FinancingCalculatorProps)
             </label>
 
             <label className="grid gap-2">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Interest</span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500 sm:text-xs sm:tracking-[0.22em]">Interest</span>
               <select className="input" value={annualRate} onChange={(event) => setAnnualRate(Number(event.target.value))}>
                 <option value={0}>0%</option>
                 <option value={7.1}>7.1%</option>
@@ -107,16 +107,16 @@ export default function FinancingCalculator({ price }: FinancingCalculatorProps)
           </div>
         </div>
 
-        <div className="bg-[linear-gradient(180deg,#071426_0%,#0d2342_100%)] p-6 text-white">
+        <div className="bg-[linear-gradient(180deg,#071426_0%,#0d2342_100%)] p-5 text-white sm:p-6">
           <div className="section-label text-[#d7be8a]">Estimated result</div>
           <div className="mt-5 rounded-[1.5rem] border border-white/12 bg-white/8 p-5">
             <div className="text-sm text-white/65">Monthly payment</div>
-            <div className="mt-2 text-3xl font-semibold tracking-[-0.04em] text-white">{formatPeso(estimate.monthly)}</div>
+            <div className="mt-2 break-words text-2xl font-semibold tracking-[-0.04em] text-white sm:text-3xl">{formatPeso(estimate.monthly)}</div>
           </div>
           <div className="mt-4 grid gap-3 text-sm">
-            <div className="flex justify-between gap-4 border-b border-white/10 pb-3"><span className="text-white/62">Down payment</span><strong>{formatPeso(estimate.downPayment)}</strong></div>
-            <div className="flex justify-between gap-4 border-b border-white/10 pb-3"><span className="text-white/62">Reservation</span><strong>{formatPeso(reservation)}</strong></div>
-            <div className="flex justify-between gap-4"><span className="text-white/62">Estimated balance</span><strong>{formatPeso(estimate.balance)}</strong></div>
+            <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-3"><span className="text-white/62">Down payment</span><strong className="text-right">{formatPeso(estimate.downPayment)}</strong></div>
+            <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-3"><span className="text-white/62">Reservation</span><strong className="text-right">{formatPeso(reservation)}</strong></div>
+            <div className="flex items-start justify-between gap-4"><span className="text-white/62">Estimated balance</span><strong className="text-right">{formatPeso(estimate.balance)}</strong></div>
           </div>
         </div>
       </div>

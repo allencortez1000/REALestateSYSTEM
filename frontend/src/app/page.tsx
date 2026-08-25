@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import HeroSlideshow from '@/components/home/HeroSlideshow';
+import { brand } from '@/data/brand';
 import { getModelHouseHref, homeFeaturedModelHouses, homePaymentPreviews } from '@/data/modelHouses';
 
 const featureBullets = [
   { title: 'Premium residences', text: 'Curated model houses and luxury communities across the Philippines' },
   { title: 'Guided service', text: 'Private viewings, inquiries, and portfolio support with a human touch' },
   { title: 'Investor ready', text: 'Clear pricing, strategic locations, and polished presentation' },
-  { title: 'AMICA standard', text: 'Editorial design, trusted service, and a refined digital experience' }
+  { title: 'Amica Residences standard', text: 'Editorial design, trusted service, and a refined digital experience' }
 ];
 
 const accentClasses = ['bg-[#b98a3d]', 'bg-[#17365f]', 'bg-[#0d2342]'];
@@ -75,15 +76,15 @@ export default function HomePage() {
             <div className="px-6 pb-8 pt-6 sm:px-8 lg:px-10 lg:pb-10 lg:pt-8">
               <div className="max-w-xl animate-reveal">
                 <div className="flex items-center gap-3">
-                  <Image src="/amicarealestate.jpg" alt="AMICA Condominium Realty Corporation" width={300} height={100} className="h-20 w-auto object-contain" priority />
+                  <Image src={brand.logo} alt={brand.name} width={300} height={130} className="h-20 w-auto object-contain" priority />
                 </div>
-                <div className="mt-6 section-label text-[#b98a3d]">Condominium realty corporation</div>
+                <div className="mt-6 section-label text-[#b98a3d]">{brand.companyName}</div>
                 <h1 className="mt-5 text-[clamp(3rem,6.2vw,6.2rem)] leading-[0.9] tracking-[-0.09em] text-[#071426]">
                   Elegant homes,
-                  <span className="block text-[#0d2342]">distinctly AMICA.</span>
+                  <span className="block text-[#0d2342]">distinctly Amica.</span>
                 </h1>
                 <p className="mt-6 max-w-lg text-base leading-8 text-slate-600 sm:text-lg">
-                  A luxury real estate platform for premium model houses, condominium residences, and investment opportunities across the Philippines.
+                  Amica Residences by Rabino Home Builders Corporation presents premium model houses, housing options, and investment-ready residences across the Philippines.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -210,7 +211,7 @@ export default function HomePage() {
 
           <aside className="grid gap-4">
             <section className="rounded-[2.35rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,#071426_0%,#0d2342_72%,#13273f_100%)] p-6 text-white shadow-[0_18px_60px_rgba(5,14,30,0.10)] sm:p-8">
-              <div className="section-label text-[#d7be8a]">Why AMICA</div>
+              <div className="section-label text-[#d7be8a]">Why Amica Residences</div>
               <h2 className="mt-4 text-[clamp(1.8rem,4vw,2.8rem)] font-semibold leading-[1.05] tracking-[-0.05em] text-white">A clearer, more premium real estate journey.</h2>
               <div className="mt-6 grid gap-3">
                 {serviceCards.map((item, index) => (
@@ -275,7 +276,7 @@ export default function HomePage() {
             <div>
               <div className="section-label text-[#d7be8a]">Start here</div>
               <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-white">Built for buyers, sellers, and administrators in one premium system.</h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-white/74">AMICA is designed to feel modern, clean, and trustworthy — with strong branding, clear hierarchy, and a quietly luxurious finish.</p>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-white/74">Amica Residences is designed to feel modern, clean, and trustworthy — with strong branding, clear hierarchy, and a quietly luxurious finish.</p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
               <Link href="/auth/register" className="btn-outline bg-white text-[#071426] hover:bg-[#f8f3e8]">Create account</Link>

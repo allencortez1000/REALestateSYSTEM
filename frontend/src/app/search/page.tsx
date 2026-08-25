@@ -4,7 +4,7 @@ import SearchExperience from './SearchExperience';
 
 export const metadata: Metadata = {
   title: 'Search Model Houses',
-  description: 'Search and filter RHBC/AMICA model-house listings by home type, budget range, and buyer fit.'
+  description: 'Search and filter Amica Residences by Rabino Home Builders Corporation model-house listings by home type, budget range, and buyer fit.'
 };
 
 
@@ -20,7 +20,7 @@ export default function SearchPage() {
                 Find the right home, faster.
               </h1>
               <p className="mt-5 max-w-lg text-base leading-8 text-slate-600">
-                Browse only the current AMICA model-house listings featured in the portfolio.
+                Browse only the current Amica Residences model-house listings featured in the portfolio.
               </p>
 
               <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">

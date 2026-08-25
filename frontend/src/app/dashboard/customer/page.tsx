@@ -55,7 +55,7 @@ const notifications = [
 
 const inquiryProgress = [
   { step: 'Inquiry Sent', status: 'Done', description: 'Your interest in HERA MODEL HOUSE was recorded.' },
-  { step: 'Agent Assigned', status: 'Done', description: 'AMICA Sales Team is assigned to assist you.' },
+  { step: 'Agent Assigned', status: 'Done', description: 'Amica Residences Sales Team is assigned to assist you.' },
   { step: 'Viewing Scheduled', status: 'Active', description: 'Viewing confirmed for Thursday at 10:00 AM.' },
   { step: 'Computation Review', status: 'Next', description: 'Review payment terms after the viewing.' },
   { step: 'Reservation Pending', status: 'Next', description: 'Reserve once final terms are confirmed.' }
@@ -83,14 +83,14 @@ const savedHomes = savedHomeMeta.map((item) => {
 
 export default function CustomerDashboardPage() {
   return (
-    <CustomerShell title="Dashboard" description="Your personal portal for browsing AMICA model houses, managing saved listings, inquiries, appointments, documents, messages, and seller tools.">
+    <CustomerShell title="Dashboard" description="Your personal portal for browsing Amica Residences model houses, managing saved listings, inquiries, appointments, documents, messages, and seller tools.">
       <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
         <div className="rounded-[1.75rem] border border-[#e7dcc8] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
           <div className="section-label">Welcome</div>
           <div className="mt-3 flex items-end justify-between gap-4">
             <div>
               <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-semibold tracking-[-0.05em] text-[#071426]">Good afternoon, Rabin.</h2>
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Here’s a polished overview of your AMICA activity, recommendations, and progress across your customer account.</p>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Here’s a polished overview of your Amica Residences activity, recommendations, and progress across your customer account.</p>
             </div>
             <div className="hidden rounded-[1.4rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.86)] px-4 py-3 text-right md:block">
               <div className="text-xs uppercase tracking-[0.3em] text-slate-500">Profile tier</div>

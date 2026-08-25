@@ -42,7 +42,7 @@ export default function HeroSlideshow() {
         <div className="mt-2 text-sm leading-7 text-white/70">{activeSlide.area}</div>
         <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
           <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-xs font-medium tracking-[0.18em] text-white/70">
-            Featured AMICA listing
+            Featured Amica Residence
           </span>
           <Link href="/properties" className="btn-primary px-5 py-3">View properties</Link>
         </div>

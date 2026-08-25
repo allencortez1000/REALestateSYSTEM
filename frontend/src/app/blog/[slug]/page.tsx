@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
   if (!post) {
     return {
       title: 'Journal post not found',
-      description: 'The requested AMICA journal article could not be found.'
+      description: 'The requested Amica Residences journal article could not be found.'
     };
   }
 

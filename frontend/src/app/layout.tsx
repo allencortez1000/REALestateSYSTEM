@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { Manrope, Playfair_Display } from 'next/font/google';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
+import { brand } from '../data/brand';
 import './globals.css';
 
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
@@ -10,13 +11,13 @@ const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '
 
 export const metadata: Metadata = {
   title: {
-    default: 'RHBC Real Estate | AMICA Model Houses',
-    template: '%s | RHBC Real Estate'
+    default: brand.name,
+    template: `%s | ${brand.shortName}`
   },
-  description: 'Explore RHBC and AMICA model houses, sample computations, viewing inquiries, comparison tools, and customer portal previews.',
-  keywords: ['RHBC real estate', 'AMICA model houses', 'Philippine homes', 'house and lot', 'low cost housing'],
+  description: 'Explore Amica Residences model houses by Rabino Home Builders Corporation, including sample computations, viewing inquiries, comparison tools, and customer portal previews.',
+  keywords: ['Amica Residences', 'Rabino Home Builders Corporation', 'model houses', 'Philippine homes', 'house and lot', 'low cost housing'],
   openGraph: {
-    title: 'RHBC Real Estate | AMICA Model Houses',
+    title: brand.name,
     description: 'Premium model-house browsing, comparison, and inquiry experience for Philippine buyers.',
     type: 'website',
     locale: 'en_PH'

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 
 const contactMethods = [
-  { label: 'Email', value: 'hello@amica.com', note: 'Send model-house and document inquiries anytime.' },
+  { label: 'Email', value: 'hello@rabinohomebuilders.com', note: 'Send model-house and document inquiries anytime.' },
   { label: 'Phone', value: '+63 912 345 6789', note: 'Call for viewing schedules and quick computation questions.' },
   { label: 'Location', value: 'Metro Manila, Philippines', note: 'Serving buyers across Metro Manila and nearby key cities.' }
 ];

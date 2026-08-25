@@ -8,22 +8,22 @@ type SectionPageProps = {
 const modules: Record<string, { title: string; description: string; blocks: { title: string; body: string }[] }> = {
   properties: {
     title: 'Browse Model Houses',
-    description: 'Search, sort, filter, compare, save, and view detailed AMICA model-house listings with premium browsing controls tailored for discerning Philippine buyers.',
+    description: 'Search, sort, filter, compare, save, and view detailed Amica Residences model-house listings with premium browsing controls tailored for discerning Philippine buyers.',
     blocks: [{ title: 'Property browsing', body: 'Grid, list, featured section, map view, and model-house cards with save and compare actions.' }]
   },
   saved: {
     title: 'Saved Properties',
-    description: 'Manage saved AMICA listings with search, filtering, sorting, and quick actions.',
+    description: 'Manage saved Amica Residence listings with search, filtering, sorting, and quick actions.',
     blocks: [{ title: 'Saved list management', body: 'View, remove, compare, schedule viewings, send inquiries, and share model houses.' }]
   },
   comparisons: {
     title: 'Property Comparisons',
-    description: 'Compare up to four AMICA model houses side-by-side with highlighted best values and actions.',
+    description: 'Compare up to four Amica Residences model houses side-by-side with highlighted best values and actions.',
     blocks: [{ title: 'Comparison matrix', body: 'Price, location, model type, bedrooms, bathrooms, area, amenities, status, and agent.' }]
   },
   inquiries: {
     title: 'My Inquiries',
-    description: 'Track inquiry reference numbers for AMICA model houses, assigned agents, follow-ups, conversations, and statuses.',
+    description: 'Track inquiry reference numbers for Amica Residences model houses, assigned agents, follow-ups, conversations, and statuses.',
     blocks: [{ title: 'Inquiry timeline', body: 'Submitted, received, in review, agent assigned, responded, viewing scheduled, negotiating, and closed.' }]
   },
   appointments: {
@@ -33,7 +33,7 @@ const modules: Record<string, { title: string; description: string; blocks: { ti
   },
   messages: {
     title: 'Messages',
-    description: 'Private, real-time customer conversations with agents and listing labels for AMICA homes.',
+    description: 'Private, real-time customer conversations with agents and listing labels for Amica Residences homes.',
     blocks: [{ title: 'Secure messaging', body: 'Conversation list, search, attachments, typing indicator, and unread markers.' }]
   },
   notifications: {
@@ -43,7 +43,7 @@ const modules: Record<string, { title: string; description: string; blocks: { ti
   },
   progress: {
     title: 'Purchase or Rental Progress',
-    description: 'Track the full journey from inquiry to completion for AMICA model houses with milestones, documents, and payment steps.',
+    description: 'Track the full journey from inquiry to completion for Amica Residences model houses with milestones, documents, and payment steps.',
     blocks: [{ title: 'Progress tracker', body: 'Timeline history, current stage, pending requirements, assigned agent, and payment summary.' }]
   },
   documents: {
@@ -58,22 +58,22 @@ const modules: Record<string, { title: string; description: string; blocks: { ti
   },
   submit: {
     title: 'Submit a Property',
-    description: 'Multi-step seller submission form for AMICA residences with validation, media, documents, and review flow.',
+    description: 'Multi-step seller submission form for Amica Residences with validation, media, documents, and review flow.',
     blocks: [{ title: 'Submission form', body: 'Basic info, location, details, amenities, media, documents, and final review before submission.' }]
   },
   profile: {
     title: 'Profile',
-    description: 'Manage profile photo, contact information, customer preferences, and seller details when applicable in the AMICA portal.',
+    description: 'Manage profile photo, contact information, customer preferences, and seller details when applicable in the Amica Residences portal.',
     blocks: [{ title: 'Profile editor', body: 'Buyer and seller fields, contact preferences, budget range, and account verification fields.' }]
   },
   settings: {
     title: 'Account Settings',
-    description: 'Edit your account details, security, notifications, privacy, sessions, and data requests for your AMICA account.',
+    description: 'Edit your account details, security, notifications, privacy, sessions, and data requests for your Amica Residences account.',
     blocks: [{ title: 'Settings tabs', body: 'Account, security, notifications, privacy, and account management controls.' }]
   },
   help: {
     title: 'Help and Support',
-    description: 'Support articles, FAQs, contact form, and support ticket history for AMICA clients.',
+    description: 'Support articles, FAQs, contact form, and support ticket history for Amica Residences clients.',
     blocks: [{ title: 'Support center', body: 'Searchable help articles, ticket statuses, and customer support entry points.' }]
   }
 };

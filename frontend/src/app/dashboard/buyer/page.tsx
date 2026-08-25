@@ -18,7 +18,7 @@ export default function BuyerDashboardPage() {
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">Saved homes, searches, appointments, and conversations in one premium workspace built for Filipino buyers.</p>
             </div>
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_55%,#b98a3d_180%)] p-6 text-white sm:p-8 lg:p-10">
-              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">AMICA buyers</div>
+              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">Amica Residences buyers</div>
               <div className="mt-4 text-3xl font-semibold leading-tight">Your search journey, simplified and beautifully organized.</div>
               <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">Keep favorites and viewings organized in one place.</p>
             </div>

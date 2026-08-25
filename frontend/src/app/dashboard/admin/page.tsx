@@ -14,7 +14,7 @@ const metrics = [
 ];
 
 const recentItems = [
-  'New inquiry from an AMICA model-house listing',
+  'New inquiry from an Amica Residences model-house listing',
   'Listing status changed to sold',
   'Agent Maria assigned to 12 listings',
   'Homepage hero updated successfully',
@@ -96,7 +96,7 @@ const leadPipeline = [
 
 export default function AdminDashboardPage() {
   return (
-    <AdminShell title="Dashboard" description="Premium overview of model houses, leads, appointments, performance, and platform activity across the AMICA admin system in the Philippines.">
+    <AdminShell title="Dashboard" description="Premium overview of model houses, leads, appointments, performance, and platform activity across the Amica Residences admin system in the Philippines.">
       <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {metrics.map(([label, value]) => (
           <div key={label} className="rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)]">

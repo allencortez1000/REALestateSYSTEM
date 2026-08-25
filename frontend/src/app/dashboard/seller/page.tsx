@@ -18,7 +18,7 @@ export default function SellerDashboardPage() {
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">Listings, leads, and performance tracking in a clean, premium layout for property owners and sellers.</p>
             </div>
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_55%,#b98a3d_180%)] p-6 text-white sm:p-8 lg:p-10">
-              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">AMICA sellers</div>
+              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">Amica Residences sellers</div>
               <div className="mt-4 text-3xl font-semibold leading-tight">Present your listings with confidence and clarity.</div>
               <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">A polished workspace for every stage of the sales journey.</p>
             </div>

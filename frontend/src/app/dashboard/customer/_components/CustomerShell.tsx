@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { brand } from '@/data/brand';
 import { signOutMockUser } from '@/lib/mockAuth';
 
 const sections = [
@@ -37,7 +38,7 @@ export default function CustomerShell({ title, description, children }: { title:
       <div className="grid gap-6 xl:grid-cols-[300px_minmax(0,1fr)]">
         <aside className="rounded-[2rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(255,255,255,0.92)] p-4 shadow-[0_20px_60px_rgba(9,21,64,0.08)] backdrop-blur-sm xl:sticky xl:top-6 xl:h-[calc(100vh-3rem)] xl:overflow-auto">
           <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,#071426_0%,#0d2342_100%)] p-5 text-white shadow-luxury">
-            <Image src="/amicarealestate.jpg" alt="AMICA Condominium Realty Corporation" width={220} height={72} className="h-14 w-auto object-contain" />
+            <Image src={brand.logo} alt={brand.name} width={220} height={72} className="h-14 w-auto object-contain" />
             <div className="mt-4 text-xs uppercase tracking-[0.35em] text-[#f2cf5b]/80">Customer portal</div>
             <div className="mt-3 text-2xl font-semibold leading-tight">Buyer & Seller workspace</div>
             <p className="mt-2 text-sm text-white/72">Saved homes, inquiries, model-house listings, messages, and support in one place for discerning Philippine clients.</p>
@@ -60,7 +61,7 @@ export default function CustomerShell({ title, description, children }: { title:
           <div className="mt-4 rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(255,255,255,0.96)] p-4">
             <div className="section-label">Account</div>
             <div className="mt-3 text-sm font-semibold text-[#08122c]">Customer Demo</div>
-            <div className="text-xs text-slate-500">customer@rhbcrealestate.com</div>
+            <div className="text-xs text-slate-500">customer@rabinohomebuilders.com</div>
             <Link
               href="/"
               className="mt-4 inline-flex rounded-full bg-[#08122c] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0f1d45]"

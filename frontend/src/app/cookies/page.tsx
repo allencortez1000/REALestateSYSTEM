@@ -3,7 +3,7 @@ import PolicyPage from '@/components/legal/PolicyPage';
 
 export const metadata: Metadata = {
   title: 'Cookie Settings',
-  description: 'Review browser storage and future consent preferences for the RHBC/AMICA website.'
+  description: 'Review browser storage and future consent preferences for the Amica Residences by Rabino Home Builders Corporation website.'
 };
 
 const sections = [

@@ -3,7 +3,7 @@ import CompareExperience from './CompareExperience';
 
 export const metadata: Metadata = {
   title: 'Compare Model Houses',
-  description: 'Compare RHBC and AMICA model houses side by side by price, size, package type, features, and buyer fit.'
+  description: 'Compare Amica Residences by Rabino Home Builders Corporation model houses side by side by price, size, package type, features, and buyer fit.'
 };
 
 export default function ComparePage() {

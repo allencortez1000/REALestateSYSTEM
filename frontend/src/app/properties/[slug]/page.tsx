@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PropertyDetailPageProps): Pro
   if (!listing) {
     return {
       title: 'Property not found',
-      description: 'The requested RHBC/AMICA model-house listing could not be found.'
+      description: 'The requested Amica Residences by Rabino Home Builders Corporation model-house listing could not be found.'
     };
   }
 
@@ -42,7 +42,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
           <div className="section-label text-[#b98a3d]">Listing unavailable</div>
           <h1 className="section-title mt-4">Property not found</h1>
           <p className="mt-4 text-sm leading-7 text-slate-600">
-            Please return to the portfolio to view the featured AMICA residences.
+            Please return to the portfolio to view the featured Amica Residences.
           </p>
           <Link href="/properties" className="btn-primary mt-6 inline-flex">
             ← Back to listings
@@ -53,26 +53,26 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
   }
 
   return (
-    <main className="relative px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+    <main className="relative px-4 pb-40 pt-6 sm:px-6 sm:pb-36 lg:px-8">
       <section className="mx-auto max-w-[1500px]">
-        <div className="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
+        <div className="grid gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)]">
           <div className="space-y-6">
-            <div className="overflow-hidden rounded-[2.75rem] border border-[rgba(231,220,200,0.95)] bg-white/92 shadow-[0_24px_80px_rgba(9,21,64,0.10)]">
-              <div className="grid gap-0 lg:grid-cols-[1.2fr_0.8fr]">
-                <div className="relative min-h-[680px] overflow-hidden bg-[#071426]">
+            <div className="overflow-hidden rounded-[2rem] border border-[rgba(231,220,200,0.95)] bg-white/92 shadow-[0_24px_80px_rgba(9,21,64,0.10)] sm:rounded-[2.75rem]">
+              <div className="grid gap-0 lg:grid-cols-[minmax(0,1.12fr)_minmax(300px,0.88fr)]">
+                <div className="relative min-h-[520px] overflow-hidden bg-[#071426] sm:min-h-[600px] lg:min-h-[680px]">
                   <Image src={listing.image} alt={listing.title} fill className="object-cover" priority />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,20,38,0.12)_0%,rgba(7,20,38,0.62)_100%)]" />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(185,138,61,0.14),transparent_28%)]" />
-                  <div className="absolute left-6 top-6 rounded-full border border-white/14 bg-[#071426]/92 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-white backdrop-blur-md">Featured residence</div>
-                  <div className="absolute right-6 top-6 flex max-w-[calc(100%-3rem)] flex-wrap justify-end gap-2">
+                  <div className="absolute left-4 top-4 max-w-[calc(100%-2rem)] rounded-full border border-white/14 bg-[#071426]/92 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md sm:left-6 sm:top-6 sm:px-4 sm:text-[11px] sm:tracking-[0.32em]">Featured residence</div>
+                  <div className="absolute left-4 right-4 top-16 flex flex-wrap gap-2 sm:left-auto sm:right-6 sm:top-6 sm:max-w-[calc(100%-3rem)] sm:justify-end">
                     <div className="rounded-full border border-white/60 bg-[rgba(255,252,246,0.92)] px-4 py-2 text-xs font-semibold text-[#071426] shadow-[0_12px_28px_rgba(7,20,38,0.10)]">{listing.availability}</div>
                     <div className="rounded-full border border-white/20 bg-[#071426]/86 px-4 py-2 text-xs font-semibold text-white shadow-[0_12px_28px_rgba(7,20,38,0.16)] backdrop-blur-md">{listing.bestFor}</div>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-10">
+                  <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 lg:p-10">
                     <div className="max-w-3xl text-white">
                       <div className="section-label text-[#d7be8a]">{listing.location}</div>
-                      <h1 className="mt-4 text-[clamp(3rem,7vw,6.5rem)] leading-[0.88] tracking-[-0.09em] text-white">{listing.title}</h1>
-                      <p className="mt-5 max-w-2xl text-base leading-8 text-white/82">{listing.tagline}</p>
+                      <h1 className="mt-4 max-w-3xl text-[clamp(2.45rem,8vw,5.6rem)] leading-[0.92] tracking-[-0.075em] text-white">{listing.title}</h1>
+                      <p className="mt-4 max-w-2xl text-sm leading-7 text-white/84 sm:text-base sm:leading-8">{listing.tagline}</p>
                     </div>
                   </div>
                 </div>
@@ -81,14 +81,14 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
                     <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-white p-5">
                       <div className="section-label text-[#b98a3d]">Price</div>
-                      <div className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-[#071426]">{listing.price}</div>
+                      <div className="mt-3 break-words text-2xl font-semibold tracking-[-0.04em] text-[#071426] sm:text-3xl">{listing.price}</div>
                     </div>
                     <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-white p-5">
                       <div className="section-label text-[#b98a3d]">Specifications</div>
                       <div className="mt-4 grid gap-3 text-sm text-slate-600">
-                        <div className="flex items-center justify-between gap-3 border-b border-[#efe5c3] pb-2"><span>Lot area</span><strong className="text-[#071426]">{listing.lotArea}</strong></div>
-                        <div className="flex items-center justify-between gap-3 border-b border-[#efe5c3] pb-2"><span>Floor area</span><strong className="text-[#071426]">{listing.floorArea}</strong></div>
-                        <div className="flex items-center justify-between gap-3"><span>Status</span><strong className="text-[#071426]">{listing.availability}</strong></div>
+                        <div className="flex items-start justify-between gap-3 border-b border-[#efe5c3] pb-2"><span>Lot area</span><strong className="text-right text-[#071426]">{listing.lotArea}</strong></div>
+                        <div className="flex items-start justify-between gap-3 border-b border-[#efe5c3] pb-2"><span>Floor area</span><strong className="text-right text-[#071426]">{listing.floorArea}</strong></div>
+                        <div className="flex items-start justify-between gap-3"><span>Status</span><strong className="text-right text-[#071426]">{listing.availability}</strong></div>
                       </div>
                     </div>
                   </div>
@@ -114,7 +114,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
               </div>
             </div>
 
-            <nav className="sticky top-4 z-20 overflow-hidden rounded-[1.75rem] border border-[#e7dcc8] bg-[rgba(255,255,255,0.92)] p-2 shadow-[0_18px_50px_rgba(9,21,64,0.08)] backdrop-blur-xl">
+            <nav className="sticky top-4 z-20 overflow-hidden rounded-[1.25rem] border border-[#e7dcc8] bg-[rgba(255,255,255,0.94)] p-2 shadow-[0_18px_50px_rgba(9,21,64,0.08)] backdrop-blur-xl sm:rounded-[1.75rem] lg:top-24">
               <div className="flex gap-2 overflow-x-auto">
                 {[
                   ['Overview', '#overview'],
@@ -130,7 +130,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   <a
                     key={label}
                     href={href}
-                    className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 transition hover:bg-[#071426] hover:text-white"
+                    className="shrink-0 rounded-full px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-600 transition hover:bg-[#071426] hover:text-white sm:px-4 sm:text-xs sm:tracking-[0.22em]"
                   >
                     {label}
                   </a>
@@ -148,11 +148,11 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                 <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6428]">{listing.gallery.length} images</span>
               </div>
 
-              <div className="mt-5 grid gap-4 md:grid-cols-[1.4fr_0.8fr_0.8fr]">
+              <div className="mt-5 grid gap-4 lg:grid-cols-[1.2fr_0.9fr_0.9fr]">
                 {listing.gallery.map((src, index) => {
                   const labels = ['Main exterior', 'Design reference', 'Supporting image'];
                   return (
-                    <div key={src} className={`group relative overflow-hidden rounded-[1.75rem] border border-[#e7dcc8] bg-[#071426] ${index === 0 ? 'h-80 md:h-[420px]' : 'h-56 md:h-[420px]'}`}>
+                    <div key={src} className={`group relative overflow-hidden rounded-[1.5rem] border border-[#e7dcc8] bg-[#071426] sm:rounded-[1.75rem] ${index === 0 ? 'h-72 sm:h-80 lg:h-[420px]' : 'h-64 lg:h-[420px]'}`}>
                       <Image src={src} alt={`${listing.title} gallery ${index + 1}`} fill className="object-cover transition duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,20,38,0.02),rgba(7,20,38,0.55))]" />
                       <div className="absolute left-4 top-4 rounded-full border border-white/18 bg-white/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md">{labels[index] ?? 'Reference'}</div>
@@ -167,7 +167,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
             </section>
 
             <div className="grid gap-6 lg:grid-cols-3">
-              <section id="overview" className="card scroll-mt-28 p-8 lg:col-span-2">
+              <section id="overview" className="card scroll-mt-28 p-5 sm:p-8 lg:col-span-2">
                 <div className="section-label">Model overview</div>
                 <h2 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.05em] text-[#071426]">{listing.title}</h2>
                 <p className="mt-4 text-lg leading-8 text-slate-600">{listing.description}</p>
@@ -199,7 +199,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                       <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">Downloadable guide preview</h3>
                       <p className="mt-2 max-w-2xl text-sm leading-7 text-white/70">Quick actions for buyers who want to review the model, computation, or request complete sales details. These are UI-only buttons for now.</p>
                     </div>
-                    <div className="grid gap-2 sm:grid-cols-3 lg:min-w-[520px]">
+                    <div className="grid w-full gap-2 sm:grid-cols-3 lg:max-w-xl lg:flex-1">
                       <button className="rounded-full bg-white px-4 py-3 text-sm font-semibold text-[#071426] transition hover:bg-[#f8f3e8]">View brochure</button>
                       <button className="rounded-full border border-white/16 bg-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/14">Computation sheet</button>
                       <button className="rounded-full border border-white/16 bg-transparent px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Request full details</button>
@@ -219,7 +219,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
                   <div className="mt-6 grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
                     <div className="overflow-hidden rounded-[1.75rem] border border-[#e7dcc8] bg-white p-3 shadow-[0_16px_40px_rgba(9,21,64,0.06)]">
-                      <div className="grid min-h-[360px] grid-cols-4 grid-rows-4 gap-2 text-sm font-semibold text-[#071426]">
+                      <div className="grid min-h-[300px] grid-cols-4 grid-rows-4 gap-2 text-xs font-semibold text-[#071426] sm:min-h-[360px] sm:text-sm">
                         <div className="col-span-2 row-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#071426] p-4 text-center text-white">Living Area</div>
                         <div className="col-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#f4ead8] p-4 text-center">Dining Area</div>
                         <div className="flex items-center justify-center rounded-[1.25rem] bg-[#fbf8f0] p-4 text-center">Kitchen</div>
@@ -250,7 +250,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                 </section>
               </section>
 
-              <aside id="inquiry" className="card scroll-mt-28 p-8 lg:sticky lg:top-28 lg:self-start">
+              <aside id="inquiry" className="card scroll-mt-28 p-5 sm:p-8 lg:sticky lg:top-28 lg:self-start">
                 <div className="section-label">Inquiry</div>
                 <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Speak with our team</h3>
                 <p className="mt-2 text-sm leading-7 text-slate-600">Book a private viewing or request more details about this residence.</p>
@@ -278,7 +278,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
                 <div className="mt-6 rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.82)] p-4">
                   <div className="text-xs uppercase tracking-[0.3em] text-slate-500">Assigned agent</div>
-                  <div className="mt-2 text-lg font-semibold text-[#071426]">AMICA Sales Team</div>
+                  <div className="mt-2 text-lg font-semibold text-[#071426]">Amica Residences Sales Team</div>
                   <div className="text-sm text-slate-500">Metro Manila, Philippines</div>
                 </div>
                 <div className="mt-5 grid gap-3">
@@ -303,14 +303,14 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                 </div>
                 <div className="mt-6 space-y-3">
                   <a href="tel:+639123456789" className="btn-gold w-full">Call now</a>
-                  <a href="mailto:hello@amica.com" className="btn-outline w-full">Send inquiry</a>
+                  <a href="mailto:hello@rabinohomebuilders.com" className="btn-outline w-full">Send inquiry</a>
                 </div>
               </aside>
             </div>
           </div>
 
-          <div className="space-y-6 xl:sticky xl:top-28 xl:self-start">
-            <section id="design" className="card scroll-mt-28 p-8">
+          <div className="min-w-0 space-y-6 xl:sticky xl:top-28 xl:self-start">
+            <section id="design" className="card scroll-mt-28 p-5 sm:p-8">
               <div className="section-label">Design and package details</div>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">What is included</h3>
               <p className="mt-2 text-sm leading-7 text-slate-600">These items explain the design previews, package type, and notable selling points from the reference materials.</p>
@@ -324,7 +324,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
               </div>
             </section>
 
-            <section id="layout" className="card scroll-mt-28 p-8">
+            <section id="layout" className="card scroll-mt-28 p-5 sm:p-8">
               <div className="section-label">House features</div>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Rooms and layout notes</h3>
               <p className="mt-2 text-sm leading-7 text-slate-600">Use this section to understand the spaces, floor-plan notes, and functional areas included in the model.</p>
@@ -338,7 +338,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
               </div>
             </section>
 
-            <section id="location" className="card scroll-mt-28 p-8">
+            <section id="location" className="card scroll-mt-28 p-5 sm:p-8">
               <div className="section-label">Location access</div>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Nearby conveniences</h3>
               <p className="mt-2 text-sm leading-7 text-slate-600">A simple guide to the community access points and nearby essentials mentioned for this listing.</p>
@@ -352,7 +352,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
               </div>
             </section>
 
-            <section className="card p-8">
+            <section className="card p-5 sm:p-8">
               <div className="section-label">Buyer FAQ</div>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Common questions before you inquire</h3>
               <p className="mt-2 text-sm leading-7 text-slate-600">Quick answers to help buyers understand the next steps. These are UI-only guide notes and can be connected to real policies later.</p>
@@ -385,9 +385,9 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   </div>
                   <div className="grid divide-y divide-[#e7dcc8]">
                     {listing.computation?.map(([label, value]) => (
-                      <div key={label} className="grid gap-2 bg-white px-6 py-4 sm:grid-cols-[1fr_auto] sm:items-center">
+                      <div key={label} className="grid gap-2 bg-white px-5 py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:px-6">
                         <div className="text-sm font-medium text-slate-600">{label}</div>
-                        <div className="text-base font-semibold text-[#071426] sm:text-right">{value}</div>
+                        <div className="break-words text-base font-semibold text-[#071426] sm:text-right">{value}</div>
                       </div>
                     ))}
                   </div>
@@ -398,14 +398,14 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
         </div>
       </section>
 
-      <div className="fixed bottom-5 left-4 right-4 z-40 rounded-full border border-white/20 bg-[#071426]/94 p-2 shadow-[0_18px_60px_rgba(5,14,30,0.25)] backdrop-blur-xl sm:left-auto sm:right-6 sm:w-auto">
-        <div className="flex items-center justify-between gap-3">
+      <div className="fixed bottom-4 left-3 right-3 z-40 rounded-[1.5rem] border border-white/20 bg-[#071426]/94 p-2 shadow-[0_18px_60px_rgba(5,14,30,0.25)] backdrop-blur-xl sm:bottom-5 sm:left-auto sm:right-6 sm:w-auto sm:rounded-full">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
           <div className="hidden px-4 text-white sm:block">
             <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#d7be8a]">Interested in this model?</div>
             <div className="text-sm font-semibold">{listing.title}</div>
           </div>
           <a href="#inquiry" className="w-full rounded-full bg-[#d7be8a] px-5 py-3 text-center text-sm font-semibold text-[#071426] transition hover:bg-[#e4cf9f] sm:w-auto">Inquire now</a>
-          <a href="tel:+639123456789" className="hidden rounded-full border border-white/14 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 sm:inline-flex">Call</a>
+          <a href="tel:+639123456789" className="w-full rounded-full border border-white/14 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/10 sm:w-auto sm:inline-flex">Call</a>
         </div>
       </div>
     </main>

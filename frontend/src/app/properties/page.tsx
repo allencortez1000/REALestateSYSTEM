@@ -6,7 +6,7 @@ import { featuredModelHouses, getModelHouseHref } from '@/data/modelHouses';
 
 export const metadata: Metadata = {
   title: 'Model Houses',
-  description: 'Browse RHBC and AMICA model houses with prices, lot areas, floor areas, and buyer guidance.'
+  description: 'Browse Amica Residences by Rabino Home Builders Corporation model houses with prices, lot areas, floor areas, and buyer guidance.'
 };
 
 const buyingGuide = [
@@ -26,7 +26,7 @@ export default function PropertiesPage() {
             <div className="p-6 sm:p-8 lg:p-10">
               <div className="section-label text-[#b98a3d]">Portfolio</div>
               <h1 className="mt-4 max-w-xl text-[clamp(2.8rem,6vw,5.2rem)] leading-[0.9] tracking-[-0.085em] text-[#071426]">
-                Curated residences with an AMICA signature.
+                Curated residences with an Amica Residences signature.
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
                 Browse a premium collection of model houses presented with stronger hierarchy, quieter spacing, and a more luxurious cadence.
@@ -39,7 +39,7 @@ export default function PropertiesPage() {
             </div>
 
             <div className="relative min-h-[320px] bg-[linear-gradient(135deg,#071426_0%,#0d2342_55%,#b98a3d_180%)] p-6 text-white sm:p-8 lg:p-10">
-              <div className="absolute right-6 top-6 rounded-full bg-white/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] backdrop-blur-md">AMICA</div>
+              <div className="absolute right-6 top-6 rounded-full bg-white/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] backdrop-blur-md">Amica Residences</div>
               <div className="flex h-full items-end">
                 <div className="max-w-sm">
                   <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">Featured portfolio</div>

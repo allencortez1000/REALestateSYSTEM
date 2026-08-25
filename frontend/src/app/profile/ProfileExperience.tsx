@@ -5,9 +5,9 @@ import { useEffect, useMemo, useState } from 'react';
 const LOCAL_PROFILE_KEY = 'amicaLocalProfile';
 
 const initialProfile = {
-  firstName: 'AMICA',
+  firstName: 'Amica Residences',
   lastName: 'Admin',
-  email: 'admin@amica.com',
+  email: 'admin@rabinohomebuilders.com',
   phone: '+63 912 345 6789',
   address: 'Metro Manila, Philippines',
   currentPassword: '',
@@ -36,7 +36,7 @@ export default function ProfileExperience() {
     return `${first}${last}`.trim() || 'A';
   }, [profile.firstName, profile.lastName]);
 
-  const fullName = `${profile.firstName} ${profile.lastName}`.trim() || 'AMICA Admin';
+  const fullName = `${profile.firstName} ${profile.lastName}`.trim() || 'Amica Residences Admin';
 
   useEffect(() => {
     setProfile(readLocalProfile());

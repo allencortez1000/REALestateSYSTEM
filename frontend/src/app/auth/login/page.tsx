@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { brand } from '@/data/brand';
 import { signInMockUser } from '@/lib/mockAuth';
 
 export default function LoginPage() {
@@ -19,9 +20,9 @@ export default function LoginPage() {
         <div className="overflow-hidden rounded-[2.75rem] border border-[#dbe5f2] bg-white/88 shadow-[0_30px_100px_rgba(5,14,30,0.10)] backdrop-blur-sm">
           <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_58%,#b98a3d_180%)] p-8 text-white sm:p-10 lg:p-12">
-              <Image src="/amicarealestate.jpg" alt="AMICA Condominium Realty Corporation" width={280} height={92} className="h-16 w-auto object-contain" priority />
+              <Image src={brand.logo} alt={brand.name} width={280} height={92} className="h-16 w-auto object-contain" priority />
               <div className="mt-10 text-xs uppercase tracking-[0.35em] text-[#f2cf5b]">Customer access</div>
-              <h1 className="mt-4 text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.94] tracking-[-0.08em] text-white">Sign in to your AMICA workspace.</h1>
+              <h1 className="mt-4 text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.94] tracking-[-0.08em] text-white">Sign in to your Amica Residences workspace.</h1>
               <p className="mt-5 max-w-lg text-base leading-8 text-white/74">Access saved homes, inquiries, viewings, and messages through a clean, premium portal experience.</p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
@@ -52,7 +53,7 @@ export default function LoginPage() {
               <div className="mt-6 rounded-[1.5rem] border border-[#dbe5f2] bg-[#f8fbff] p-4 text-sm text-slate-600">
                 <div className="font-semibold text-[#08122c]">Demo customer account</div>
                 <div className="mt-2 grid gap-1">
-                  <div><span className="font-medium text-slate-500">Email:</span> customer@rhbcrealestate.com</div>
+                  <div><span className="font-medium text-slate-500">Email:</span> customer@rabinohomebuilders.com</div>
                   <div><span className="font-medium text-slate-500">Password:</span> customer123</div>
                 </div>
               </div>
@@ -60,7 +61,7 @@ export default function LoginPage() {
               <div className="mt-8 grid gap-4">
                 <label className="grid gap-2">
                   <span className="sr-only">Email address</span>
-                  <input className="input" name="email" type="email" autoComplete="email" placeholder="Email address" defaultValue="customer@rhbcrealestate.com" />
+                  <input className="input" name="email" type="email" autoComplete="email" placeholder="Email address" defaultValue="customer@rabinohomebuilders.com" />
                 </label>
                 <label className="grid gap-2">
                   <span className="sr-only">Password</span>

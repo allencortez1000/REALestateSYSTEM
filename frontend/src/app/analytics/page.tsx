@@ -20,7 +20,7 @@ export default function AnalyticsPage() {
               <p className="mt-5 max-w-2xl text-base leading-8 text-[color:var(--warm-gray)]">Premium metrics and performance views tailored for a refined Philippine real estate business.</p>
             </div>
             <div className="bg-[linear-gradient(135deg,rgba(7,20,38,0.98)_0%,rgba(13,35,66,0.96)_55%,rgba(215,190,138,0.78)_180%)] p-6 text-white sm:p-8 lg:p-10">
-              <div className="text-xs uppercase tracking-[0.35em] text-[color:var(--champagne)]">AMICA insights</div>
+              <div className="text-xs uppercase tracking-[0.35em] text-[color:var(--champagne)]">Amica Residences insights</div>
               <div className="mt-4 text-3xl font-semibold leading-tight">Measure growth with clarity and discretion.</div>
               <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">Beautiful reporting with a calmer, more polished visual language for local property operations.</p>
             </div>

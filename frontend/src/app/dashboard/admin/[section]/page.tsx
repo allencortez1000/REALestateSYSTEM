@@ -8,7 +8,7 @@ type SectionPageProps = {
 const modules: Record<string, { title: string; description: string; blocks: { title: string; body: string }[] }> = {
   properties: {
     title: 'Model Houses',
-    description: 'Model-house table, grid view, filters, bulk actions, export tools, and a full add/edit workflow for AMICA residences.',
+    description: 'Model-house table, grid view, filters, bulk actions, export tools, and a full add/edit workflow for Amica Residences.',
     blocks: [
       { title: 'Listing table', body: 'Code, name, model type, location, price, lot area, floor area, status, featured flag, and actions.' },
       { title: 'Listing form', body: 'Basic information, location, house details, amenities, media, assignment, SEO, draft/publish, validation, and preview.' }
@@ -23,17 +23,17 @@ const modules: Record<string, { title: string; description: string; blocks: { ti
   },
   locations: {
     title: 'Locations',
-    description: 'Manage provinces, cities, municipalities, barangays, and featured locations for AMICA model houses across the Philippines.',
+    description: 'Manage provinces, cities, municipalities, barangays, and featured locations for Amica Residences model houses across the Philippines.',
     blocks: [{ title: 'Location manager', body: 'Add images, descriptions, featured flags, and property counts per location.' }]
   },
   leads: {
     title: 'Leads and Inquiries',
-    description: 'CRM-style lead pipeline for AMICA residences with status changes, priority, notes, follow-ups, and export tools.',
+    description: 'CRM-style lead pipeline for Amica Residences with status changes, priority, notes, follow-ups, and export tools.',
     blocks: [{ title: 'Lead workflow', body: 'New, contacted, qualified, viewing scheduled, negotiating, converted, closed, and lost.' }]
   },
   appointments: {
     title: 'Viewing Appointments',
-    description: 'Calendar, table, daily, weekly, and monthly views for all scheduled AMICA home visits.',
+    description: 'Calendar, table, daily, weekly, and monthly views for all scheduled Amica Residences home visits.',
     blocks: [{ title: 'Appointment management', body: 'Confirm, reschedule, cancel, mark completed, and send reminders.' }]
   },
   buyers: {
@@ -83,17 +83,17 @@ const modules: Record<string, { title: string; description: string; blocks: { ti
   },
   reports: {
     title: 'Reports and Analytics',
-    description: 'Revenue, leads, conversions, appointments, commissions, traffic, and exportable reports for AMICA listings.',
+    description: 'Revenue, leads, conversions, appointments, commissions, traffic, and exportable reports for Amica Residence listings.',
     blocks: [{ title: 'Performance reporting', body: 'Date filters, charts, print-ready summaries, and export support.' }]
   },
   notifications: {
     title: 'Notifications',
-    description: 'Notification center for inquiries, registrations, appointments, and AMICA system alerts.',
+    description: 'Notification center for inquiries, registrations, appointments, and Amica Residences system alerts.',
     blocks: [{ title: 'Notification center', body: 'Mark as read, unread filters, preferences, and alert management.' }]
   },
   settings: {
     title: 'Website Settings',
-    description: 'General, email, SEO, integrations, and security settings with tabbed organization for the AMICA platform.',
+    description: 'General, email, SEO, integrations, and security settings with tabbed organization for the Amica Residences platform.',
     blocks: [{ title: 'Settings tabs', body: 'Configure the site, email templates, integrations, and account security rules.' }]
   },
   accounts: {

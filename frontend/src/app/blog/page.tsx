@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { mockBlogPosts } from '@/data/mockData';
 
 export const metadata: Metadata = {
-  title: 'AMICA Journal',
-  description: 'Read RHBC/AMICA real estate articles about buying, design, location, and Philippine property market guidance.'
+  title: 'Amica Residences Journal',
+  description: 'Read Amica Residences by Rabino Home Builders Corporation real estate articles about buying, design, location, and Philippine property market guidance.'
 };
 
 export default function BlogPage() {
@@ -22,7 +22,7 @@ export default function BlogPage() {
               </p>
             </div>
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_62%,#13273f_100%)] p-6 text-white sm:p-8 lg:p-10">
-              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">AMICA Journal</div>
+              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">Amica Residences Journal</div>
               <div className="mt-4 text-3xl font-semibold leading-tight">A more polished way to read the market in the Philippines.</div>
               <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">Thoughtful content curated to feel premium, calm, and easy to scan.</p>
             </div>

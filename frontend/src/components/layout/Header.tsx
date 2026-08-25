@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { brand } from '@/data/brand';
 import CommandPalette from '../navigation/CommandPalette';
 
 const navItems = [
@@ -39,7 +40,7 @@ export default function Header() {
         }`}
       >
         <Link href="/" className="flex items-center gap-3 pl-1">
-          <Image src="/amicarealestate.jpg" alt="AMICA Condominium Realty Corporation" width={168} height={44} className="h-10 w-auto object-contain" priority />
+          <Image src={brand.logo} alt={brand.name} width={168} height={72} className="h-10 w-auto object-contain" priority />
         </Link>
 
         {!hidePublicNav && (

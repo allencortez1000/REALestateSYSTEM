@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { brand } from '@/data/brand';
 
 export default function Footer() {
   return (
@@ -7,8 +8,8 @@ export default function Footer() {
       <div className="mx-auto max-w-[1500px] px-6 py-12 md:px-10 lg:px-14 lg:py-14">
         <div className="grid gap-10 lg:grid-cols-[1.3fr_0.8fr_0.8fr_0.9fr]">
           <div>
-            <Image src="/amicarealestate.jpg" alt="AMICA Condominium Realty Corporation" width={260} height={86} className="h-16 w-auto object-contain" />
-            <p className="mt-4 max-w-md text-sm leading-7 text-white/72">A premium Philippine real estate platform presenting model houses, residences, and luxury developments with clarity, trust, and editorial restraint.</p>
+            <Image src={brand.logo} alt={brand.name} width={260} height={112} className="h-16 w-auto object-contain" />
+            <p className="mt-4 max-w-md text-sm leading-7 text-white/72">Amica Residences by Rabino Home Builders Corporation presents model houses and housing options with clarity, trust, and editorial restraint.</p>
             <div className="mt-6 flex max-w-md gap-2 rounded-full border border-white/12 bg-white/8 p-1.5 backdrop-blur">
               <label className="sr-only" htmlFor="footer-email">Your email for updates</label>
               <input id="footer-email" name="email" type="email" autoComplete="email" className="w-full bg-transparent px-3 text-sm text-white placeholder:text-white/45 outline-none" placeholder="Your email for updates" />
@@ -29,9 +30,9 @@ export default function Footer() {
           <div>
             <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#d7be8a]">Contact</div>
             <div className="mt-4 grid gap-3 text-sm text-white/75">
-              <span>hello@amica.com</span>
-              <span>+63 912 345 6789</span>
-              <span>Metro Manila, Philippines</span>
+              <span>{brand.email}</span>
+              <span>{brand.phone}</span>
+              <span>{brand.location}</span>
             </div>
           </div>
 
@@ -47,7 +48,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/48 md:flex-row md:items-center md:justify-between">
-          <span>© 2026 AMICA Condominium Realty Corporation</span>
+          <span>© 2026 {brand.name}</span>
           <div className="flex flex-wrap gap-4">
             <Link href="/properties" className="transition hover:text-white">Model Houses</Link>
             <Link href="/search" className="transition hover:text-white">Search</Link>

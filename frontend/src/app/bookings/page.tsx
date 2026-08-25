@@ -3,7 +3,7 @@ import BookingsExperience from './BookingsExperience';
 
 export const metadata: Metadata = {
   title: 'Bookings',
-  description: 'Manage model-house viewing requests and booking schedules in the AMICA customer experience.'
+  description: 'Manage model-house viewing requests and booking schedules in the Amica Residences customer experience.'
 };
 
 export default function BookingsPage() {
@@ -18,7 +18,7 @@ export default function BookingsPage() {
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">Schedule, reschedule, and manage private viewings through a clean premium workflow across Metro Manila and nearby cities.</p>
             </div>
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_62%,#13273f_100%)] p-6 text-white sm:p-8 lg:p-10">
-              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">AMICA bookings</div>
+              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">Amica Residences bookings</div>
               <div className="mt-4 text-3xl font-semibold leading-tight">A calmer appointment system for premium viewings.</div>
               <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">Coordinate tours with clarity and confidence.</p>
             </div>
