@@ -200,17 +200,32 @@ export default function HomePage() {
           </section>
 
           <aside className="grid gap-4">
-            <section className="rounded-[2.35rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,#071426_0%,#0d2342_72%,#13273f_100%)] p-6 text-white shadow-[0_18px_60px_rgba(5,14,30,0.10)] sm:p-8">
-              <div className="section-label text-[#d7be8a]">Rabino Home Builders Corporation</div>
-              <h2 className="mt-4 text-[clamp(1.8rem,4vw,2.8rem)] font-semibold leading-[1.05] tracking-[-0.05em] text-white">Turning dreams into possibilities.</h2>
-              <div className="mt-6 grid gap-3">
-                {brandStatements.map((item, index) => (
-                  <div key={item.title} className="rounded-[1.5rem] border border-white/12 bg-white/[0.06] p-4">
-                    <div className="text-[10px] uppercase tracking-[0.34em] text-[#d7be8a]">0{index + 1}</div>
-                    <div className="mt-2 text-sm font-semibold text-white">{item.title}</div>
-                    <p className="mt-2 text-sm leading-6 text-white/72">{item.text}</p>
-                  </div>
-                ))}
+            <section className="relative overflow-hidden rounded-[2.35rem] border border-[rgba(215,190,138,0.38)] bg-[radial-gradient(circle_at_top_left,rgba(215,190,138,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_28%),linear-gradient(160deg,#071426_0%,#0d2342_58%,#13273f_100%)] p-6 text-white shadow-[0_24px_80px_rgba(5,14,30,0.18)] sm:p-8">
+              <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full border border-white/10 bg-white/[0.03]" />
+              <div className="pointer-events-none absolute -bottom-24 left-8 h-44 w-44 rounded-full bg-[#d7be8a]/10 blur-3xl" />
+
+              <div className="relative">
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/12 bg-white/[0.07] px-3 py-2 backdrop-blur-md">
+                  <Image src={brand.logo} alt="" width={44} height={44} className="h-8 w-auto rounded-sm bg-white object-contain p-1" />
+                  <span className="text-[10px] font-bold uppercase leading-4 tracking-[0.24em] text-[#d7be8a]">{brand.companyName}</span>
+                </div>
+
+                <h2 className="mt-5 text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.06em] text-white">Turning dreams into possibilities.</h2>
+                <p className="mt-4 text-sm leading-7 text-white/68">Official brand foundation guiding every home, family, and community we serve.</p>
+
+                <div className="mt-7 grid gap-3">
+                  {brandStatements.map((item, index) => (
+                    <article key={item.title} className="group rounded-[1.6rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.055))] p-4 shadow-[0_18px_42px_rgba(0,0,0,0.12)] backdrop-blur-sm transition hover:border-[#d7be8a]/40 hover:bg-white/[0.11] sm:p-5">
+                      <div className="flex items-start gap-4">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d7be8a]/35 bg-[#d7be8a]/14 text-xs font-bold text-[#f2cf5b]">0{index + 1}</div>
+                        <div>
+                          <div className="text-xs font-bold uppercase leading-5 tracking-[0.24em] text-[#d7be8a]">{item.title}</div>
+                          <p className="mt-2 text-sm leading-7 text-white/76">{item.text}</p>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
             </section>
 
