@@ -1,6 +1,9 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { getModelHouseHref, modelHouses } from '@/data/modelHouses';
+import PropertyCard from '@/components/properties/PropertyCard';
+import DashboardPanel from '@/components/ui/DashboardPanel';
+import MetricCard from '@/components/ui/MetricCard';
+import StatusBadge from '@/components/ui/StatusBadge';
+import { modelHouses } from '@/data/modelHouses';
 import CustomerShell from './_components/CustomerShell';
 
 const quickActions = [
@@ -67,25 +70,16 @@ const savedHomeMeta = [
   { slug: 'low-cost-housing', status: 'Viewed' }
 ];
 
-const savedHomes = savedHomeMeta.map((item) => {
-  const listing = modelHouses.find((model) => model.slug === item.slug)!;
-
-  return {
-    title: listing.title,
-    note: listing.type,
-    price: listing.price,
-    status: item.status,
-    href: getModelHouseHref(listing.slug),
-    image: listing.image,
-    bestFor: listing.bestFor.replace(/^Best for\s+/i, '')
-  };
-});
+const savedHomes = savedHomeMeta.map((item) => ({
+  status: item.status,
+  listing: modelHouses.find((model) => model.slug === item.slug)!
+}));
 
 export default function CustomerDashboardPage() {
   return (
     <CustomerShell title="Dashboard" description="Your personal portal for browsing Amica Residences model houses, managing saved listings, inquiries, appointments, documents, messages, and seller tools.">
       <div className="grid gap-6 min-[1800px]:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)]">
-        <div className="rounded-[1.75rem] border border-[#e7dcc8] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+        <DashboardPanel>
           <div className="section-label">Welcome</div>
           <div className="mt-3 flex items-end justify-between gap-4">
             <div>
@@ -100,10 +94,7 @@ export default function CustomerDashboardPage() {
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {cards.map(([label, value]) => (
-              <div key={label} className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.86)] p-4">
-                <div className="text-[11px] uppercase leading-5 tracking-[0.18em] text-slate-500">{label}</div>
-                <div className="mt-2 break-words text-2xl font-semibold leading-tight text-[#071426]">{value}</div>
-              </div>
+              <MetricCard key={label} label={label} value={value} />
             ))}
           </div>
 
@@ -117,31 +108,9 @@ export default function CustomerDashboardPage() {
                 <Link href="/favorites" className="text-sm font-semibold text-[#8a6428] underline-offset-4 hover:underline">View all saved</Link>
               </div>
 
-              <div className="mt-5 grid gap-4">
+              <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {savedHomes.map((item) => (
-                  <article key={item.title} className="overflow-hidden rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-white shadow-[0_12px_34px_rgba(9,21,64,0.06)]">
-                    <div className="grid gap-0 md:grid-cols-[minmax(180px,0.9fr)_minmax(0,1.25fr)]">
-                      <div className="relative min-h-64 bg-[#071426] md:min-h-full">
-                        <Image src={item.image} alt={item.title} fill className="object-cover" />
-                        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,20,38,0.05),rgba(7,20,38,0.45))]" />
-                        <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#071426]">{item.status}</span>
-                      </div>
-
-                      <div className="min-w-0 p-5">
-                        <div className="flex flex-wrap gap-2">
-                          <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase leading-4 tracking-[0.16em] text-[#8a6428]">Best for {item.bestFor}</span>
-                          <span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase leading-4 tracking-[0.16em] text-white">{item.note}</span>
-                        </div>
-                        <h4 className="mt-3 text-2xl font-semibold leading-tight tracking-[-0.04em] text-[#071426]">{item.title}</h4>
-                        <div className="mt-2 break-words text-lg font-semibold text-[#b98a3d]">{item.price}</div>
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          <Link href={item.href} className="rounded-full bg-[#071426] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#0d2342]">View details</Link>
-                          <Link href="/compare" className="rounded-full border border-[#e7dcc8] px-4 py-2 text-xs font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0]">Compare</Link>
-                          <button className="rounded-full border border-[#e7dcc8] px-4 py-2 text-xs font-semibold text-slate-500 transition hover:bg-[#fbf8f0]">Remove</button>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
+                  <PropertyCard key={item.listing.slug} listing={item.listing} label={item.status} variant="compact" showFavorite={false} showCompare />
                 ))}
               </div>
             </div>
@@ -183,30 +152,30 @@ export default function CustomerDashboardPage() {
               <div key={item} className="rounded-full border border-[#e6dcc7] bg-[#fbf8f0] px-4 py-2 text-sm text-slate-600">{item}</div>
             ))}
           </div>
-        </div>
+        </DashboardPanel>
 
-        <div className="rounded-[1.75rem] border border-[#e7dcc8] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+        <DashboardPanel>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <div className="section-label">Notification center</div>
               <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Recent updates</h3>
             </div>
-            <span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">4 unread</span>
+            <StatusBadge tone="navy">4 unread</StatusBadge>
           </div>
 
           <div className="mt-5 grid gap-3">
             {notifications.map((item) => {
               const priorityTone = item.priority === 'High'
-                ? 'bg-rose-50 text-rose-700 border-rose-100'
+                ? 'danger'
                 : item.priority === 'Medium'
-                  ? 'bg-[#fbf8f0] text-[#8a6428] border-[#e7dcc8]'
-                  : 'bg-emerald-50 text-emerald-700 border-emerald-100';
+                  ? 'cream'
+                  : 'success';
 
               return (
                 <article key={item.title} className="rounded-[1.35rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#ffffff_0%,#fbf8f0_100%)] p-4">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">{item.category}</span>
-                    <span className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] ${priorityTone}`}>{item.priority}</span>
+                    <StatusBadge tone="navy">{item.category}</StatusBadge>
+                    <StatusBadge tone={priorityTone}>{item.priority}</StatusBadge>
                     <span className="text-xs text-slate-400">{item.time}</span>
                   </div>
                   <div className="mt-3 text-sm font-semibold text-[#071426]">{item.title}</div>
@@ -223,17 +192,17 @@ export default function CustomerDashboardPage() {
               <div>Buyer guide: preparing your reservation requirements</div>
             </div>
           </div>
-        </div>
+        </DashboardPanel>
       </div>
 
-      <section className="mt-6 rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+      <DashboardPanel className="mt-6">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="section-label">Inquiry tracker</div>
             <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">HERA model house progress</h3>
             <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">A UI-only progress tracker showing how a buyer inquiry can move from first contact to reservation.</p>
           </div>
-          <span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">Viewing scheduled</span>
+          <StatusBadge tone="navy">Viewing scheduled</StatusBadge>
         </div>
 
         <div className="mt-6 grid gap-4 lg:grid-cols-5">
@@ -246,33 +215,33 @@ export default function CustomerDashboardPage() {
             return (
               <article key={item.step} className={`relative rounded-[1.35rem] border p-4 ${cardTone}`}>
                 {index < inquiryProgress.length - 1 ? <div className="absolute left-8 top-9 hidden h-px w-[calc(100%+1rem)] bg-[#e7dcc8] lg:block" /> : null}
-                <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-xs font-bold ${circleTone}">{isDone ? '✓' : String(index + 1).padStart(2, '0')}</div>
+                <div className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-xs font-bold ${circleTone}`}>{isDone ? '✓' : String(index + 1).padStart(2, '0')}</div>
                 <h4 className="mt-4 text-sm font-semibold text-[#071426]">{item.step}</h4>
                 <p className="mt-2 text-xs leading-5 text-slate-500">{item.description}</p>
               </article>
             );
           })}
         </div>
-      </section>
+      </DashboardPanel>
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-        <section className="rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+        <DashboardPanel>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <div className="section-label">Document checklist</div>
               <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Buyer requirements</h3>
             </div>
-            <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6428]">UI preview</span>
+            <StatusBadge>UI preview</StatusBadge>
           </div>
           <p className="mt-3 text-sm leading-7 text-slate-600">Use this checklist as a guide for common documents needed during inquiry, reservation, and review. Statuses are sample UI states only.</p>
 
           <div className="mt-5 grid gap-3">
             {documentChecklist.map((document) => {
               const statusTone = document.status === 'Approved'
-                ? 'bg-emerald-50 text-emerald-700 border-emerald-100'
+                ? 'success'
                 : document.status === 'Required'
-                  ? 'bg-rose-50 text-rose-700 border-rose-100'
-                  : 'bg-[#fbf8f0] text-[#8a6428] border-[#e7dcc8]';
+                  ? 'danger'
+                  : 'cream';
 
               return (
                 <article key={document.name} className="rounded-[1.35rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#ffffff_0%,#fbf8f0_100%)] p-4">
@@ -281,7 +250,7 @@ export default function CustomerDashboardPage() {
                       <h4 className="font-semibold text-[#071426]">{document.name}</h4>
                       <p className="mt-1 text-sm leading-6 text-slate-500">{document.note}</p>
                     </div>
-                    <span className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] ${statusTone}`}>{document.status}</span>
+                    <StatusBadge tone={statusTone}>{document.status}</StatusBadge>
                   </div>
                 </article>
               );
@@ -289,19 +258,16 @@ export default function CustomerDashboardPage() {
           </div>
 
           <button className="mt-5 w-full rounded-full border border-[#e7dcc8] bg-[#071426] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#0d2342]">Upload document</button>
-        </section>
+        </DashboardPanel>
 
-        <section className="rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+        <DashboardPanel>
           <div className="section-label">Seller overview</div>
         <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {sellerCards.map(([label, value]) => (
-            <div key={label} className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.86)] p-4">
-              <div className="text-xs uppercase tracking-[0.22em] text-slate-500">{label}</div>
-              <div className="mt-2 text-2xl font-semibold text-[#071426]">{value}</div>
-            </div>
+            <MetricCard key={label} label={label} value={value} />
           ))}
         </div>
-        </section>
+        </DashboardPanel>
       </div>
     </CustomerShell>
   );

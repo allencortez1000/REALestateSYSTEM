@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import HeroSlideshow from '@/components/home/HeroSlideshow';
+import PropertyCard from '@/components/properties/PropertyCard';
+import PageHero from '@/components/ui/PageHero';
+import ResponsiveGrid from '@/components/ui/ResponsiveGrid';
 import { brand } from '@/data/brand';
 import { getModelHouseHref, homeFeaturedModelHouses, homePaymentPreviews } from '@/data/modelHouses';
 
@@ -11,7 +14,7 @@ const featureBullets = [
   { title: 'Amica Residences standard', text: 'Editorial design, trusted service, and a refined digital experience' }
 ];
 
-const accentClasses = ['bg-[#b98a3d]', 'bg-[#17365f]', 'bg-[#0d2342]'];
+
 const homeTypes = [
   {
     title: 'Luxury Residence',
@@ -71,62 +74,54 @@ export default function HomePage() {
   return (
     <main className="px-4 pb-6 pt-4 sm:px-6 lg:px-8">
       <section className="mx-auto max-w-[1500px]">
-        <div className="overflow-hidden rounded-[2rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f1_0%,#f4efe6_100%)] shadow-[0_30px_100px_rgba(5,14,30,0.10)] sm:rounded-[2.75rem]">
-          <div className="grid gap-0 xl:grid-cols-[minmax(0,1.02fr)_minmax(360px,0.98fr)]">
-            <div className="px-6 pb-8 pt-6 sm:px-8 lg:px-10 lg:pb-10 lg:pt-8">
-              <div className="max-w-xl animate-reveal">
-                <div className="flex items-center gap-3">
-                  <Image src={brand.logo} alt={brand.name} width={300} height={130} className="h-20 w-auto object-contain" priority />
-                </div>
-                <div className="mt-6 section-label text-[#b98a3d]">{brand.companyName}</div>
-                <h1 className="mt-5 text-[clamp(2.45rem,11vw,6.2rem)] leading-[0.94] tracking-[-0.075em] text-[#071426] sm:leading-[0.9] sm:tracking-[-0.09em]">
-                  Elegant homes,
-                  <span className="block text-[#0d2342]">distinctly Amica.</span>
-                </h1>
-                <p className="mt-6 max-w-lg text-base leading-8 text-slate-600 sm:text-lg">
-                  Amica Residences by Rabino Home Builders Corporation presents premium model houses, housing options, and investment-ready residences across the Philippines.
-                </p>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="/properties" className="btn-primary">Explore residences</Link>
-                  <Link href="/search" className="btn-outline">Search listings</Link>
-                </div>
-
-                <div className="mt-10 grid gap-3 sm:grid-cols-3 xl:grid-cols-1 min-[1400px]:grid-cols-3">
-                  <div className="rounded-[1.35rem] border border-[#e7dcc8] bg-white px-4 py-4 shadow-[0_10px_28px_rgba(5,14,30,0.05)]">
-                    <div className="break-words text-2xl font-semibold text-[#071426]">6</div>
-                    <div className="mt-1 text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">Model houses</div>
-                  </div>
-                  <div className="rounded-[1.35rem] border border-[#e7dcc8] bg-white px-4 py-4 shadow-[0_10px_28px_rgba(5,14,30,0.05)]">
-                    <div className="break-words text-2xl font-semibold text-[#071426]">Metro Manila</div>
-                    <div className="mt-1 text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">Primary market</div>
-                  </div>
-                  <div className="rounded-[1.35rem] border border-[#e7dcc8] bg-white px-4 py-4 shadow-[0_10px_28px_rgba(5,14,30,0.05)]">
-                    <div className="break-words text-2xl font-semibold text-[#071426]">4.9/5</div>
-                    <div className="mt-1 text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">Client rating</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="px-4 pb-4 pt-0 sm:px-5 xl:px-6 xl:pt-6">
-              <HeroSlideshow />
-            </div>
+        <PageHero
+          className="bg-[linear-gradient(180deg,#fbf8f1_0%,#f4efe6_100%)] shadow-[0_30px_100px_rgba(5,14,30,0.10)]"
+          eyebrow={brand.companyName}
+          title={
+            <>
+              Elegant homes,
+              <span className="block text-[#0d2342]">distinctly Amica.</span>
+            </>
+          }
+          description="Amica Residences by Rabino Home Builders Corporation presents premium model houses, housing options, and investment-ready residences across the Philippines."
+          asideClassName="bg-transparent p-4 pt-0 sm:p-5 xl:p-6 xl:pt-6"
+          aside={<HeroSlideshow />}
+        >
+          <div className="mt-6 flex items-center gap-3">
+            <Image src={brand.logo} alt={brand.name} width={300} height={130} className="h-20 w-auto object-contain" priority />
           </div>
 
-          <div className="grid gap-3 border-t border-[rgba(231,220,200,0.9)] bg-[linear-gradient(180deg,rgba(247,243,234,0.86),rgba(255,255,255,0.92))] p-4 sm:grid-cols-2 xl:grid-cols-4 sm:p-5">
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/properties" className="btn-primary">Explore residences</Link>
+            <Link href="/search" className="btn-outline">Search listings</Link>
+          </div>
+
+          <div className="mt-10 grid gap-3 sm:grid-cols-3 xl:grid-cols-1 min-[1400px]:grid-cols-3">
+            {[
+              ['6', 'Model houses'],
+              ['Metro Manila', 'Primary market'],
+              ['4.9/5', 'Client rating']
+            ].map(([value, label]) => (
+              <div key={label} className="rounded-[1.35rem] border border-[#e7dcc8] bg-white px-4 py-4 shadow-[0_10px_28px_rgba(5,14,30,0.05)]">
+                <div className="break-words text-2xl font-semibold text-[#071426]">{value}</div>
+                <div className="mt-1 text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">{label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-3 border-t border-[rgba(231,220,200,0.9)] pt-5 sm:grid-cols-2 xl:grid-cols-1 min-[1400px]:grid-cols-2">
             {featureBullets.map((item, index) => {
               const delays = ['animate-reveal', 'animate-reveal-delay-1', 'animate-reveal-delay-2', 'animate-reveal-delay-3'];
               return (
                 <div key={item.title} className={`rounded-[1.5rem] border border-[rgba(227,235,246,0.95)] bg-white/92 p-5 text-[#071426] shadow-[0_12px_30px_rgba(5,14,30,0.05)] ${delays[index]}`}>
-                  <div className="text-[10px] uppercase tracking-[0.34em] text-[#b98a3d]">0{index + 1}</div>
+                  <div className="text-[10px] uppercase leading-4 tracking-[0.16em] text-[#b98a3d]">0{index + 1}</div>
                   <div className="mt-3 text-sm font-semibold">{item.title}</div>
                   <div className="mt-1 text-xs leading-6 text-slate-500">{item.text}</div>
                 </div>
               );
             })}
           </div>
-        </div>
+        </PageHero>
 
         <section className="mt-6 rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,243,234,0.88))] p-6 shadow-[0_18px_60px_rgba(5,14,30,0.08)] sm:rounded-[2.35rem] sm:p-8">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -137,7 +132,7 @@ export default function HomePage() {
             <Link href="/compare" className="rounded-full border border-[#e7dcc8] bg-white px-5 py-3 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0]">Compare all models</Link>
           </div>
 
-          <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 min-[1500px]:grid-cols-5">
+          <ResponsiveGrid columns="auto" className="mt-7 xl:grid-cols-3 min-[1500px]:grid-cols-5">
             {homeTypes.map((type, index) => (
               <article key={type.title} className="group rounded-[1.75rem] border border-[#e7dcc8] bg-white p-5 shadow-[0_14px_36px_rgba(5,14,30,0.06)] transition hover:-translate-y-1 hover:shadow-[0_22px_54px_rgba(5,14,30,0.10)]">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#071426] text-xs font-bold text-white">0{index + 1}</div>
@@ -150,7 +145,7 @@ export default function HomePage() {
                 </div>
               </article>
             ))}
-          </div>
+          </ResponsiveGrid>
         </section>
 
         <section className="mt-6 overflow-hidden rounded-[2.35rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(135deg,#071426_0%,#0d2342_62%,#13273f_100%)] p-6 text-white shadow-[0_18px_60px_rgba(5,14,30,0.10)] sm:p-8">
@@ -161,7 +156,7 @@ export default function HomePage() {
               <p className="mt-4 text-sm leading-7 text-white/72">These are UI-only sample computations based on the provided reference materials. Final terms are subject to approval and prevailing rates.</p>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-3">
+            <ResponsiveGrid columns="auto" className="md:grid-cols-2 min-[1400px]:grid-cols-3">
               {homePaymentPreviews.map((item) => (
                 <article key={item.model} className="rounded-[1.65rem] border border-white/12 bg-white/[0.08] p-5 backdrop-blur-sm">
                   <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#d7be8a]">{item.model}</div>
@@ -174,7 +169,7 @@ export default function HomePage() {
                   </div>
                 </article>
               ))}
-            </div>
+            </ResponsiveGrid>
           </div>
         </section>
 
@@ -190,21 +185,7 @@ export default function HomePage() {
 
             <div className="mt-6 grid gap-4 md:grid-cols-2 min-[1400px]:grid-cols-3">
               {homeFeaturedModelHouses.map((community, index) => (
-                <article key={community.title} className="group rounded-[1.85rem] border border-[rgba(227,235,246,0.95)] bg-white p-4 shadow-[0_14px_36px_rgba(5,14,30,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(185,138,61,0.28)] hover:shadow-[0_24px_60px_rgba(5,14,30,0.10)]">
-                  <div className={`h-1.5 w-16 rounded-full ${accentClasses[index]}`} />
-                  <div className="mt-4 flex items-start justify-between gap-3">
-                    <div>
-                      <div className="text-[10px] uppercase tracking-[0.34em] text-[#b98a3d]">0{index + 1}</div>
-                      <h3 className="mt-2 text-lg font-semibold text-[#071426]">{community.title}</h3>
-                    </div>
-                    <div className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1.5 text-xs font-semibold text-[#8a6428]">{community.lotArea} • {community.floorArea}</div>
-                  </div>
-                  <p className="mt-4 text-sm leading-6 text-slate-500">{community.summary}</p>
-                  <div className="mt-5 flex items-center justify-between gap-3 border-t border-[#f0e5d1] pt-4">
-                    <span className="text-sm font-semibold text-[#b98a3d]">{community.price}</span>
-                    <Link href={getModelHouseHref(community.slug)} className="text-sm font-semibold text-[#071426] transition group-hover:text-[#0d2342]">Details →</Link>
-                  </div>
-                </article>
+                <PropertyCard key={community.slug} listing={community} label={`Featured 0${index + 1}`} variant="compact" showFavorite={false} />
               ))}
             </div>
           </section>

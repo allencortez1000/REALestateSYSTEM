@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import DashboardPanel from '@/components/ui/DashboardPanel';
+import MetricCard from '@/components/ui/MetricCard';
+import StatusBadge from '@/components/ui/StatusBadge';
 import { modelHouses } from '@/data/modelHouses';
 import AdminShell from './_components/AdminShell';
 
@@ -99,15 +102,12 @@ export default function AdminDashboardPage() {
     <AdminShell title="Dashboard" description="Premium overview of model houses, leads, appointments, performance, and platform activity across the Amica Residences admin system in the Philippines.">
       <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {metrics.map(([label, value]) => (
-          <div key={label} className="rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)]">
-            <div className="section-label">{label}</div>
-            <div className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-[#071426]">{value}</div>
-          </div>
+          <MetricCard key={label} label={label} value={value} className="bg-white p-6" />
         ))}
       </div>
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[1.25fr_0.75fr]">
-        <div className="rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+        <DashboardPanel>
           <div className="flex items-center justify-between gap-4">
             <div>
               <div className="section-label">Analytics</div>
@@ -121,18 +121,9 @@ export default function AdminDashboardPage() {
           </div>
 
           <div className="mt-6 grid gap-4 lg:grid-cols-3">
-            <div className="rounded-[1.5rem] border border-[#efe5c3] bg-[#fbf8f0] p-5">
-              <div className="text-sm text-slate-500">Monthly leads</div>
-              <div className="mt-2 text-3xl font-semibold text-[#071426]">284</div>
-            </div>
-            <div className="rounded-[1.5rem] border border-[#efe5c3] bg-[#fbf8f0] p-5">
-              <div className="text-sm text-slate-500">Scheduled viewings</div>
-              <div className="mt-2 text-3xl font-semibold text-[#071426]">68</div>
-            </div>
-            <div className="rounded-[1.5rem] border border-[#efe5c3] bg-[#fbf8f0] p-5">
-              <div className="text-sm text-slate-500">Total property value</div>
-              <div className="mt-2 text-3xl font-semibold text-[#071426]">₱1.42B</div>
-            </div>
+            <MetricCard label="Monthly leads" value="284" />
+            <MetricCard label="Scheduled viewings" value="68" />
+            <MetricCard label="Total property value" value="₱1.42B" />
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -143,9 +134,9 @@ export default function AdminDashboardPage() {
               </div>
             ))}
           </div>
-        </div>
+        </DashboardPanel>
 
-        <div className="rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+        <DashboardPanel>
           <div className="section-label">Recent activity</div>
           <div className="mt-4 grid gap-3">
             {recentItems.map((item) => (
@@ -157,10 +148,10 @@ export default function AdminDashboardPage() {
             <div className="mt-3 text-2xl font-semibold">Maria Santos</div>
             <div className="mt-2 text-sm text-white/60">₱24.8M monthly sales • 18 qualified leads • 9 completed viewings</div>
           </div>
-        </div>
+        </DashboardPanel>
       </div>
 
-      <div className="mt-6 rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+      <DashboardPanel className="mt-6">
         <div className="flex items-center justify-between gap-4">
           <div>
             <div className="section-label">Priority queue</div>
@@ -176,16 +167,16 @@ export default function AdminDashboardPage() {
             </div>
           ))}
         </div>
-      </div>
+      </DashboardPanel>
 
-      <section className="mt-6 rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+      <DashboardPanel className="mt-6">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="section-label">Sales performance</div>
             <h2 className="mt-2 text-[clamp(1.8rem,4vw,2.4rem)] font-semibold text-[#071426]">Top model-house activity</h2>
             <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">Static UI preview for views, inquiries, and conversion indicators across key RHBC models.</p>
           </div>
-          <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6428]">Monthly preview</span>
+          <StatusBadge>Monthly preview</StatusBadge>
         </div>
 
         <div className="mt-6 grid gap-6 xl:grid-cols-[1fr_0.75fr]">
@@ -197,7 +188,7 @@ export default function AdminDashboardPage() {
                     <div className="font-semibold text-[#071426]">{item.model}</div>
                     <div className="mt-1 text-sm text-slate-500">{item.views} views • {item.inquiries} inquiries</div>
                   </div>
-                  <span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">{item.conversion} conversion</span>
+                  <StatusBadge tone="navy">{item.conversion} conversion</StatusBadge>
                 </div>
                 <div className="mt-4 h-3 overflow-hidden rounded-full bg-[#efe5d0]">
                   <div className={`${item.width} h-full rounded-full bg-[linear-gradient(90deg,#b98a3d,#071426)]`} />
@@ -217,9 +208,9 @@ export default function AdminDashboardPage() {
             </div>
           </div>
         </div>
-      </section>
+      </DashboardPanel>
 
-      <section className="mt-6 overflow-hidden rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white shadow-[0_16px_50px_rgba(9,21,64,0.08)]">
+      <DashboardPanel className="mt-6 overflow-hidden" padded={false}>
         <div className="flex flex-col gap-4 border-b border-[#e7dcc8] bg-[#fbf8f0] p-6 sm:p-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="section-label text-[#b98a3d]">Model house management</div>
@@ -250,7 +241,7 @@ export default function AdminDashboardPage() {
                   </td>
                   <td className="border-b border-[#f0e5d1] px-6 py-4 text-sm text-slate-600">{row.type}</td>
                   <td className="border-b border-[#f0e5d1] px-6 py-4 text-sm font-semibold text-[#8a6428]">{row.price}</td>
-                  <td className="border-b border-[#f0e5d1] px-6 py-4"><span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">{row.status}</span></td>
+                  <td className="border-b border-[#f0e5d1] px-6 py-4"><StatusBadge tone="navy">{row.status}</StatusBadge></td>
                   <td className="border-b border-[#f0e5d1] px-6 py-4 text-sm font-semibold text-[#071426]">{row.inquiries}</td>
                   <td className="border-b border-[#f0e5d1] px-6 py-4">
                     <div className="flex flex-wrap gap-2">
@@ -264,9 +255,9 @@ export default function AdminDashboardPage() {
             </tbody>
           </table>
         </div>
-      </section>
+      </DashboardPanel>
 
-      <section className="mt-6 rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
+      <DashboardPanel className="mt-6">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="section-label">Lead pipeline</div>
@@ -274,8 +265,8 @@ export default function AdminDashboardPage() {
             <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">A UI-only board showing how customer inquiries could move from first contact to reservation. Cards are static placeholders for presentation.</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6428]">Kanban preview</span>
-            <span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">Admin UI</span>
+            <StatusBadge>Kanban preview</StatusBadge>
+            <StatusBadge tone="navy">Admin UI</StatusBadge>
           </div>
         </div>
 
@@ -287,14 +278,14 @@ export default function AdminDashboardPage() {
                   <div className="text-sm font-semibold text-[#071426]">{column.stage}</div>
                   <div className="mt-1 text-xs text-slate-500">{column.count} active leads</div>
                 </div>
-                <span className={`rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] ${column.tone}`}>{column.count}</span>
+                <StatusBadge tone="gold">{column.count}</StatusBadge>
               </div>
 
               <div className="mt-4 grid gap-3">
                 {column.leads.map((lead) => (
                   <article key={`${column.stage}-${lead.name}`} className="rounded-[1.25rem] border border-[#e7dcc8] bg-white p-4 shadow-[0_10px_24px_rgba(9,21,64,0.05)]">
                     <div className="text-sm font-semibold text-[#071426]">{lead.name}</div>
-                    <div className="mt-2 rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">{lead.model}</div>
+                    <StatusBadge tone="navy" className="mt-2">{lead.model}</StatusBadge>
                     <div className="mt-3 text-xs uppercase tracking-[0.24em] text-slate-400">Next action</div>
                     <div className="mt-1 text-sm leading-6 text-slate-600">{lead.next}</div>
                     <div className="mt-4 flex gap-2">
@@ -307,7 +298,7 @@ export default function AdminDashboardPage() {
             </div>
           ))}
         </div>
-      </section>
+      </DashboardPanel>
     </AdminShell>
   );
 }

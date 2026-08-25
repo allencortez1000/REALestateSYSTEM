@@ -1,10 +1,9 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { useMemo, useState } from 'react';
-import FavoriteButton from '@/components/properties/FavoriteButton';
-import { featuredModelHouses, getModelHouseHref } from '@/data/modelHouses';
+import PropertyCard from '@/components/properties/PropertyCard';
+import ResponsiveGrid from '@/components/ui/ResponsiveGrid';
+import { featuredModelHouses } from '@/data/modelHouses';
 
 const homeTypeOptions = ['All types', 'Luxury Residence', 'House Only', 'House & Lot', 'Low-Cost Housing', 'House Only / Model House'];
 const budgetOptions = ['Any budget', 'Below PHP 1.5M', 'PHP 2M–3M', 'PHP 3M–5M', 'PHP 8M+'];
@@ -114,30 +113,11 @@ export default function SearchExperience() {
       </div>
 
       {results.length > 0 ? (
-        <div className="mt-6 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+        <ResponsiveGrid className="mt-6 gap-7">
           {results.map((listing) => (
-            <article key={listing.title} className="card card-hover group overflow-hidden">
-              <div className="relative h-48 overflow-hidden bg-[#071426]">
-                <Image src={listing.image} alt={listing.title} fill className="object-cover transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,20,38,0.08),rgba(7,20,38,0.42))]" />
-                <div className="absolute left-4 top-4 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-md">{listing.type}</div>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap items-center gap-2">
-                  <div className="section-label text-[#b98a3d]">Model house</div>
-                  <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6428]">{listing.bestFor}</span>
-                </div>
-                <h3 className="mt-3 text-[clamp(1.5rem,2vw,1.95rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[#071426]">{listing.title}</h3>
-                <p className="mt-2 text-sm text-slate-500">{listing.lotArea} • {listing.floorArea}</p>
-                <div className="mt-4 text-xl font-semibold text-[#b98a3d]">{listing.price}</div>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Link href={getModelHouseHref(listing.slug)} className="btn-primary inline-flex">View details</Link>
-                  <FavoriteButton slug={listing.slug} />
-                </div>
-              </div>
-            </article>
+            <PropertyCard key={listing.slug} listing={listing} label={listing.type} />
           ))}
-        </div>
+        </ResponsiveGrid>
       ) : (
         <div className="mt-6 rounded-[2rem] border border-[#e7dcc8] bg-white p-8 text-center shadow-[0_18px_50px_rgba(9,21,64,0.07)]">
           <div className="section-label text-[#b98a3d]">No matches</div>

@@ -1,18 +1,8 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { inquiryTopics } from '@/data/contact';
 import { modelHouseOptions } from '@/data/modelHouses';
-
-const inquiryTopics = [
-  'Model-house viewing',
-  'Sample computation',
-  'Reservation requirements',
-  'Document checklist',
-  'Low-cost housing options',
-  'Buyer consultation'
-];
-
-export { inquiryTopics };
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);

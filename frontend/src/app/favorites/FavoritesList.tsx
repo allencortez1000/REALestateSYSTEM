@@ -1,10 +1,11 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import FavoriteButton, { hasStoredFavorites, readFavorites } from '@/components/properties/FavoriteButton';
-import { getModelHouseHref, modelHouses } from '@/data/modelHouses';
+import PropertyCard from '@/components/properties/PropertyCard';
+import ResponsiveGrid from '@/components/ui/ResponsiveGrid';
+import { modelHouses } from '@/data/modelHouses';
 
 const defaultFavoriteSlugs = ['hera-model-house', 'kasandra-model-house', 'low-cost-housing'];
 
@@ -41,26 +42,10 @@ export default function FavoritesList() {
   }
 
   return (
-    <div className="mt-10 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+    <ResponsiveGrid className="mt-10 gap-7">
       {favoriteListings.map((property) => (
-        <article key={property.title} className="card card-hover group overflow-hidden">
-          <div className="relative h-52 overflow-hidden bg-[linear-gradient(150deg,_#08122c,_#0b2d66_60%,_#7fd34e_180%)]">
-            <Image src={property.image} alt={property.title} fill className="object-cover opacity-80 transition duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_45%),linear-gradient(180deg,rgba(8,18,44,0.08),rgba(8,18,44,0.55))]" />
-            <FavoriteButton slug={property.slug} variant="pill" className="absolute right-4 top-4" />
-          </div>
-          <div className="p-6">
-            <div className="section-label text-[#b98a3d]">{property.type}</div>
-            <h2 className="mt-3 text-xl font-bold text-[#08122c]">{property.title}</h2>
-            <p className="mt-2 text-sm leading-6 text-slate-500">{property.lotArea} • {property.floorArea}</p>
-            <div className="mt-3 text-2xl font-bold text-[#0b2d66]">{property.price}</div>
-            <div className="mt-5 flex gap-3">
-              <Link href={getModelHouseHref(property.slug)} className="btn-outline px-5 py-2 text-xs">View</Link>
-              <Link href="/compare" className="btn-primary px-5 py-2 text-xs">Compare</Link>
-            </div>
-          </div>
-        </article>
+        <PropertyCard key={property.slug} listing={property} label="Saved" showCompare />
       ))}
-    </div>
+    </ResponsiveGrid>
   );
 }

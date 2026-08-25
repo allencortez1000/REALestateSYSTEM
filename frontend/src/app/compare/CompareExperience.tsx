@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import ResponsiveGrid from '@/components/ui/ResponsiveGrid';
 import { comparisonModelHouses } from '@/data/modelHouses';
 
 const featureRows = [
@@ -95,7 +96,7 @@ export default function CompareExperience() {
         </div>
       </section>
 
-      <section className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      <ResponsiveGrid as="section" className="mt-10 gap-5">
         {selectedListings.map((property) => (
           <article key={property.title} className="rounded-[1.5rem] border border-[#e7dcc8] bg-white p-5 shadow-[0_18px_50px_rgba(9,21,64,0.08)] sm:rounded-[2rem] sm:p-6">
             <div className="flex flex-wrap gap-2">
@@ -115,7 +116,7 @@ export default function CompareExperience() {
             </div>
           </article>
         ))}
-      </section>
+      </ResponsiveGrid>
 
       <section className="mt-10 overflow-hidden rounded-[2rem] border border-[#e5dcc9] bg-white/88 shadow-deep backdrop-blur">
         <div className="border-b border-[#e5dcc9] bg-[#fbf8f0] p-6">
