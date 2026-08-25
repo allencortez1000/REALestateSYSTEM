@@ -56,11 +56,11 @@ export default function AdminLoginPage() {
 
               <div className="mt-8 grid gap-4">
                 <label className="grid gap-2">
-                  <span className="sr-only">Admin email</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Admin email</span>
                   <input className="input" name="email" type="email" autoComplete="email" placeholder="Admin email" defaultValue="admin@rabinohomebuilders.com" />
                 </label>
                 <label className="grid gap-2">
-                  <span className="sr-only">Password</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Password</span>
                   <input className="input" name="password" type="password" autoComplete="current-password" placeholder="Password" defaultValue="admin123" />
                 </label>
                 <button type="submit" className="btn-primary mt-2 w-full text-center">Login to admin</button>

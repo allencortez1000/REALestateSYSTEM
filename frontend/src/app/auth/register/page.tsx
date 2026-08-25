@@ -47,15 +47,15 @@ export default function RegisterPage() {
 
               <div className="mt-8 grid gap-4">
                 <label className="grid gap-2">
-                  <span className="sr-only">Full name</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Full name</span>
                   <input className="input" name="fullName" autoComplete="name" placeholder="Full name" />
                 </label>
                 <label className="grid gap-2">
-                  <span className="sr-only">Email address</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Email address</span>
                   <input className="input" name="email" type="email" autoComplete="email" placeholder="Email address" />
                 </label>
                 <label className="grid gap-2">
-                  <span className="sr-only">Password</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Password</span>
                   <input className="input" name="password" type="password" autoComplete="new-password" placeholder="Password" />
                 </label>
                 <button type="submit" className="btn-primary mt-2 w-full text-center">Create account</button>

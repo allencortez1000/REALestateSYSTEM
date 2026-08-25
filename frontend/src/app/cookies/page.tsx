@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import PolicyPage from '@/components/legal/PolicyPage';
+import { brand } from '@/data/brand';
 
 export const metadata: Metadata = {
   title: 'Cookie Settings',
-  description: 'Review browser storage and future consent preferences for the Amica Residences by Rabino Home Builders Corporation website.'
+  description: `Review browser storage and future consent preferences for the ${brand.name} website.`
 };
 
 const sections = [

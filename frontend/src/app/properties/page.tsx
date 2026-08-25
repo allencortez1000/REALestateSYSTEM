@@ -3,11 +3,12 @@ import Link from 'next/link';
 import PropertyCard from '@/components/properties/PropertyCard';
 import PageHero from '@/components/ui/PageHero';
 import ResponsiveGrid from '@/components/ui/ResponsiveGrid';
+import { brand } from '@/data/brand';
 import { featuredModelHouses } from '@/data/modelHouses';
 
 export const metadata: Metadata = {
   title: 'Model Houses',
-  description: 'Browse Amica Residences by Rabino Home Builders Corporation model houses with prices, lot areas, floor areas, and buyer guidance.'
+  description: `Browse ${brand.name} model houses with prices, lot areas, floor areas, and buyer guidance.`
 };
 
 const buyingGuide = [

@@ -51,6 +51,34 @@ p, h1, h2, h3, h4, h5, h6, span, a, strong, small, li { overflow-wrap: anywhere;
 ::selection { background: rgba(215,190,138,0.34); color: #050e1e; }
 .dark ::selection { background: rgba(215,190,138,0.42); color: #fff; }
 
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 9999;
+  transform: translateY(-150%);
+  border-radius: 999px;
+  background: var(--midnight);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  box-shadow: 0 18px 44px rgba(7,14,30,0.22);
+  transition: transform .2s ease;
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid rgba(185, 138, 61, 0.72);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(215, 190, 138, 0.22);
+}
+
+.dark :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline-color: rgba(242, 207, 91, 0.78);
+  box-shadow: 0 0 0 6px rgba(242, 207, 91, 0.18);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif-display), Georgia, 'Times New Roman', serif;
   font-weight: 700;

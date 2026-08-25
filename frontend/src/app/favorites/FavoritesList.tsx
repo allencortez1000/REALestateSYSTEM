@@ -11,11 +11,13 @@ const defaultFavoriteSlugs = ['hera-model-house', 'kasandra-model-house', 'low-c
 
 export default function FavoritesList() {
   const [favoriteSlugs, setFavoriteSlugs] = useState<string[]>(defaultFavoriteSlugs);
+    const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     const sync = () => {
       const saved = readFavorites();
       setFavoriteSlugs(hasStoredFavorites() ? saved : defaultFavoriteSlugs);
+            setHydrated(true);
     };
 
     sync();
@@ -29,6 +31,22 @@ export default function FavoritesList() {
   }, []);
 
   const favoriteListings = modelHouses.filter((listing) => favoriteSlugs.includes(listing.slug));
+
+  if (!hydrated) {
+    return (
+      <div className="mt-10 grid gap-7 sm:grid-cols-2 xl:grid-cols-3">
+        {[1, 2, 3].map((item) => (
+          <div key={item} className="min-h-[320px] animate-pulse rounded-[2rem] border border-[#e7dcc8] bg-white/70 p-5 shadow-[0_18px_50px_rgba(9,21,64,0.06)]">
+            <div className="h-40 rounded-[1.5rem] bg-[#efe7d8]" />
+            <div className="mt-5 h-4 w-24 rounded-full bg-[#e7dcc8]" />
+            <div className="mt-4 h-7 w-3/4 rounded-full bg-[#e7dcc8]" />
+            <div className="mt-3 h-4 w-full rounded-full bg-[#efe7d8]" />
+            <div className="mt-2 h-4 w-2/3 rounded-full bg-[#efe7d8]" />
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   if (favoriteListings.length === 0) {
     return (

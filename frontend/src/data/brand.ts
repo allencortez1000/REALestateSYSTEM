@@ -5,6 +5,9 @@ export const brand = {
   tagline: 'Turning Dreams into Possibilities',
   logo: '/rabino-logo.png',
   email: 'hello@rabinohomebuilders.com',
+  emailHref: 'mailto:hello@rabinohomebuilders.com',
   phone: '+63 912 345 6789',
-  location: 'Metro Manila, Philippines'
+  phoneHref: 'tel:+639123456789',
+  location: 'Metro Manila, Philippines',
+  salesTeamName: 'Amica Residences Sales Team'
 };

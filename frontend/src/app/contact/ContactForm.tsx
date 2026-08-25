@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { brand } from '@/data/brand';
 import { inquiryTopics } from '@/data/contact';
 import { modelHouseOptions } from '@/data/modelHouses';
 
@@ -13,8 +14,8 @@ export default function ContactForm() {
     if (!submitted) return null;
 
     return selectedModel && inquiryType
-      ? `Your ${inquiryType.toLowerCase()} inquiry for ${selectedModel} has been prepared for the Amica Residences by Rabino Home Builders Corporation team.`
-      : 'Your inquiry has been prepared for the Amica Residences by Rabino Home Builders Corporation team.';
+      ? `Your ${inquiryType.toLowerCase()} inquiry for ${selectedModel} has been prepared for the ${brand.name} team.`
+      : `Your inquiry has been prepared for the ${brand.name} team.`;
   }, [inquiryType, selectedModel, submitted]);
 
   return (
@@ -42,34 +43,34 @@ export default function ContactForm() {
       <div className="mt-7 grid gap-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="grid gap-2">
-            <span className="sr-only">First name</span>
-            <input className="input" name="firstName" autoComplete="given-name" placeholder="First name" required />
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">First name</span>
+            <input className="input" name="firstName" autoComplete="given-name" placeholder="Juan" required />
           </label>
           <label className="grid gap-2">
-            <span className="sr-only">Last name</span>
-            <input className="input" name="lastName" autoComplete="family-name" placeholder="Last name" required />
-          </label>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <label className="grid gap-2">
-            <span className="sr-only">Email address</span>
-            <input className="input" name="email" type="email" autoComplete="email" placeholder="Email address" required />
-          </label>
-          <label className="grid gap-2">
-            <span className="sr-only">Phone number</span>
-            <input className="input" name="phone" type="tel" autoComplete="tel" placeholder="Phone number" />
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Last name</span>
+            <input className="input" name="lastName" autoComplete="family-name" placeholder="Dela Cruz" required />
           </label>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="grid gap-2">
-            <span className="sr-only">Interested model</span>
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Email address</span>
+            <input className="input" name="email" type="email" autoComplete="email" placeholder="juan@example.com" required />
+          </label>
+          <label className="grid gap-2">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Phone number</span>
+            <input className="input" name="phone" type="tel" autoComplete="tel" placeholder={brand.phone} />
+          </label>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="grid gap-2">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Interested model</span>
             <select className="input" name="interestedModel" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)} required>
               <option value="" disabled>Interested model</option>
               {modelHouseOptions.map((title) => <option key={title}>{title}</option>)}
             </select>
           </label>
           <label className="grid gap-2">
-            <span className="sr-only">Inquiry type</span>
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Inquiry type</span>
             <select className="input" name="inquiryType" value={inquiryType} onChange={(event) => setInquiryType(event.target.value)} required>
               <option value="" disabled>Inquiry type</option>
               {inquiryTopics.map((topic) => <option key={topic}>{topic}</option>)}
@@ -77,11 +78,11 @@ export default function ContactForm() {
           </label>
         </div>
         <label className="grid gap-2">
-          <span className="sr-only">Preferred viewing date or timeframe</span>
-          <input className="input" name="preferredSchedule" placeholder="Preferred viewing date or timeframe" />
+          <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Preferred viewing date or timeframe</span>
+          <input className="input" name="preferredSchedule" placeholder="Example: Saturday afternoon or August 30" />
         </label>
         <label className="grid gap-2">
-          <span className="sr-only">Message</span>
+          <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Message</span>
           <textarea className="input resize-none" name="message" rows={6} placeholder="Tell us your budget, preferred model, questions, or document concerns…" required />
         </label>
         <button className="btn-primary w-full text-center">Send inquiry</button>

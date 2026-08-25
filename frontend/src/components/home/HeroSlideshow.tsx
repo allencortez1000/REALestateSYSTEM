@@ -9,21 +9,38 @@ const slides = heroModelHouseSlides;
 
 export default function HeroSlideshow() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
   const activeSlide = slides[activeIndex];
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion || paused) return;
+
     const interval = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % slides.length);
     }, 7200);
 
     return () => window.clearInterval(interval);
-  }, []);
+  }, [paused]);
 
 
 
   return (
-    <div className="relative min-h-[460px] overflow-hidden rounded-[1.75rem] sm:min-h-[560px] sm:rounded-[2.25rem] xl:min-h-[640px] border border-[rgba(231,220,200,0.9)] bg-[linear-gradient(180deg,#f1e9db_0%,#d7e0ea_22%,#8d9eb4_56%,#071426_100%)] shadow-[0_32px_110px_rgba(5,14,30,0.16)]">
-      <Image src={activeSlide.image} alt={activeSlide.title} fill priority className="object-cover object-center opacity-75 saturate-90 contrast-105 transition-opacity duration-1000" />
+    <div
+          className="relative min-h-[460px] overflow-hidden rounded-[1.75rem] border border-[rgba(231,220,200,0.9)] bg-[linear-gradient(180deg,#f1e9db_0%,#d7e0ea_22%,#8d9eb4_56%,#071426_100%)] shadow-[0_32px_110px_rgba(5,14,30,0.16)] sm:min-h-[560px] sm:rounded-[2.25rem] xl:min-h-[640px]"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
+        >
+      <Image
+              src={activeSlide.image}
+              alt={activeSlide.title}
+              fill
+              priority
+              sizes="(min-width: 1280px) 520px, (min-width: 1024px) 46vw, 100vw"
+              className="object-cover object-center opacity-75 saturate-90 contrast-105 transition-opacity duration-1000"
+            />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,243,234,0.08)_0%,rgba(7,20,38,0.16)_28%,rgba(7,20,38,0.68)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(185,138,61,0.14),transparent_30%)]" />
 
@@ -48,7 +65,7 @@ export default function HeroSlideshow() {
         </div>
       </div>
 
-      <div className="absolute bottom-6 right-6 z-20 hidden items-center gap-2 rounded-full border border-white/14 bg-white/10 px-3 py-2 backdrop-blur-xl md:flex">
+      <div className="absolute bottom-6 right-6 z-20 hidden items-center gap-2 rounded-full border border-white/14 bg-white/10 px-3 py-2 backdrop-blur-xl md:flex" aria-label="Featured residence slides">
         {slides.map((slide, index) => (
           <button
             key={slide.title}

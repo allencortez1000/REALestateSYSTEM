@@ -1,3 +1,5 @@
+import { brand } from '@/data/brand';
+
 export type PaymentComputation = readonly [label: string, value: string];
 
 export type ModelHouse = {
@@ -28,7 +30,7 @@ export const modelHouses = [
   {
     slug: 'hera-model-house',
     title: 'HERA MODEL HOUSE',
-    tagline: 'Rabino Home Builders Corporation • HERA',
+    tagline: `${brand.companyName} • HERA`,
     price: 'PHP 8,000,000.00',
     lotArea: '80 SQM / 100–120 SQM',
     floorArea: '162 SQM / 206 SQM',
@@ -38,7 +40,7 @@ export const modelHouses = [
     nearby: ['Philippine residential communities', 'Schools', 'Retail essentials', 'Transport access'],
     availability: 'House Only / Model House',
     bestFor: 'Best for growing families',
-    location: 'Rabino Home Builders Corporation',
+    location: brand.companyName,
     description:
       'HERA combines both provided references: the house-only image with 80 sqm lot area and 162 sqm floor area, and the second model-house marketing image with 100–120 sqm lot area and 206 sqm floor area. Both references show the same HERA model but with different specifications, so both are presented together instead of choosing one over the other.',
     image: '/hera-model-house.png',
@@ -66,7 +68,7 @@ export const modelHouses = [
   {
     slug: 'athena-model-house',
     title: 'ATHENA MODEL HOUSE',
-    tagline: 'Rabino Home Builders Corporation • ATHENA',
+    tagline: `${brand.companyName} • ATHENA`,
     price: 'Price not shown',
     lotArea: 'Not shown',
     floorArea: 'Not shown',
@@ -76,7 +78,7 @@ export const modelHouses = [
     nearby: ['Philippine residential communities', 'Lifestyle destinations', 'Schools', 'Essential services'],
     availability: 'Reference Image',
     bestFor: 'Best for luxury buyers',
-    location: 'Rabino Home Builders Corporation',
+    location: brand.companyName,
     description:
       'Experience refined living in this exceptional luxury residence—where architecture meets elegance and every detail is crafted for comfort and prestige. The available reference mainly presents the exterior architectural design of the Athena model.',
     image: '/athena-model-house.png',
@@ -89,7 +91,7 @@ export const modelHouses = [
   {
     slug: 'kasandra-model-house',
     title: 'KASANDRA MODEL HOUSE',
-    tagline: 'Rabino Home Builders Corporation • KASANDRA',
+    tagline: `${brand.companyName} • KASANDRA`,
     price: 'PHP 4,000,000.00',
     lotArea: 'Not shown',
     floorArea: 'Not shown',
@@ -99,7 +101,7 @@ export const modelHouses = [
     nearby: ['Community essentials', 'Schools', 'Transportation', 'Commercial services'],
     availability: 'House Only',
     bestFor: 'Best for practical ownership',
-    location: 'Rabino Home Builders Corporation',
+    location: brand.companyName,
     description: 'Step into a space designed for real living, where every room holds a purpose and every corner feels like home.',
     image: '/kasandra-model-house.png',
     gallery: ['/kasandra-model-house.png', '/kasandra-model-house.jpg', '/joyce-model-house.png'],
@@ -122,7 +124,7 @@ export const modelHouses = [
   {
     slug: 'melvin-model-house',
     title: 'MELVIN MODEL HOUSE',
-    tagline: 'Rabino Home Builders Corporation • MELVIN',
+    tagline: `${brand.companyName} • MELVIN`,
     price: 'PHP 2,950,000.00',
     lotArea: 'Not shown',
     floorArea: 'Not shown',
@@ -132,7 +134,7 @@ export const modelHouses = [
     nearby: ['Local conveniences', 'Community roads', 'Essential services', 'Transport access'],
     availability: 'House & Lot',
     bestFor: 'Best for duplex living',
-    location: 'Rabino Home Builders Corporation',
+    location: brand.companyName,
     description: 'Step into elevated living with this beautifully designed duplex home—where space, style, and functionality come together seamlessly.',
     image: '/melvin-model-house.png',
     gallery: ['/melvin-model-house.png', '/melvin-model-house.jpg', '/athena-model-house.png'],
@@ -155,7 +157,7 @@ export const modelHouses = [
   {
     slug: 'joyce-model-house',
     title: 'JOYCE MODEL HOUSE',
-    tagline: 'Rabino Home Builders Corporation • JOYCE',
+    tagline: `${brand.companyName} • JOYCE`,
     price: 'PHP 3,000,000.00',
     lotArea: 'Not shown',
     floorArea: 'Not shown',
@@ -165,7 +167,7 @@ export const modelHouses = [
     nearby: ['Convenient community access', 'Schools', 'Local retail', 'Public transport'],
     availability: 'House Only',
     bestFor: 'Best for compact family living',
-    location: 'Rabino Home Builders Corporation',
+    location: brand.companyName,
     description: 'Step into a space designed for real living, where every room holds a purpose and every corner feels like home.',
     image: '/joyce-model-house.png',
     gallery: ['/joyce-model-house.png', '/joyce-model-house.jpg', '/melvin-model-house.png'],

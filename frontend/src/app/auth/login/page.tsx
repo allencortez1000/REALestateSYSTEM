@@ -60,11 +60,11 @@ export default function LoginPage() {
 
               <div className="mt-8 grid gap-4">
                 <label className="grid gap-2">
-                  <span className="sr-only">Email address</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Email address</span>
                   <input className="input" name="email" type="email" autoComplete="email" placeholder="Email address" defaultValue="customer@rabinohomebuilders.com" />
                 </label>
                 <label className="grid gap-2">
-                  <span className="sr-only">Password</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Password</span>
                   <input className="input" name="password" type="password" autoComplete="current-password" placeholder="Password" defaultValue="customer123" />
                 </label>
                 <button type="submit" className="btn-primary mt-2 w-full text-center">Sign in</button>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import FavoriteButton from '@/components/properties/FavoriteButton';
+import { brand } from '@/data/brand';
 import { modelHousesBySlug } from '@/data/modelHouses';
 import FinancingCalculator from './FinancingCalculator';
 
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: PropertyDetailPageProps): Pro
   if (!listing) {
     return {
       title: 'Property not found',
-      description: 'The requested Amica Residences by Rabino Home Builders Corporation model-house listing could not be found.'
+      description: `The requested ${brand.name} model-house listing could not be found.`
     };
   }
 
@@ -60,7 +61,14 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
             <div className="overflow-hidden rounded-[2rem] border border-[rgba(231,220,200,0.95)] bg-white/92 shadow-[0_24px_80px_rgba(9,21,64,0.10)] sm:rounded-[2.75rem]">
               <div className="grid gap-0 lg:grid-cols-[minmax(0,1.12fr)_minmax(300px,0.88fr)]">
                 <div className="relative min-h-[520px] overflow-hidden bg-[#071426] sm:min-h-[600px] lg:min-h-[680px]">
-                  <Image src={listing.image} alt={listing.title} fill className="object-cover" priority />
+                  <Image
+                                      src={listing.image}
+                                      alt={listing.title}
+                                      fill
+                                      priority
+                                      sizes="(min-width: 1280px) 760px, (min-width: 1024px) 58vw, 100vw"
+                                      className="object-cover"
+                                    />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,20,38,0.12)_0%,rgba(7,20,38,0.62)_100%)]" />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(185,138,61,0.14),transparent_28%)]" />
                   <div className="absolute left-4 top-4 max-w-[calc(100%-2rem)] rounded-full border border-white/14 bg-[#071426]/92 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md sm:left-6 sm:top-6 sm:px-4 sm:text-[11px] sm:tracking-[0.32em]">Featured residence</div>
@@ -153,7 +161,13 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   const labels = ['Main exterior', 'Design reference', 'Supporting image'];
                   return (
                     <div key={src} className={`group relative overflow-hidden rounded-[1.5rem] border border-[#e7dcc8] bg-[#071426] sm:rounded-[1.75rem] ${index === 0 ? 'h-72 sm:h-80 lg:h-[420px]' : 'h-64 lg:h-[420px]'}`}>
-                      <Image src={src} alt={`${listing.title} gallery ${index + 1}`} fill className="object-cover transition duration-700 group-hover:scale-105" />
+                      <Image
+                                              src={src}
+                                              alt={`${listing.title} gallery ${index + 1}`}
+                                              fill
+                                              sizes={index === 0 ? '(min-width: 1024px) 40vw, 100vw' : '(min-width: 1024px) 30vw, 100vw'}
+                                              className="object-cover transition duration-700 group-hover:scale-105"
+                                            />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,20,38,0.02),rgba(7,20,38,0.55))]" />
                       <div className="absolute left-4 top-4 rounded-full border border-white/18 bg-white/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md">{labels[index] ?? 'Reference'}</div>
                       <div className="absolute bottom-4 left-4 right-4 rounded-[1.25rem] border border-white/14 bg-[#071426]/72 p-4 text-white backdrop-blur-md">
@@ -280,32 +294,32 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   <div>
                     <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.82)] p-4">
                   <div className="text-xs uppercase tracking-[0.3em] text-slate-500">Assigned agent</div>
-                  <div className="mt-2 text-lg font-semibold text-[#071426]">Amica Residences Sales Team</div>
-                  <div className="text-sm text-slate-500">Metro Manila, Philippines</div>
+                  <div className="mt-2 text-lg font-semibold text-[#071426]">{brand.salesTeamName}</div>
+                  <div className="text-sm text-slate-500">{brand.location}</div>
                     </div>
                     <div className="mt-5 grid gap-3">
                   <label className="grid gap-2">
-                    <span className="sr-only">Your name</span>
-                    <input className="input" name="name" autoComplete="name" placeholder="Your name" />
+                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Your name</span>
+                    <input className="input" name="name" autoComplete="name" placeholder="Juan Dela Cruz" />
                   </label>
                   <label className="grid gap-2">
-                    <span className="sr-only">Email address</span>
-                    <input className="input" name="email" type="email" autoComplete="email" placeholder="Email address" />
+                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Email address</span>
+                    <input className="input" name="email" type="email" autoComplete="email" placeholder="juan@example.com" />
                   </label>
                   <label className="grid gap-2">
-                    <span className="sr-only">Phone number</span>
-                    <input className="input" name="phone" type="tel" autoComplete="tel" placeholder="Phone number" />
+                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Phone number</span>
+                    <input className="input" name="phone" type="tel" autoComplete="tel" placeholder={brand.phone} />
                   </label>
                   <label className="grid gap-2">
-                    <span className="sr-only">Preferred viewing date</span>
+                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Preferred viewing date</span>
                     <input className="input" name="preferredViewingDate" type="date" />
                   </label>
                   <button className="btn-primary mt-2 w-full">Schedule viewing</button>
                   <FavoriteButton slug={listing.slug} className="w-full" />
                     </div>
                     <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
-                      <a href="tel:+639123456789" className="btn-gold w-full">Call now</a>
-                      <a href="mailto:hello@rabinohomebuilders.com" className="btn-outline w-full">Send inquiry</a>
+                      <a href={brand.phoneHref} className="btn-gold w-full">Call now</a>
+                      <a href={brand.emailHref} className="btn-outline w-full">Send inquiry</a>
                     </div>
                   </div>
                 </div>
@@ -409,7 +423,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
             <div className="mt-0.5 truncate text-sm font-bold text-white sm:max-w-[190px]">{listing.title}</div>
           </div>
           <a href="#inquiry" className="w-full rounded-full bg-[#d7be8a] px-5 py-3 text-center text-sm font-bold text-[#071426] shadow-[0_10px_26px_rgba(215,190,138,0.35)] transition hover:bg-[#f2cf5b] sm:w-auto">Inquire now</a>
-          <a href="tel:+639123456789" className="w-full rounded-full border border-white/45 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-white/18 sm:w-auto sm:inline-flex">Call</a>
+          <a href={brand.phoneHref} className="w-full rounded-full border border-white/45 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-white/18 sm:w-auto sm:inline-flex">Call</a>
         </div>
       </div>
     </main>

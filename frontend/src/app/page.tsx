@@ -83,7 +83,7 @@ export default function HomePage() {
               <span className="block text-[#0d2342]">distinctly Amica.</span>
             </>
           }
-          description="Amica Residences by Rabino Home Builders Corporation presents premium model houses, housing options, and investment-ready residences across the Philippines."
+          description={`${brand.name} presents premium model houses, housing options, and investment-ready residences across the Philippines.`}
           asideClassName="bg-transparent p-4 pt-0 sm:p-5 xl:p-6 xl:pt-6"
           aside={<HeroSlideshow />}
         >

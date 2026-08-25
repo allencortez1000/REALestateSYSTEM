@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import { brand } from '@/data/brand';
 import MessagesExperience from './MessagesExperience';
 
 export const metadata: Metadata = {
   title: 'Messages',
-  description: 'Review buyer, seller, and agent conversations across the Amica Residences by Rabino Home Builders Corporation real estate platform.'
+  description: `Review buyer, seller, and agent conversations across the ${brand.name} real estate platform.`
 };
 
 export default function MessagesPage() {
@@ -15,10 +16,10 @@ export default function MessagesPage() {
             <div className="p-6 sm:p-8 lg:p-10">
               <span className="badge bg-white/80 shadow-soft">Inbox</span>
               <h1 className="mt-6 max-w-3xl text-[clamp(2.8rem,6vw,5.3rem)] leading-[0.9] tracking-[-0.085em] text-[#071426]">Messages.</h1>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">A focused messaging workspace for buyers, sellers, and agents across the Amica Residences network and the Philippine property market.</p>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">A focused messaging workspace for buyers, sellers, and agents across the {brand.shortName} network and the Philippine property market.</p>
             </div>
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_62%,#13273f_100%)] p-6 text-white sm:p-8 lg:p-10">
-              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">Amica Residences inbox</div>
+              <div className="text-xs uppercase tracking-[0.35em] text-[#d7be8a]">{brand.shortName} inbox</div>
               <div className="mt-4 text-3xl font-semibold leading-tight">Confident, fast conversations with a concierge feel.</div>
               <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">Keep communication clear, organized, and easy to act on.</p>
             </div>

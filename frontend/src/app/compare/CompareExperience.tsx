@@ -31,14 +31,17 @@ function readSelectedModels() {
 
 export default function CompareExperience() {
   const [selectedTitles, setSelectedTitles] = useState(defaultSelected);
+    const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     setSelectedTitles(readSelectedModels());
+    setHydrated(true);
   }, []);
 
   useEffect(() => {
+    if (!hydrated) return;
     window.localStorage.setItem(COMPARE_SELECTION_KEY, JSON.stringify(selectedTitles));
-  }, [selectedTitles]);
+  }, [hydrated, selectedTitles]);
 
   const selectedListings = useMemo(
     () => comparisonModelHouses.filter((property) => selectedTitles.includes(property.title)),
@@ -53,6 +56,24 @@ export default function CompareExperience() {
 
       return [...current, title];
     });
+  }
+
+  if (!hydrated) {
+    return (
+      <div className="mt-10 grid gap-6">
+        <div className="animate-pulse rounded-[2rem] border border-[#e5dcc9] bg-white/78 p-6 shadow-deep sm:p-8">
+          <div className="h-4 w-32 rounded-full bg-[#e7dcc8]" />
+          <div className="mt-4 h-8 w-72 max-w-full rounded-full bg-[#e7dcc8]" />
+          <div className="mt-3 h-4 w-full max-w-xl rounded-full bg-[#efe7d8]" />
+          <div className="mt-6 flex flex-wrap gap-2">
+            {[1, 2, 3, 4].map((item) => <div key={item} className="h-10 w-36 rounded-full bg-[#efe7d8]" />)}
+          </div>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {[1, 2, 3].map((item) => <div key={item} className="h-52 animate-pulse rounded-[2rem] border border-[#e7dcc8] bg-white/70" />)}
+        </div>
+      </div>
+    );
   }
 
   return (

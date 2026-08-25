@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { brand } from '@/data/brand';
 
 const LOCAL_PROFILE_KEY = 'amicaLocalProfile';
 
@@ -8,8 +9,8 @@ const initialProfile = {
   firstName: 'Amica Residences',
   lastName: 'Admin',
   email: 'admin@rabinohomebuilders.com',
-  phone: '+63 912 345 6789',
-  address: 'Metro Manila, Philippines',
+  phone: brand.phone,
+  address: brand.location,
   currentPassword: '',
   newPassword: ''
 };
@@ -80,23 +81,23 @@ export default function ProfileExperience() {
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           <label className="grid gap-2">
-            <span className="sr-only">First name</span>
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">First name</span>
             <input className="input" name="firstName" autoComplete="given-name" placeholder="First name" value={profile.firstName} onChange={(event) => updateProfile('firstName', event.target.value)} required />
           </label>
           <label className="grid gap-2">
-            <span className="sr-only">Last name</span>
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Last name</span>
             <input className="input" name="lastName" autoComplete="family-name" placeholder="Last name" value={profile.lastName} onChange={(event) => updateProfile('lastName', event.target.value)} required />
           </label>
           <label className="grid gap-2">
-            <span className="sr-only">Email address</span>
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Email address</span>
             <input className="input" name="email" type="email" autoComplete="email" placeholder="Email address" value={profile.email} onChange={(event) => updateProfile('email', event.target.value)} required />
           </label>
           <label className="grid gap-2">
-            <span className="sr-only">Phone number</span>
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Phone number</span>
             <input className="input" name="phone" type="tel" autoComplete="tel" placeholder="Phone number" value={profile.phone} onChange={(event) => updateProfile('phone', event.target.value)} />
           </label>
           <label className="grid gap-2 md:col-span-2">
-            <span className="sr-only">Address</span>
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Address</span>
             <input className="input" name="address" autoComplete="street-address" placeholder="Address" value={profile.address} onChange={(event) => updateProfile('address', event.target.value)} />
           </label>
         </div>
@@ -106,11 +107,11 @@ export default function ProfileExperience() {
           <p className="mt-2 text-sm leading-7 text-slate-600">Password fields are cleared after a local save confirmation.</p>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             <label className="grid gap-2">
-              <span className="sr-only">Current password</span>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Current password</span>
               <input className="input" name="currentPassword" type="password" autoComplete="current-password" placeholder="Current password" value={profile.currentPassword} onChange={(event) => updateProfile('currentPassword', event.target.value)} />
             </label>
             <label className="grid gap-2">
-              <span className="sr-only">New password</span>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">New password</span>
               <input className="input" name="newPassword" type="password" autoComplete="new-password" placeholder="New password" value={profile.newPassword} onChange={(event) => updateProfile('newPassword', event.target.value)} />
             </label>
           </div>

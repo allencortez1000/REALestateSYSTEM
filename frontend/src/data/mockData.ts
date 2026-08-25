@@ -1,3 +1,4 @@
+import { brand } from '@/data/brand';
 import type { Property, User } from '@/types';
 
 const now = new Date().toISOString();
@@ -7,7 +8,7 @@ export const mockUser: User = {
   email: 'admin@rhbc.com',
   full_name: 'RHBC Admin',
   avatar_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80',
-  phone: '+63 912 345 6789',
+  phone: brand.phone,
   roles: ['admin'],
   created_at: now,
   updated_at: now

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
 import { inquiryTopics } from '@/data/contact';
+import { brand } from '@/data/brand';
 import ContactForm from './ContactForm';
 
 export const metadata: Metadata = {
@@ -10,9 +11,9 @@ export const metadata: Metadata = {
 
 
 const contactMethods = [
-  { label: 'Email', value: 'hello@rabinohomebuilders.com', note: 'Send model-house and document inquiries anytime.' },
-  { label: 'Phone', value: '+63 912 345 6789', note: 'Call for viewing schedules and quick computation questions.' },
-  { label: 'Location', value: 'Metro Manila, Philippines', note: 'Serving buyers across Metro Manila and nearby key cities.' }
+  { label: 'Email', value: brand.email, note: 'Send model-house and document inquiries anytime.' },
+  { label: 'Phone', value: brand.phone, note: 'Call for viewing schedules and quick computation questions.' },
+  { label: 'Location', value: brand.location, note: 'Serving buyers across Metro Manila and nearby key cities.' }
 ];
 
 const responseSteps = [
@@ -28,7 +29,7 @@ export default function ContactPage() {
         <PageHero
           eyebrow="Model-house inquiry"
           title="Ask about a model house."
-          description="Use this page to ask about viewing schedules, payment computations, requirements, or which RHBC model best fits your budget and lifestyle."
+          description={`Use this page to ask about viewing schedules, payment computations, requirements, or which ${brand.companyName} model best fits your budget and lifestyle.`}
           aside={
             <>
               <div className="section-label text-[#d7be8a]">Concierge support</div>

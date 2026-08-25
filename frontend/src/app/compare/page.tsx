@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
+import { brand } from '@/data/brand';
 import CompareExperience from './CompareExperience';
 
 export const metadata: Metadata = {
   title: 'Compare Model Houses',
-  description: 'Compare Amica Residences by Rabino Home Builders Corporation model houses side by side by price, size, package type, features, and buyer fit.'
+  description: `Compare ${brand.name} model houses side by side by price, size, package type, features, and buyer fit.`
 };
 
 export default function ComparePage() {

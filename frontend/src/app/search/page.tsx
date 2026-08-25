@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
+import { brand } from '@/data/brand';
 import { featuredModelHouses } from '@/data/modelHouses';
 import SearchExperience from './SearchExperience';
 
 export const metadata: Metadata = {
   title: 'Search Model Houses',
-  description: 'Search and filter Amica Residences by Rabino Home Builders Corporation model-house listings by home type, budget range, and buyer fit.'
+  description: `Search and filter ${brand.name} model-house listings by home type, budget range, and buyer fit.`
 };
 
 
@@ -16,7 +17,7 @@ export default function SearchPage() {
         <PageHero
           eyebrow="Search"
           title="Find the right home, faster."
-          description="Browse only the current Amica Residences model-house listings featured in the portfolio."
+          description="Browse only the current {brand.shortName} model-house listings featured in the portfolio."
           asideClassName="p-4 sm:p-6 lg:p-8"
           aside={
             <div className="rounded-[2rem] border border-white/12 bg-[rgba(255,255,255,0.06)] p-5 text-white backdrop-blur-xl sm:p-6">

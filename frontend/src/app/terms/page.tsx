@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import PolicyPage from '@/components/legal/PolicyPage';
+import { brand } from '@/data/brand';
 
 export const metadata: Metadata = {
   title: 'Terms and Conditions',
-  description: 'Review basic terms for using the Amica Residences by Rabino Home Builders Corporation model-house browsing and inquiry website.'
+  description: `Review basic terms for using the ${brand.name} model-house browsing and inquiry website.`
 };
 
 const sections = [
@@ -17,7 +18,7 @@ export default function TermsPage() {
     <PolicyPage
       label="Legal"
       title="Terms and conditions"
-      intro="Basic terms for using the Amica Residences by Rabino Home Builders Corporation model-house browsing and inquiry experience."
+      intro={`Basic terms for using the ${brand.name} model-house browsing and inquiry experience.`}
       sections={[...sections]}
     />
   );
