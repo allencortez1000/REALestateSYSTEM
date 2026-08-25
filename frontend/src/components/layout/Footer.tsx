@@ -23,7 +23,6 @@ export default function Footer() {
               <Link href="/properties" className="transition hover:text-white">Model Houses</Link>
               <Link href="/search" className="transition hover:text-white">Search</Link>
               <Link href="/blog" className="transition hover:text-white">Journal</Link>
-              <Link href="/dashboard/customer" className="transition hover:text-white">Customer Portal</Link>
             </div>
           </div>
 

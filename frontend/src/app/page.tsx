@@ -48,10 +48,19 @@ const homeTypes = [
   }
 ];
 
-const serviceCards = [
-  { title: 'Buyer advisory', text: 'Shortlist, compare, and schedule private tours with confidence.' },
-  { title: 'Seller marketing', text: 'Present your property with a premium listing experience and stronger visibility.' },
-  { title: 'Admin oversight', text: 'Manage inquiries, approvals, and operations from a clear dashboard.' }
+const brandStatements = [
+  {
+    title: 'Vision',
+    text: 'To be a trusted leader in homebuilding and community development, transforming the dreams of Filipino families into lasting possibilities through innovative, quality, and sustainable homes.'
+  },
+  {
+    title: 'Mission',
+    text: 'Rabino Home Builders Corporation is committed to turning dreams into possibilities by providing quality homes, innovative construction solutions, and exceptional customer service. We strive to build communities that inspire growth, create lasting value, and improve the lives of every family we serve.'
+  },
+  {
+    title: 'Core message',
+    text: 'At Rabino Home Builders Corporation, we believe that every family deserves a place to call home. Through integrity, excellence, and innovation, we turn dreams into possibilities — one home, one family, and one community at a time.'
+  }
 ];
 
 
@@ -66,7 +75,7 @@ const buyerJourney = [
   { step: '02', title: 'Check the details', text: 'Understand price, lot area, floor area, features, and sample computation.' },
   { step: '03', title: 'Compare options', text: 'Use the comparison page to see which model fits your needs and budget.' },
   { step: '04', title: 'Schedule a viewing', text: 'Request a model-house viewing or ask the sales team for clarification.' },
-  { step: '05', title: 'Prepare documents', text: 'Use the customer portal checklist to prepare requirements before reservation.' },
+  { step: '05', title: 'Prepare documents', text: 'Prepare your valid ID, proof of income, and reservation requirements before final confirmation.' },
   { step: '06', title: 'Reserve your unit', text: 'Proceed once availability, computation, and final terms are confirmed.' }
 ];
 
@@ -192,14 +201,14 @@ export default function HomePage() {
 
           <aside className="grid gap-4">
             <section className="rounded-[2.35rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,#071426_0%,#0d2342_72%,#13273f_100%)] p-6 text-white shadow-[0_18px_60px_rgba(5,14,30,0.10)] sm:p-8">
-              <div className="section-label text-[#d7be8a]">Why Amica Residences</div>
-              <h2 className="mt-4 text-[clamp(1.8rem,4vw,2.8rem)] font-semibold leading-[1.05] tracking-[-0.05em] text-white">A clearer, more premium real estate journey.</h2>
+              <div className="section-label text-[#d7be8a]">Rabino Home Builders Corporation</div>
+              <h2 className="mt-4 text-[clamp(1.8rem,4vw,2.8rem)] font-semibold leading-[1.05] tracking-[-0.05em] text-white">Turning dreams into possibilities.</h2>
               <div className="mt-6 grid gap-3">
-                {serviceCards.map((item, index) => (
+                {brandStatements.map((item, index) => (
                   <div key={item.title} className="rounded-[1.5rem] border border-white/12 bg-white/[0.06] p-4">
                     <div className="text-[10px] uppercase tracking-[0.34em] text-[#d7be8a]">0{index + 1}</div>
                     <div className="mt-2 text-sm font-semibold text-white">{item.title}</div>
-                    <p className="mt-1 text-sm leading-6 text-white/72">{item.text}</p>
+                    <p className="mt-2 text-sm leading-6 text-white/72">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -229,7 +238,7 @@ export default function HomePage() {
             <div>
               <div className="section-label text-[#b98a3d]">Buyer journey</div>
               <h2 className="mt-4 text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[1.02] tracking-[-0.06em] text-[#071426]">From browsing to reservation, clearly explained.</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600">This UI guide helps buyers understand the next steps before entering the customer portal or speaking with the sales team.</p>
+              <p className="mt-4 text-sm leading-7 text-slate-600">This UI guide helps buyers understand the next steps before speaking with the sales team.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/properties" className="btn-primary">Browse models</Link>
                 <Link href="/compare" className="btn-outline">Compare models</Link>
@@ -262,7 +271,6 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-3 lg:justify-end">
               <Link href="/auth/register" className="btn-outline bg-white text-[#071426] hover:bg-[#f8f3e8]">Create account</Link>
               <Link href="/auth/login" className="rounded-full border border-white/18 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/14">Login</Link>
-              <Link href="/dashboard/customer" className="rounded-full border border-white/18 bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Customer portal</Link>
             </div>
           </div>
         </section>

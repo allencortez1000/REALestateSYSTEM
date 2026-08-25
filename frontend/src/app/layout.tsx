@@ -4,13 +4,14 @@ import { Manrope, Playfair_Display } from 'next/font/google';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import { brand } from '../data/brand';
+import { siteUrl } from '../data/site';
 import './globals.css';
 
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'], variable: '--font-playfair', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3001'),
+  metadataBase: new URL(siteUrl),
   applicationName: brand.name,
   title: {
     default: brand.name,

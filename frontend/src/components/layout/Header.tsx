@@ -31,7 +31,6 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const hidePublicNav = pathname.startsWith('/dashboard') || pathname.startsWith('/auth/login') || pathname.startsWith('/auth/register');
-  const isScrolledLike = pathname !== '/';
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -39,13 +38,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full px-3 pt-3 sm:px-6 sm:pt-4">
-      <div
-        className={`mx-auto flex max-w-[1500px] items-center gap-3 rounded-full border px-3 py-3 shadow-[0_18px_48px_rgba(9,27,53,0.08)] backdrop-blur-2xl transition sm:px-4 ${
-          isScrolledLike
-            ? 'border-[rgba(215,190,138,0.55)] bg-[rgba(247,243,234,0.92)]'
-            : 'border-[rgba(232,220,196,0.9)] bg-[rgba(255,255,255,0.92)]'
-        }`}
-      >
+      <div className="mx-auto flex max-w-[1500px] items-center gap-3 rounded-full border border-[rgba(232,220,196,0.9)] bg-[rgba(255,255,255,0.92)] px-3 py-3 shadow-[0_18px_48px_rgba(9,27,53,0.08)] backdrop-blur-2xl transition sm:px-4">
         <Link href="/" className="flex min-w-0 items-center gap-3 pl-1" aria-label={`${brand.name} home`}>
           <Image src={brand.logo} alt={brand.name} width={168} height={72} className="h-9 w-auto max-w-[150px] object-contain sm:h-10 sm:max-w-none" priority />
         </Link>
