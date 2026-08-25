@@ -71,15 +71,15 @@ export default function HomePage() {
   return (
     <main className="px-4 pb-6 pt-4 sm:px-6 lg:px-8">
       <section className="mx-auto max-w-[1500px]">
-        <div className="overflow-hidden rounded-[2.75rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f1_0%,#f4efe6_100%)] shadow-[0_30px_100px_rgba(5,14,30,0.10)]">
-          <div className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
+        <div className="overflow-hidden rounded-[2rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f1_0%,#f4efe6_100%)] shadow-[0_30px_100px_rgba(5,14,30,0.10)] sm:rounded-[2.75rem]">
+          <div className="grid gap-0 xl:grid-cols-[minmax(0,1.02fr)_minmax(360px,0.98fr)]">
             <div className="px-6 pb-8 pt-6 sm:px-8 lg:px-10 lg:pb-10 lg:pt-8">
               <div className="max-w-xl animate-reveal">
                 <div className="flex items-center gap-3">
                   <Image src={brand.logo} alt={brand.name} width={300} height={130} className="h-20 w-auto object-contain" priority />
                 </div>
                 <div className="mt-6 section-label text-[#b98a3d]">{brand.companyName}</div>
-                <h1 className="mt-5 text-[clamp(3rem,6.2vw,6.2rem)] leading-[0.9] tracking-[-0.09em] text-[#071426]">
+                <h1 className="mt-5 text-[clamp(2.45rem,11vw,6.2rem)] leading-[0.94] tracking-[-0.075em] text-[#071426] sm:leading-[0.9] sm:tracking-[-0.09em]">
                   Elegant homes,
                   <span className="block text-[#0d2342]">distinctly Amica.</span>
                 </h1>
@@ -92,24 +92,24 @@ export default function HomePage() {
                   <Link href="/search" className="btn-outline">Search listings</Link>
                 </div>
 
-                <div className="mt-10 grid gap-3 sm:grid-cols-3">
+                <div className="mt-10 grid gap-3 sm:grid-cols-3 xl:grid-cols-1 min-[1400px]:grid-cols-3">
                   <div className="rounded-[1.35rem] border border-[#e7dcc8] bg-white px-4 py-4 shadow-[0_10px_28px_rgba(5,14,30,0.05)]">
-                    <div className="text-2xl font-semibold text-[#071426]">6</div>
-                    <div className="mt-1 text-xs uppercase tracking-[0.24em] text-slate-500">Model houses</div>
+                    <div className="break-words text-2xl font-semibold text-[#071426]">6</div>
+                    <div className="mt-1 text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">Model houses</div>
                   </div>
                   <div className="rounded-[1.35rem] border border-[#e7dcc8] bg-white px-4 py-4 shadow-[0_10px_28px_rgba(5,14,30,0.05)]">
-                    <div className="text-2xl font-semibold text-[#071426]">Metro Manila</div>
-                    <div className="mt-1 text-xs uppercase tracking-[0.24em] text-slate-500">Primary market</div>
+                    <div className="break-words text-2xl font-semibold text-[#071426]">Metro Manila</div>
+                    <div className="mt-1 text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">Primary market</div>
                   </div>
                   <div className="rounded-[1.35rem] border border-[#e7dcc8] bg-white px-4 py-4 shadow-[0_10px_28px_rgba(5,14,30,0.05)]">
-                    <div className="text-2xl font-semibold text-[#071426]">4.9/5</div>
-                    <div className="mt-1 text-xs uppercase tracking-[0.24em] text-slate-500">Client rating</div>
+                    <div className="break-words text-2xl font-semibold text-[#071426]">4.9/5</div>
+                    <div className="mt-1 text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">Client rating</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="px-4 pb-4 pt-0 sm:px-5 lg:px-6 lg:pt-6">
+            <div className="px-4 pb-4 pt-0 sm:px-5 xl:px-6 xl:pt-6">
               <HeroSlideshow />
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <section className="mt-6 rounded-[2.35rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,243,234,0.88))] p-6 shadow-[0_18px_60px_rgba(5,14,30,0.08)] sm:p-8">
+        <section className="mt-6 rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,243,234,0.88))] p-6 shadow-[0_18px_60px_rgba(5,14,30,0.08)] sm:rounded-[2.35rem] sm:p-8">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <div className="section-label text-[#b98a3d]">Choose your home type</div>
@@ -137,12 +137,12 @@ export default function HomePage() {
             <Link href="/compare" className="rounded-full border border-[#e7dcc8] bg-white px-5 py-3 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0]">Compare all models</Link>
           </div>
 
-          <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 min-[1500px]:grid-cols-5">
             {homeTypes.map((type, index) => (
               <article key={type.title} className="group rounded-[1.75rem] border border-[#e7dcc8] bg-white p-5 shadow-[0_14px_36px_rgba(5,14,30,0.06)] transition hover:-translate-y-1 hover:shadow-[0_22px_54px_rgba(5,14,30,0.10)]">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#071426] text-xs font-bold text-white">0{index + 1}</div>
                 <h3 className="mt-5 text-xl font-semibold tracking-[-0.04em] text-[#071426]">{type.title}</h3>
-                <div className="mt-3 inline-flex rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6428]">Best for {type.bestFor}</div>
+                <div className="mt-3 inline-flex rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase leading-4 tracking-[0.16em] text-[#8a6428]">Best for {type.bestFor}</div>
                 <p className="mt-4 text-sm leading-7 text-slate-600">{type.text}</p>
                 <div className="mt-5 border-t border-[#f0e5d1] pt-4">
                   <div className="text-[10px] uppercase tracking-[0.28em] text-slate-400">Example</div>
@@ -154,7 +154,7 @@ export default function HomePage() {
         </section>
 
         <section className="mt-6 overflow-hidden rounded-[2.35rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(135deg,#071426_0%,#0d2342_62%,#13273f_100%)] p-6 text-white shadow-[0_18px_60px_rgba(5,14,30,0.10)] sm:p-8">
-          <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <div className="grid gap-6 xl:grid-cols-[minmax(0,0.85fr)_minmax(360px,1.15fr)] xl:items-center">
             <div>
               <div className="section-label text-[#d7be8a]">Sample monthly payment</div>
               <h2 className="mt-4 text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[1.02] tracking-[-0.06em] text-white">Preview affordability before you inquire.</h2>
@@ -179,7 +179,7 @@ export default function HomePage() {
         </section>
 
         <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-          <section className="rounded-[2.35rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(247,243,234,0.88))] p-6 shadow-[0_18px_60px_rgba(5,14,30,0.08)] sm:p-8">
+          <section className="rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(247,243,234,0.88))] p-6 shadow-[0_18px_60px_rgba(5,14,30,0.08)] sm:rounded-[2.35rem] sm:p-8">
             <div className="section-label">Featured model houses</div>
             <div className="mt-4 flex items-end justify-between gap-4">
               <div>
@@ -188,7 +188,7 @@ export default function HomePage() {
               <Link href="/properties" className="hidden rounded-full border border-[#e7dcc8] px-4 py-2 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-white md:inline-flex">View all</Link>
             </div>
 
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="mt-6 grid gap-4 md:grid-cols-2 min-[1400px]:grid-cols-3">
               {homeFeaturedModelHouses.map((community, index) => (
                 <article key={community.title} className="group rounded-[1.85rem] border border-[rgba(227,235,246,0.95)] bg-white p-4 shadow-[0_14px_36px_rgba(5,14,30,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(185,138,61,0.28)] hover:shadow-[0_24px_60px_rgba(5,14,30,0.10)]">
                   <div className={`h-1.5 w-16 rounded-full ${accentClasses[index]}`} />
@@ -244,7 +244,7 @@ export default function HomePage() {
         </div>
 
         <section className="mt-6 rounded-[2.35rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,243,234,0.88))] p-6 shadow-[0_18px_60px_rgba(5,14,30,0.08)] sm:p-8">
-          <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,0.8fr)_minmax(360px,1.2fr)] xl:items-start">
             <div>
               <div className="section-label text-[#b98a3d]">Buyer journey</div>
               <h2 className="mt-4 text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[1.02] tracking-[-0.06em] text-[#071426]">From browsing to reservation, clearly explained.</h2>

@@ -35,8 +35,8 @@ function NavLink({ href, label }: { href: string; label: string }) {
 export default function CustomerShell({ title, description, children }: { title: string; description: string; children: ReactNode }) {
   return (
     <main className="mx-auto max-w-[1600px] px-4 pb-14 pt-6 sm:px-6 lg:px-8">
-      <div className="grid gap-6 xl:grid-cols-[300px_minmax(0,1fr)]">
-        <aside className="rounded-[2rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(255,255,255,0.92)] p-4 shadow-[0_20px_60px_rgba(9,21,64,0.08)] backdrop-blur-sm xl:sticky xl:top-6 xl:h-[calc(100vh-3rem)] xl:overflow-auto">
+      <div className="grid gap-6 min-[1800px]:grid-cols-[300px_minmax(0,1fr)]">
+        <aside className="rounded-[2rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(255,255,255,0.92)] p-4 shadow-[0_20px_60px_rgba(9,21,64,0.08)] backdrop-blur-sm min-[1800px]:sticky min-[1800px]:top-6 min-[1800px]:h-[calc(100vh-3rem)] min-[1800px]:overflow-auto">
           <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,#071426_0%,#0d2342_100%)] p-5 text-white shadow-luxury">
             <Image src={brand.logo} alt={brand.name} width={220} height={72} className="h-14 w-auto object-contain" />
             <div className="mt-4 text-xs uppercase tracking-[0.35em] text-[#f2cf5b]/80">Customer portal</div>
@@ -44,7 +44,7 @@ export default function CustomerShell({ title, description, children }: { title:
             <p className="mt-2 text-sm text-white/72">Saved homes, inquiries, model-house listings, messages, and support in one place for discerning Philippine clients.</p>
           </div>
 
-          <details className="group mt-4 overflow-hidden rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(255,255,255,0.96)] xl:hidden">
+          <details className="group mt-4 overflow-hidden rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(255,255,255,0.96)] min-[1800px]:hidden">
             <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-sm font-semibold text-[#08122c]">
               <span>Navigation</span>
               <span className="transition group-open:rotate-180">⌄</span>
@@ -54,7 +54,7 @@ export default function CustomerShell({ title, description, children }: { title:
             </div>
           </details>
 
-          <div className="mt-4 hidden rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.86)] p-3 xl:block">
+          <div className="mt-4 hidden rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.86)] p-3 min-[1800px]:block">
             <div className="grid gap-2">{sections.map((item) => <NavLink key={item.href} {...item} />)}</div>
           </div>
 

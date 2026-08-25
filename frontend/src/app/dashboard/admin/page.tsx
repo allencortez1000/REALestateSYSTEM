@@ -61,7 +61,7 @@ const leadPipeline = [
     count: '12',
     tone: 'bg-[#fbf8f0] text-[#8a6428]',
     leads: [
-      { name: 'Rabin Cortez', model: 'HERA MODEL HOUSE', next: 'Call within today' },
+      { name: 'Miguel Santos', model: 'HERA MODEL HOUSE', next: 'Call within today' },
       { name: 'Allen Cortez', model: 'LOW COST HOUSING PROJECT', next: 'Send computation' }
     ]
   },

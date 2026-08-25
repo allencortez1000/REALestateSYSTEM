@@ -84,12 +84,12 @@ const savedHomes = savedHomeMeta.map((item) => {
 export default function CustomerDashboardPage() {
   return (
     <CustomerShell title="Dashboard" description="Your personal portal for browsing Amica Residences model houses, managing saved listings, inquiries, appointments, documents, messages, and seller tools.">
-      <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+      <div className="grid gap-6 min-[1800px]:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)]">
         <div className="rounded-[1.75rem] border border-[#e7dcc8] bg-white p-6 shadow-[0_16px_50px_rgba(9,21,64,0.08)] sm:p-8">
           <div className="section-label">Welcome</div>
           <div className="mt-3 flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-semibold tracking-[-0.05em] text-[#071426]">Good afternoon, Rabin.</h2>
+              <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-semibold tracking-[-0.05em] text-[#071426]">Good afternoon, Miguel.</h2>
               <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Here’s a polished overview of your Amica Residences activity, recommendations, and progress across your customer account.</p>
             </div>
             <div className="hidden rounded-[1.4rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.86)] px-4 py-3 text-right md:block">
@@ -98,16 +98,16 @@ export default function CustomerDashboardPage() {
             </div>
           </div>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {cards.map(([label, value]) => (
               <div key={label} className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.86)] p-4">
-                <div className="text-xs uppercase tracking-[0.22em] text-slate-500">{label}</div>
-                <div className="mt-2 text-2xl font-semibold text-[#071426]">{value}</div>
+                <div className="text-[11px] uppercase leading-5 tracking-[0.18em] text-slate-500">{label}</div>
+                <div className="mt-2 break-words text-2xl font-semibold leading-tight text-[#071426]">{value}</div>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 grid gap-4 xl:grid-cols-2">
+          <div className="mt-8 grid gap-5">
             <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(247,243,234,0.88))] p-5">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                 <div>
@@ -120,20 +120,20 @@ export default function CustomerDashboardPage() {
               <div className="mt-5 grid gap-4">
                 {savedHomes.map((item) => (
                   <article key={item.title} className="overflow-hidden rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-white shadow-[0_12px_34px_rgba(9,21,64,0.06)]">
-                    <div className="grid gap-0 sm:grid-cols-[150px_1fr]">
-                      <div className="relative min-h-40 bg-[#071426] sm:min-h-full">
+                    <div className="grid gap-0 md:grid-cols-[minmax(180px,0.9fr)_minmax(0,1.25fr)]">
+                      <div className="relative min-h-64 bg-[#071426] md:min-h-full">
                         <Image src={item.image} alt={item.title} fill className="object-cover" />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,20,38,0.05),rgba(7,20,38,0.45))]" />
                         <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#071426]">{item.status}</span>
                       </div>
 
-                      <div className="p-4">
+                      <div className="min-w-0 p-5">
                         <div className="flex flex-wrap gap-2">
-                          <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a6428]">Best for {item.bestFor}</span>
-                          <span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">{item.note}</span>
+                          <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase leading-4 tracking-[0.16em] text-[#8a6428]">Best for {item.bestFor}</span>
+                          <span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase leading-4 tracking-[0.16em] text-white">{item.note}</span>
                         </div>
-                        <h4 className="mt-3 text-lg font-semibold tracking-[-0.03em] text-[#071426]">{item.title}</h4>
-                        <div className="mt-1 text-base font-semibold text-[#b98a3d]">{item.price}</div>
+                        <h4 className="mt-3 text-2xl font-semibold leading-tight tracking-[-0.04em] text-[#071426]">{item.title}</h4>
+                        <div className="mt-2 break-words text-lg font-semibold text-[#b98a3d]">{item.price}</div>
                         <div className="mt-4 flex flex-wrap gap-2">
                           <Link href={item.href} className="rounded-full bg-[#071426] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#0d2342]">View details</Link>
                           <Link href="/compare" className="rounded-full border border-[#e7dcc8] px-4 py-2 text-xs font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0]">Compare</Link>
@@ -157,7 +157,7 @@ export default function CustomerDashboardPage() {
 
               <div className="mt-5 grid gap-3">
                 {appointmentDays.map((appointment) => (
-                  <article key={`${appointment.day}-${appointment.model}`} className="grid grid-cols-[72px_1fr] gap-3 rounded-[1.35rem] border border-white/10 bg-white/[0.08] p-3 backdrop-blur-sm">
+                  <article key={`${appointment.day}-${appointment.model}`} className="grid grid-cols-[76px_minmax(0,1fr)] gap-4 rounded-[1.35rem] border border-white/10 bg-white/[0.08] p-4 backdrop-blur-sm">
                     <div className="rounded-[1.1rem] bg-white text-center text-[#071426]">
                       <div className="rounded-t-[1.1rem] bg-[#d7be8a] py-1 text-[10px] font-bold uppercase tracking-[0.2em]">{appointment.day}</div>
                       <div className="py-3 text-2xl font-semibold tracking-[-0.05em]">{appointment.date}</div>
@@ -167,8 +167,8 @@ export default function CustomerDashboardPage() {
                         <span className="rounded-full border border-white/12 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#d7be8a]">{appointment.status}</span>
                         <span className="text-xs text-white/58">{appointment.time}</span>
                       </div>
-                      <h4 className="mt-2 text-sm font-semibold text-white">{appointment.model}</h4>
-                      <p className="mt-1 text-xs leading-5 text-white/62">Prepare valid ID and preferred questions before the viewing.</p>
+                      <h4 className="mt-2 text-base font-semibold leading-tight text-white">{appointment.model}</h4>
+                      <p className="mt-1 text-sm leading-6 text-white/68">Prepare valid ID and preferred questions before the viewing.</p>
                     </div>
                   </article>
                 ))}

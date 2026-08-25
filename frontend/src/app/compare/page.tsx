@@ -11,10 +11,10 @@ export default function ComparePage() {
     <main className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
       <section className="mx-auto max-w-[1560px]">
         <div className="overflow-hidden rounded-[2.5rem] border border-[#dbe5f2] bg-white/84 shadow-[0_24px_80px_rgba(9,21,64,0.10)] backdrop-blur-sm">
-          <div className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
+          <div className="grid gap-0 xl:grid-cols-[minmax(0,1.02fr)_minmax(340px,0.98fr)]">
             <div className="p-6 sm:p-8 lg:p-10">
               <span className="badge bg-white/80 shadow-soft">Side by side</span>
-              <h1 className="mt-6 max-w-3xl text-[clamp(2.8rem,6vw,5.3rem)] leading-[0.9] tracking-[-0.085em] text-[#08122c]">Compare model houses.</h1>
+              <h1 className="mt-6 max-w-3xl text-[clamp(2.35rem,10vw,5.3rem)] leading-[0.94] tracking-[-0.075em] text-[#08122c] sm:leading-[0.9] sm:tracking-[-0.085em]">Compare model houses.</h1>
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">A clearer comparison view for buyers who want to quickly understand price, fit, size, and package type.</p>
             </div>
             <div className="bg-[linear-gradient(135deg,#08122c_0%,#0b2d66_55%,#b98a3d_180%)] p-6 text-white sm:p-8 lg:p-10">

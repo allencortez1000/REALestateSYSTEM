@@ -166,8 +166,8 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
               </div>
             </section>
 
-            <div className="grid gap-6 lg:grid-cols-3">
-              <section id="overview" className="card scroll-mt-28 p-5 sm:p-8 lg:col-span-2">
+            <div className="grid gap-6">
+              <section id="overview" className="card scroll-mt-28 p-5 sm:p-8">
                 <div className="section-label">Model overview</div>
                 <h2 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.05em] text-[#071426]">{listing.title}</h2>
                 <p className="mt-4 text-lg leading-8 text-slate-600">{listing.description}</p>
@@ -193,16 +193,16 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                 </div>
 
                 <section className="mt-8 rounded-[2rem] border border-[#e7dcc8] bg-[linear-gradient(135deg,#071426_0%,#0d2342_100%)] p-5 text-white">
-                  <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="grid gap-5">
                     <div>
                       <div className="section-label text-[#d7be8a]">Buyer resources</div>
                       <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">Downloadable guide preview</h3>
                       <p className="mt-2 max-w-2xl text-sm leading-7 text-white/70">Quick actions for buyers who want to review the model, computation, or request complete sales details. These are UI-only buttons for now.</p>
                     </div>
-                    <div className="grid w-full gap-2 sm:grid-cols-3 lg:max-w-xl lg:flex-1">
-                      <button className="rounded-full bg-white px-4 py-3 text-sm font-semibold text-[#071426] transition hover:bg-[#f8f3e8]">View brochure</button>
-                      <button className="rounded-full border border-white/16 bg-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/14">Computation sheet</button>
-                      <button className="rounded-full border border-white/16 bg-transparent px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Request full details</button>
+                    <div className="grid w-full gap-3 md:grid-cols-3">
+                      <button className="min-w-0 rounded-full bg-white px-4 py-3 text-sm font-semibold text-[#071426] transition hover:bg-[#f8f3e8]">View brochure</button>
+                      <button className="min-w-0 rounded-full border border-white/16 bg-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/14">Computation sheet</button>
+                      <button className="min-w-0 rounded-full border border-white/16 bg-transparent px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Request full details</button>
                     </div>
                   </div>
                 </section>
@@ -217,19 +217,19 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                     <div className="rounded-full border border-[#e7dcc8] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">UI preview</div>
                   </div>
 
-                  <div className="mt-6 grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
-                    <div className="overflow-hidden rounded-[1.75rem] border border-[#e7dcc8] bg-white p-3 shadow-[0_16px_40px_rgba(9,21,64,0.06)]">
-                      <div className="grid min-h-[300px] grid-cols-4 grid-rows-4 gap-2 text-xs font-semibold text-[#071426] sm:min-h-[360px] sm:text-sm">
-                        <div className="col-span-2 row-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#071426] p-4 text-center text-white">Living Area</div>
-                        <div className="col-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#f4ead8] p-4 text-center">Dining Area</div>
-                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#fbf8f0] p-4 text-center">Kitchen</div>
-                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#fbf8f0] p-4 text-center">T&B</div>
-                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#efe5d0] p-4 text-center">Bedroom</div>
-                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#efe5d0] p-4 text-center">Bedroom</div>
-                        <div className="col-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#f8f3ea] p-4 text-center">Carport / Open Space</div>
-                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#efe5d0] p-4 text-center">Bedroom</div>
-                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#efe5d0] p-4 text-center">Bedroom</div>
-                        <div className="col-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#d7be8a] p-4 text-center text-[#071426]">Frontage / Entry</div>
+                  <div className="mt-6 grid gap-5">
+                    <div className="overflow-x-auto rounded-[1.75rem] border border-[#e7dcc8] bg-white p-3 shadow-[0_16px_40px_rgba(9,21,64,0.06)]">
+                      <div className="grid min-h-[300px] min-w-[360px] grid-cols-4 grid-rows-4 gap-2 text-xs font-semibold leading-tight text-[#071426] sm:min-h-[360px] sm:min-w-0 sm:text-sm">
+                        <div className="col-span-2 row-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#071426] p-3 text-center text-white sm:p-4">Living Area</div>
+                        <div className="col-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#f4ead8] p-3 text-center sm:p-4">Dining Area</div>
+                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#fbf8f0] p-2 text-center sm:p-4">Kitchen</div>
+                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#fbf8f0] p-2 text-center sm:p-4">T&B</div>
+                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#efe5d0] p-2 text-center sm:p-4">Bedroom</div>
+                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#efe5d0] p-2 text-center sm:p-4">Bedroom</div>
+                        <div className="col-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#f8f3ea] p-3 text-center sm:p-4">Carport / Open Space</div>
+                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#efe5d0] p-2 text-center sm:p-4">Bedroom</div>
+                        <div className="flex items-center justify-center rounded-[1.25rem] bg-[#efe5d0] p-2 text-center sm:p-4">Bedroom</div>
+                        <div className="col-span-2 flex items-center justify-center rounded-[1.25rem] bg-[#d7be8a] p-3 text-center text-[#071426] sm:p-4">Frontage / Entry</div>
                       </div>
                     </div>
 
@@ -250,12 +250,13 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                 </section>
               </section>
 
-              <aside id="inquiry" className="card scroll-mt-28 p-5 sm:p-8 lg:sticky lg:top-28 lg:self-start">
+              <aside id="inquiry" className="card scroll-mt-28 p-5 sm:p-8">
                 <div className="section-label">Inquiry</div>
                 <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Speak with our team</h3>
                 <p className="mt-2 text-sm leading-7 text-slate-600">Book a private viewing or request more details about this residence.</p>
 
-                <div className="mt-6 rounded-[1.5rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f0_0%,#ffffff_100%)] p-4">
+                <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)]">
+                  <div className="rounded-[1.5rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f0_0%,#ffffff_100%)] p-4">
                   <div className="section-label text-[#b98a3d]">Buyer journey</div>
                   <div className="mt-4 grid gap-3">
                     {[
@@ -274,14 +275,15 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                       </div>
                     ))}
                   </div>
-                </div>
+                  </div>
 
-                <div className="mt-6 rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.82)] p-4">
+                  <div>
+                    <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.82)] p-4">
                   <div className="text-xs uppercase tracking-[0.3em] text-slate-500">Assigned agent</div>
                   <div className="mt-2 text-lg font-semibold text-[#071426]">Amica Residences Sales Team</div>
                   <div className="text-sm text-slate-500">Metro Manila, Philippines</div>
-                </div>
-                <div className="mt-5 grid gap-3">
+                    </div>
+                    <div className="mt-5 grid gap-3">
                   <label className="grid gap-2">
                     <span className="sr-only">Your name</span>
                     <input className="input" name="name" autoComplete="name" placeholder="Your name" />
@@ -300,10 +302,12 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   </label>
                   <button className="btn-primary mt-2 w-full">Schedule viewing</button>
                   <FavoriteButton slug={listing.slug} className="w-full" />
-                </div>
-                <div className="mt-6 space-y-3">
-                  <a href="tel:+639123456789" className="btn-gold w-full">Call now</a>
-                  <a href="mailto:hello@rabinohomebuilders.com" className="btn-outline w-full">Send inquiry</a>
+                    </div>
+                    <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+                      <a href="tel:+639123456789" className="btn-gold w-full">Call now</a>
+                      <a href="mailto:hello@rabinohomebuilders.com" className="btn-outline w-full">Send inquiry</a>
+                    </div>
+                  </div>
                 </div>
               </aside>
             </div>
@@ -398,14 +402,14 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
         </div>
       </section>
 
-      <div className="fixed bottom-4 left-3 right-3 z-40 rounded-[1.5rem] border border-white/20 bg-[#071426]/94 p-2 shadow-[0_18px_60px_rgba(5,14,30,0.25)] backdrop-blur-xl sm:bottom-5 sm:left-auto sm:right-6 sm:w-auto sm:rounded-full">
+      <div className="fixed bottom-4 left-3 right-3 z-40 rounded-[1.5rem] border border-[#d7be8a]/45 bg-[#071426] p-2.5 shadow-[0_20px_70px_rgba(5,14,30,0.38)] sm:bottom-5 sm:left-auto sm:right-6 sm:w-auto sm:min-w-[430px] sm:rounded-full">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
-          <div className="hidden px-4 text-white sm:block">
-            <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#d7be8a]">Interested in this model?</div>
-            <div className="text-sm font-semibold">{listing.title}</div>
+          <div className="px-3 text-white sm:px-5">
+            <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f2cf5b]">Interested in this model?</div>
+            <div className="mt-0.5 truncate text-sm font-bold text-white sm:max-w-[190px]">{listing.title}</div>
           </div>
-          <a href="#inquiry" className="w-full rounded-full bg-[#d7be8a] px-5 py-3 text-center text-sm font-semibold text-[#071426] transition hover:bg-[#e4cf9f] sm:w-auto">Inquire now</a>
-          <a href="tel:+639123456789" className="w-full rounded-full border border-white/14 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/10 sm:w-auto sm:inline-flex">Call</a>
+          <a href="#inquiry" className="w-full rounded-full bg-[#d7be8a] px-5 py-3 text-center text-sm font-bold text-[#071426] shadow-[0_10px_26px_rgba(215,190,138,0.35)] transition hover:bg-[#f2cf5b] sm:w-auto">Inquire now</a>
+          <a href="tel:+639123456789" className="w-full rounded-full border border-white/45 bg-white/10 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-white/18 sm:w-auto sm:inline-flex">Call</a>
         </div>
       </div>
     </main>

@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <Image src={brand.logo} alt={brand.name} width={260} height={112} className="h-16 w-auto object-contain" />
             <p className="mt-4 max-w-md text-sm leading-7 text-white/72">Amica Residences by Rabino Home Builders Corporation presents model houses and housing options with clarity, trust, and editorial restraint.</p>
-            <div className="mt-6 flex max-w-md gap-2 rounded-full border border-white/12 bg-white/8 p-1.5 backdrop-blur">
+            <div className="mt-6 flex max-w-md flex-col gap-2 rounded-[1.25rem] border border-white/12 bg-white/8 p-1.5 backdrop-blur sm:flex-row sm:rounded-full">
               <label className="sr-only" htmlFor="footer-email">Your email for updates</label>
               <input id="footer-email" name="email" type="email" autoComplete="email" className="w-full bg-transparent px-3 text-sm text-white placeholder:text-white/45 outline-none" placeholder="Your email for updates" />
               <button className="shrink-0 rounded-full bg-[#d7be8a] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#071426] transition hover:bg-[#e4cf9f]">Subscribe</button>

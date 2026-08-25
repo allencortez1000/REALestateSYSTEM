@@ -10,12 +10,20 @@ const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', displa
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'], variable: '--font-playfair', display: 'swap' });
 
 export const metadata: Metadata = {
+  applicationName: brand.name,
   title: {
     default: brand.name,
-    template: `%s | ${brand.shortName}`
+    template: `%s | ${brand.name}`
   },
   description: 'Explore Amica Residences model houses by Rabino Home Builders Corporation, including sample computations, viewing inquiries, comparison tools, and customer portal previews.',
   keywords: ['Amica Residences', 'Rabino Home Builders Corporation', 'model houses', 'Philippine homes', 'house and lot', 'low cost housing'],
+  icons: {
+    icon: [
+      { url: '/rabino-logo.png', type: 'image/png' }
+    ],
+    shortcut: '/rabino-logo.png',
+    apple: '/rabino-logo.png'
+  },
   openGraph: {
     title: brand.name,
     description: 'Premium model-house browsing, comparison, and inquiry experience for Philippine buyers.',
