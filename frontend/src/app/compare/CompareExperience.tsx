@@ -60,8 +60,8 @@ export default function CompareExperience() {
 
   if (!hydrated) {
     return (
-      <div className="mt-10 grid gap-6">
-        <div className="animate-pulse rounded-[2rem] border border-[#e5dcc9] bg-white/78 p-6 shadow-deep sm:p-8">
+      <div className="mt-6 grid gap-6">
+        <div className="animate-pulse rounded-[2rem] border border-[#e5dcc9] bg-white/78 p-6 shadow-[0_14px_34px_rgba(9,21,64,0.06)] sm:p-8">
           <div className="h-4 w-32 rounded-full bg-[#e7dcc8]" />
           <div className="mt-4 h-8 w-72 max-w-full rounded-full bg-[#e7dcc8]" />
           <div className="mt-3 h-4 w-full max-w-xl rounded-full bg-[#efe7d8]" />
@@ -78,17 +78,17 @@ export default function CompareExperience() {
 
   return (
     <>
-      <section className="mt-10 rounded-[2rem] border border-[#e5dcc9] bg-white/88 p-6 shadow-deep backdrop-blur sm:p-8">
+      <section className="mt-6 rounded-[2rem] border border-[#e5dcc9] bg-white/92 p-6 shadow-[0_14px_34px_rgba(9,21,64,0.06)] backdrop-blur sm:p-8">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="section-label text-[#b98a3d]">Choose columns</div>
-            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Select models to compare</h2>
+            <h2 className="mt-3 text-[clamp(1.9rem,4vw,2.7rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-[#071426]">Select models to compare</h2>
             <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">Pick at least one model. The side-by-side table updates instantly from the shared model-house data.</p>
           </div>
           <button
             type="button"
             onClick={() => setSelectedTitles(comparisonModelHouses.map((property) => property.title))}
-            className="rounded-full border border-[#e7dcc8] bg-white px-5 py-3 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0]"
+            className="btn-outline"
           >
             Select all
           </button>
@@ -103,7 +103,7 @@ export default function CompareExperience() {
                 key={property.title}
                 type="button"
                 onClick={() => toggleModel(property.title)}
-                className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase leading-5 tracking-[0.12em] transition sm:tracking-[0.2em] ${
+                className={`rounded-full border px-4 py-2.5 text-xs font-semibold uppercase leading-5 tracking-[0.12em] transition sm:tracking-[0.18em] ${
                   isSelected
                     ? 'border-[#071426] bg-[#071426] text-white'
                     : 'border-[#e7dcc8] bg-[#fbf8f0] text-[#8a6428] hover:border-[#b98a3d] hover:bg-white'
@@ -117,14 +117,14 @@ export default function CompareExperience() {
         </div>
       </section>
 
-      <ResponsiveGrid as="section" className="mt-10 gap-5">
+      <ResponsiveGrid as="section" className="mt-6 gap-5">
         {selectedListings.map((property) => (
-          <article key={property.title} className="rounded-[1.5rem] border border-[#e7dcc8] bg-white p-5 shadow-[0_18px_50px_rgba(9,21,64,0.08)] sm:rounded-[2rem] sm:p-6">
+          <article key={property.title} className="rounded-[1.5rem] border border-[#e7dcc8] bg-white p-5 shadow-[0_12px_28px_rgba(9,21,64,0.05)] sm:rounded-[2rem] sm:p-6">
             <div className="flex flex-wrap gap-2">
               <span className="rounded-full bg-[#071426] px-3 py-1 text-[10px] font-semibold uppercase leading-4 tracking-[0.14em] text-white">{property.tag}</span>
               <span className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-3 py-1 text-[10px] font-semibold uppercase leading-4 tracking-[0.14em] text-[#8a6428]">Best for {property.bestFor}</span>
             </div>
-            <h2 className="mt-5 text-2xl font-semibold tracking-[-0.05em] text-[#071426]">{property.title}</h2>
+            <h2 className="mt-5 text-[1.8rem] font-semibold leading-[1.04] tracking-[-0.045em] text-[#071426]">{property.title}</h2>
             <div className="mt-4 grid gap-3 text-sm">
               <div className="rounded-2xl border border-[#e7dcc8] bg-[#fbf8f0] p-4">
                 <div className="text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">Price</div>
@@ -139,10 +139,10 @@ export default function CompareExperience() {
         ))}
       </ResponsiveGrid>
 
-      <section className="mt-10 overflow-hidden rounded-[2rem] border border-[#e5dcc9] bg-white/88 shadow-deep backdrop-blur">
+      <section className="mt-6 overflow-hidden rounded-[2rem] border border-[#e5dcc9] bg-white/92 shadow-[0_14px_34px_rgba(9,21,64,0.06)] backdrop-blur">
         <div className="border-b border-[#e5dcc9] bg-[#fbf8f0] p-6">
           <div className="section-label text-[#b98a3d]">Detailed comparison</div>
-          <h2 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Review selected models side by side</h2>
+          <h2 className="mt-3 text-[clamp(1.9rem,4vw,2.7rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-[#071426]">Review selected models side by side</h2>
           <p className="mt-2 text-sm leading-7 text-slate-600">Scroll horizontally on smaller screens. Each column represents one selected model or housing project.</p>
         </div>
 

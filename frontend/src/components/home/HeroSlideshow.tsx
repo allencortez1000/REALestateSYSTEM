@@ -27,7 +27,7 @@ export default function HeroSlideshow() {
 
   return (
     <div
-          className="relative min-h-[430px] w-full overflow-hidden rounded-[1.75rem] border border-[rgba(231,220,200,0.9)] bg-[linear-gradient(180deg,#f1e9db_0%,#d7e0ea_22%,#8d9eb4_56%,#071426_100%)] shadow-[0_32px_110px_rgba(5,14,30,0.16)] sm:min-h-[520px] sm:rounded-[2.25rem] xl:min-h-[560px] min-[1400px]:min-h-[590px]"
+          className="relative min-h-[430px] w-full overflow-hidden rounded-[1.75rem] border border-[rgba(231,220,200,0.9)] bg-[linear-gradient(180deg,#f1e9db_0%,#d7e0ea_22%,#8d9eb4_56%,#071426_100%)] shadow-[0_24px_72px_rgba(5,14,30,0.14)] sm:min-h-[520px] sm:rounded-[2.25rem] xl:min-h-[550px] min-[1400px]:min-h-[580px]"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onFocus={() => setPaused(true)}
@@ -51,9 +51,9 @@ export default function HeroSlideshow() {
         {activeSlide.price}
       </div>
 
-      <div className="absolute bottom-4 left-4 right-4 rounded-[1.5rem] border border-white/24 bg-[rgba(7,20,38,0.66)] p-5 shadow-[0_24px_60px_rgba(7,14,30,0.22)] backdrop-blur-xl sm:bottom-6 sm:left-6 sm:right-6 sm:rounded-[1.9rem] sm:p-6 xl:p-5">
+      <div className="absolute bottom-4 left-4 right-4 rounded-[1.5rem] border border-white/20 bg-[rgba(7,20,38,0.64)] p-5 shadow-[0_18px_42px_rgba(7,14,30,0.18)] backdrop-blur-xl sm:bottom-6 sm:left-6 sm:right-6 sm:rounded-[1.9rem] sm:p-6 xl:p-5">
         <div className="section-label text-[#d7be8a]">Preview listing</div>
-        <div className="mt-2 text-[clamp(1.55rem,2.4vw,2.35rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white">
+        <div className="mt-2 text-[clamp(1.5rem,2.25vw,2.2rem)] font-semibold leading-[1] tracking-[-0.045em] text-white">
           {activeSlide.title}
         </div>
         <div className="mt-2 text-sm leading-7 text-white/70">{activeSlide.area}</div>

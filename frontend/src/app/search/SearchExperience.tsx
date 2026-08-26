@@ -68,14 +68,14 @@ export default function SearchExperience() {
 
   return (
     <>
-      <section className="mt-10 rounded-[2.25rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#ffffff_0%,#fbf8f0_100%)] p-6 shadow-[0_18px_50px_rgba(9,21,64,0.07)] sm:p-8">
+      <section className="mt-6 rounded-[2.15rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#ffffff_0%,#fbf8f0_100%)] p-6 shadow-[0_14px_34px_rgba(9,21,64,0.06)] sm:p-8">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="section-label text-[#b98a3d]">Search filters</div>
-            <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.8rem)] font-semibold tracking-[-0.05em] text-[#071426]">Narrow your preferred model</h2>
+            <h2 className="mt-3 text-[clamp(1.9rem,4vw,2.7rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-[#071426]">Narrow your preferred model</h2>
             <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">Filter the current shared model-house list by keyword, home type, budget, and buyer fit.</p>
           </div>
-          <button type="button" onClick={resetFilters} className="rounded-full border border-[#e7dcc8] bg-white px-5 py-3 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0]">Reset filters</button>
+          <button type="button" onClick={resetFilters} className="btn-outline">Reset filters</button>
         </div>
 
         <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_0.9fr_0.9fr_0.9fr]">
@@ -104,24 +104,24 @@ export default function SearchExperience() {
         </div>
       </section>
 
-      <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="section-label text-[#b98a3d]">Results</div>
-          <h2 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">{results.length} matching model{results.length === 1 ? '' : 's'}</h2>
+          <h2 className="mt-2 text-[1.9rem] font-semibold leading-[1.04] tracking-[-0.045em] text-[#071426]">{results.length} matching model{results.length === 1 ? '' : 's'}</h2>
         </div>
         <p className="text-sm text-slate-500">Frontend-only filtering from the shared model-house data.</p>
       </div>
 
       {results.length > 0 ? (
-        <ResponsiveGrid className="mt-6 gap-7">
+        <ResponsiveGrid className="mt-6 gap-6">
           {results.map((listing) => (
             <PropertyCard key={listing.slug} listing={listing} label={listing.type} />
           ))}
         </ResponsiveGrid>
       ) : (
-        <div className="mt-6 rounded-[2rem] border border-[#e7dcc8] bg-white p-8 text-center shadow-[0_18px_50px_rgba(9,21,64,0.07)]">
+        <div className="mt-6 rounded-[2rem] border border-[#e7dcc8] bg-white p-8 text-center shadow-[0_14px_34px_rgba(9,21,64,0.06)]">
           <div className="section-label text-[#b98a3d]">No matches</div>
-          <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Try a broader search</h3>
+          <h3 className="mt-3 text-[1.8rem] font-semibold leading-[1.04] tracking-[-0.045em] text-[#071426]">Try a broader search</h3>
           <p className="mt-2 text-sm leading-7 text-slate-600">Adjust the keyword, home type, budget, or buyer-fit filters to see more model houses.</p>
           <button type="button" onClick={resetFilters} className="btn-primary mt-5">Reset filters</button>
         </div>

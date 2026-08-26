@@ -78,14 +78,14 @@ export default function BookingsExperience() {
   }
 
   return (
-    <div className="mt-10 grid gap-6 md:grid-cols-2">
-      <form className="card p-7 md:col-span-2" onSubmit={createBooking}>
+    <div className="mt-6 grid gap-6 md:grid-cols-2">
+      <form className="card p-7 shadow-[0_14px_34px_rgba(9,21,64,0.06)] md:col-span-2" onSubmit={createBooking}>
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="section-label">Schedule a new viewing</div>
             <p className="mt-2 text-sm leading-7 text-slate-600">Create a local booking request for demo purposes. No database or API request is made.</p>
           </div>
-          <div className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6428]">
+          <div className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6428]">
             {upcomingCount} active bookings
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function BookingsExperience() {
       </form>
 
       {bookings.map((booking) => (
-        <div key={booking.id} className={`card card-hover p-6 ${booking.id === lastCreatedId ? 'border-emerald-200' : ''}`}>
+        <div key={booking.id} className={`card card-hover p-6 shadow-[0_12px_28px_rgba(9,21,64,0.05)] ${booking.id === lastCreatedId ? 'border-emerald-200' : ''}`}>
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="font-bold text-[#071426]">{booking.propertyTitle}</div>
@@ -129,7 +129,7 @@ export default function BookingsExperience() {
           </div>
           <div className="mt-5 flex gap-2">
             <button type="button" onClick={() => markRescheduled(booking.id)} className="btn-outline px-4 py-2 text-xs">Reschedule</button>
-            <button type="button" onClick={() => cancelBooking(booking.id)} className="rounded-full border border-[#e7dcc8] bg-[#fbf8f0] px-4 py-2 text-xs font-semibold text-[#8a6428] transition hover:bg-[#f4ead7]">Cancel</button>
+            <button type="button" onClick={() => cancelBooking(booking.id)} className="btn-outline px-4 py-2 text-xs text-[#8a6428] hover:text-[#8a6428]">Cancel</button>
           </div>
         </div>
       ))}

@@ -53,10 +53,10 @@ export default function Header() {
 
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
           <CommandPalette />
-          {!hidePublicNav ? <Link href="/search" className="hidden rounded-full border border-[rgba(231,220,200,0.9)] bg-white px-4 py-2 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0] sm:inline-flex">Search</Link> : null}
+          {!hidePublicNav ? <Link href="/search" className="btn-outline hidden sm:inline-flex">Search</Link> : null}
           {!hidePublicNav ? <Link href="/auth/login" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-[#071426] transition hover:bg-[#071426]/5 md:inline-flex">Login</Link> : null}
           {!hidePublicNav ? <Link href="/auth/login/admin" className="hidden rounded-full px-4 py-2 text-sm font-semibold text-[#8a6428] transition hover:bg-[#f2cf5b]/20 md:inline-flex">Admin</Link> : null}
-          <Link href="/auth/register" className="hidden rounded-full bg-[#071426] px-4 py-2.5 text-sm font-semibold text-white shadow-luxury transition hover:bg-[#0d2342] sm:inline-flex">Register</Link>
+          <Link href="/auth/register" className="btn-primary hidden sm:inline-flex">Register</Link>
           {!hidePublicNav ? (
             <button
               type="button"
@@ -95,8 +95,8 @@ export default function Header() {
             })}
           </nav>
           <div className="grid gap-2 border-t border-[#ece1d0] p-3 sm:grid-cols-3">
-            <Link href="/search" className="rounded-2xl border border-[#e7dcc8] bg-[#fbf8f0] px-4 py-3 text-center text-sm font-bold text-[#071426] transition hover:border-[#b98a3d]">Quick search</Link>
-            <Link href="/auth/login" className="rounded-2xl border border-[#e7dcc8] bg-white px-4 py-3 text-center text-sm font-bold text-[#071426] transition hover:border-[#b98a3d]">Login</Link>
+            <Link href="/search" className="btn-outline rounded-2xl">Quick search</Link>
+            <Link href="/auth/login" className="btn-outline rounded-2xl bg-white">Login</Link>
             <Link href="/auth/login/admin" className="rounded-2xl border border-[#f2cf5b]/50 bg-[#f2cf5b]/18 px-4 py-3 text-center text-sm font-bold text-[#8a6428] transition hover:bg-[#f2cf5b]/28">Admin login</Link>
           </div>
         </div>

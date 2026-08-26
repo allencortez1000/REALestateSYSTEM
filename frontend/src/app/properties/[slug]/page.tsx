@@ -56,9 +56,9 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
   return (
     <main className="relative px-4 pb-40 pt-6 sm:px-6 sm:pb-36 lg:px-8">
       <section className="mx-auto max-w-[1500px]">
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(420px,1fr)] xl:items-start">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(420px,1fr)] xl:items-start">
           <div className="space-y-6">
-            <div className="overflow-hidden rounded-[2rem] border border-[rgba(231,220,200,0.95)] bg-white/92 shadow-[0_24px_80px_rgba(9,21,64,0.10)] sm:rounded-[2.75rem]">
+            <div className="overflow-hidden rounded-[2rem] border border-[rgba(231,220,200,0.95)] bg-white/92 shadow-[0_18px_56px_rgba(9,21,64,0.08)] sm:rounded-[2.75rem]">
               <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)]">
                 <div className="relative min-h-[500px] overflow-hidden bg-[#071426] sm:min-h-[580px] lg:min-h-[640px]">
                   <Image
@@ -74,7 +74,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   <div className="absolute left-4 top-4 max-w-[calc(100%-2rem)] rounded-full border border-white/14 bg-[#071426]/92 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md sm:left-6 sm:top-6 sm:px-4 sm:text-[11px] sm:tracking-[0.32em]">Featured residence</div>
                   <div className="absolute left-4 right-4 top-16 flex flex-wrap gap-2 sm:left-auto sm:right-6 sm:top-6 sm:max-w-[calc(100%-3rem)] sm:justify-end">
                     <div className="rounded-full border border-white/60 bg-[rgba(255,252,246,0.92)] px-4 py-2 text-xs font-semibold text-[#071426] shadow-[0_12px_28px_rgba(7,20,38,0.10)]">{listing.availability}</div>
-                    <div className="rounded-full border border-white/20 bg-[#071426]/86 px-4 py-2 text-xs font-semibold text-white shadow-[0_12px_28px_rgba(7,20,38,0.16)] backdrop-blur-md">{listing.bestFor}</div>
+                    <div className="rounded-full border border-white/18 bg-[#071426]/82 px-4 py-2 text-xs font-semibold text-white shadow-[0_10px_22px_rgba(7,20,38,0.14)] backdrop-blur-md">{listing.bestFor}</div>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 lg:p-10">
                     <div className="max-w-3xl text-white">
@@ -87,11 +87,11 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
                 <div className="bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,243,234,0.96))] p-6 sm:p-8 lg:p-10">
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                    <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-white p-5">
+                    <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-white p-5 shadow-[0_10px_26px_rgba(9,21,64,0.04)]">
                       <div className="section-label text-[#b98a3d]">Price</div>
-                      <div className="mt-3 break-words text-2xl font-semibold tracking-[-0.04em] text-[#071426] sm:text-3xl">{listing.price}</div>
+                      <div className="mt-3 break-words text-[1.85rem] font-semibold tracking-[-0.04em] text-[#071426] sm:text-[2.15rem]">{listing.price}</div>
                     </div>
-                    <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-white p-5">
+                    <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-white p-5 shadow-[0_10px_26px_rgba(9,21,64,0.04)]">
                       <div className="section-label text-[#b98a3d]">Specifications</div>
                       <div className="mt-4 grid gap-3 text-sm text-slate-600">
                         <div className="flex items-start justify-between gap-3 border-b border-[#efe5c3] pb-2"><span>Lot area</span><strong className="text-right text-[#071426]">{listing.lotArea}</strong></div>
@@ -108,7 +108,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
                   <div id="features" className="mt-6 scroll-mt-28 rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.82)] p-5">
                     <div className="section-label">Main features</div>
-                    <p className="mt-2 text-sm leading-6 text-slate-500">Quick view of the most important spaces and inclusions for this model.</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-500">A quick view of the key spaces and inclusions.</p>
                     <div className="mt-4 grid gap-3">
                       {listing.highlights.map((item) => (
                         <div key={item} className="flex items-center gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-white px-4 py-3 text-sm font-medium text-[#071426]">
@@ -122,7 +122,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
               </div>
             </div>
 
-            <nav className="sticky top-4 z-20 overflow-hidden rounded-[1.25rem] border border-[#e7dcc8] bg-[rgba(255,255,255,0.94)] p-2 shadow-[0_18px_50px_rgba(9,21,64,0.08)] backdrop-blur-xl sm:rounded-[1.75rem] lg:top-24">
+            <nav className="sticky top-4 z-20 overflow-hidden rounded-[1.25rem] border border-[#e7dcc8] bg-[rgba(255,255,255,0.94)] p-2 shadow-[0_14px_36px_rgba(9,21,64,0.06)] backdrop-blur-xl sm:rounded-[1.75rem] lg:top-24">
               <div className="flex gap-2 overflow-x-auto">
                 {[
                   ['Overview', '#overview'],
@@ -146,7 +146,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
               </div>
             </nav>
 
-            <section id="gallery" className="scroll-mt-28 rounded-[2rem] border border-[#e7dcc8] bg-white p-5 shadow-[0_18px_50px_rgba(9,21,64,0.07)]">
+            <section id="gallery" className="scroll-mt-28 rounded-[2rem] border border-[#e7dcc8] bg-white p-5 shadow-[0_14px_36px_rgba(9,21,64,0.06)]">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <div className="section-label text-[#b98a3d]">Gallery</div>
@@ -183,8 +183,8 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
             <div className="grid gap-6">
               <section id="overview" className="card scroll-mt-28 p-5 sm:p-8">
                 <div className="section-label">Model overview</div>
-                <h2 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.05em] text-[#071426]">{listing.title}</h2>
-                <p className="mt-4 text-lg leading-8 text-slate-600">{listing.description}</p>
+                <h2 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-[#071426]">{listing.title}</h2>
+                <p className="mt-4 text-[1.02rem] leading-8 text-slate-600">{listing.description}</p>
 
                 <div className="mt-8 grid gap-4 sm:grid-cols-3">
                   {[
@@ -199,33 +199,33 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                   ))}
                 </div>
 
-                <div className="mt-8 rounded-[1.75rem] border border-[#e7dcc8] bg-white p-5">
+                <div className="mt-7 rounded-[1.6rem] border border-[#e7dcc8] bg-white p-5">
                   <div className="section-label text-[#b98a3d]">How to read this page</div>
                   <p className="mt-3 text-sm leading-7 text-slate-600">
                     Review the model overview first, then check the design inclusions, house features, size details, and payment computation. If a value says "Not shown," it means the supplied marketing reference did not include that specific detail.
                   </p>
                 </div>
 
-                <section className="mt-8 rounded-[2rem] border border-[#e7dcc8] bg-[linear-gradient(135deg,#071426_0%,#0d2342_100%)] p-5 text-white">
-                  <div className="grid gap-5">
+                <section className="mt-7 rounded-[1.85rem] border border-[#e7dcc8] bg-[linear-gradient(135deg,#071426_0%,#0d2342_100%)] p-5 text-white shadow-[0_14px_34px_rgba(9,21,64,0.09)]">
+                  <div className="grid gap-4">
                     <div>
                       <div className="section-label text-[#d7be8a]">Buyer resources</div>
-                      <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">Downloadable guide preview</h3>
-                      <p className="mt-2 max-w-2xl text-sm leading-7 text-white/70">Quick actions for buyers who want to review the model, computation, or request complete sales details. These are UI-only buttons for now.</p>
+                      <h3 className="mt-3 text-[1.7rem] font-semibold tracking-[-0.04em] text-white">Downloadable guide preview</h3>
+                      <p className="mt-2 max-w-2xl text-sm leading-7 text-white/70">Quick actions for reviewing the model, computation, and sales details.</p>
                     </div>
                     <div className="grid w-full gap-3 md:grid-cols-3">
                       <button className="min-w-0 rounded-full bg-white px-4 py-3 text-sm font-semibold text-[#071426] transition hover:bg-[#f8f3e8]">View brochure</button>
-                      <button className="min-w-0 rounded-full border border-white/16 bg-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/14">Computation sheet</button>
-                      <button className="min-w-0 rounded-full border border-white/16 bg-transparent px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Request full details</button>
+                      <button className="min-w-0 rounded-full border border-white/14 bg-white/8 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/12">Computation sheet</button>
+                      <button className="min-w-0 rounded-full border border-white/14 bg-transparent px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/8">Request details</button>
                     </div>
                   </div>
                 </section>
 
-                <section id="floor-plan" className="mt-8 scroll-mt-28 rounded-[2rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f0_0%,#ffffff_100%)] p-5">
+                <section id="floor-plan" className="mt-7 scroll-mt-28 rounded-[1.85rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f0_0%,#ffffff_100%)] p-5 shadow-[0_12px_34px_rgba(9,21,64,0.04)]">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                     <div>
                       <div className="section-label text-[#b98a3d]">Floor plan preview</div>
-                      <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Understand the layout at a glance</h3>
+                      <h3 className="mt-3 text-[1.7rem] font-semibold tracking-[-0.04em] text-[#071426]">Understand the layout at a glance</h3>
                       <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">This visual guide is a UI preview based on the available model details. It helps buyers quickly understand the major spaces before reviewing the full feature list.</p>
                     </div>
                     <div className="rounded-full border border-[#e7dcc8] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">UI preview</div>
@@ -270,11 +270,11 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
           <div className="min-w-0 space-y-6">
             <section id="design" className="card scroll-mt-28 p-5 sm:p-8">
               <div className="section-label">Design and package details</div>
-              <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">What is included</h3>
-              <p className="mt-2 text-sm leading-7 text-slate-600">These items explain the design previews, package type, and notable selling points from the reference materials.</p>
+              <h3 className="mt-3 text-[1.9rem] font-semibold leading-[1.03] tracking-[-0.04em] text-[#071426]">What is included</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">These items explain the design previews, package type, and notable selling points from the reference materials.</p>
               <div className="mt-5 grid gap-3">
                 {listing.amenities.map((item, index) => (
-                  <div key={item} className="flex gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-[rgba(247,243,234,0.82)] px-4 py-3 text-sm text-[#071426]">
+                  <div key={item} className="flex gap-3 rounded-2xl border border-[rgba(231,220,200,0.82)] bg-[rgba(247,243,234,0.72)] px-4 py-3 text-sm text-[#071426]">
                     <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#b98a3d]">{String(index + 1).padStart(2, '0')}</span>
                     <span>{item}</span>
                   </div>
@@ -284,11 +284,11 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
             <section id="layout" className="card scroll-mt-28 p-5 sm:p-8">
               <div className="section-label">House features</div>
-              <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Rooms and layout notes</h3>
-              <p className="mt-2 text-sm leading-7 text-slate-600">Use this section to understand the spaces, floor-plan notes, and functional areas included in the model.</p>
+              <h3 className="mt-3 text-[1.9rem] font-semibold leading-[1.03] tracking-[-0.04em] text-[#071426]">Rooms and layout notes</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">Use this section to understand the spaces, floor-plan notes, and functional areas included in the model.</p>
               <div className="mt-5 grid gap-3">
                 {listing.floorFeatures.map((item, index) => (
-                  <div key={item} className="flex gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-white px-4 py-3 text-sm text-[#071426]">
+                  <div key={item} className="flex gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-white/96 px-4 py-3 text-sm text-[#071426]">
                     <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8a6428]">{String(index + 1).padStart(2, '0')}</span>
                     <span>{item}</span>
                   </div>
@@ -298,11 +298,11 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
             <section id="location" className="card scroll-mt-28 p-5 sm:p-8">
               <div className="section-label">Location access</div>
-              <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Nearby conveniences</h3>
-              <p className="mt-2 text-sm leading-7 text-slate-600">A simple guide to the community access points and nearby essentials mentioned for this listing.</p>
+              <h3 className="mt-3 text-[1.9rem] font-semibold leading-[1.03] tracking-[-0.04em] text-[#071426]">Nearby conveniences</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">A simple guide to the community access points and nearby essentials mentioned for this listing.</p>
               <div className="mt-5 grid gap-3">
                 {listing.nearby.map((item, index) => (
-                  <div key={item} className="flex gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-[rgba(247,243,234,0.82)] px-4 py-3 text-sm text-[#071426]">
+                  <div key={item} className="flex gap-3 rounded-2xl border border-[rgba(231,220,200,0.82)] bg-[rgba(247,243,234,0.72)] px-4 py-3 text-sm text-[#071426]">
                     <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8a6428]">{String(index + 1).padStart(2, '0')}</span>
                     <span>{item}</span>
                   </div>
@@ -312,8 +312,8 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
 
             <section className="card p-5 sm:p-8">
               <div className="section-label">Buyer FAQ</div>
-              <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Common questions before you inquire</h3>
-              <p className="mt-2 text-sm leading-7 text-slate-600">Quick answers to help buyers understand the next steps. These are UI-only guide notes and can be connected to real policies later.</p>
+              <h3 className="mt-3 text-[1.9rem] font-semibold leading-[1.03] tracking-[-0.04em] text-[#071426]">Common questions before you inquire</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">Quick answers to help buyers understand the next steps. These are UI-only guide notes and can be connected to real policies later.</p>
               <div className="mt-5 grid gap-3">
                 {[
                   ['Can I schedule a viewing?', 'Yes. Use the inquiry form or floating button to request a preferred viewing date.'],
@@ -335,10 +335,10 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
             {'computation' in listing ? (
               <div id="payment" className="scroll-mt-28 space-y-6">
                 <FinancingCalculator price={listing.price} />
-                <section className="card overflow-hidden p-0">
+                <section className="card overflow-hidden p-0 shadow-[0_14px_40px_rgba(9,21,64,0.06)]">
                   <div className="border-b border-[#e7dcc8] bg-[linear-gradient(135deg,#071426_0%,#0d2342_100%)] p-6 text-white">
                     <div className="section-label text-[#d7be8a]">Payment guide</div>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">Sample computation</h3>
+                    <h3 className="mt-3 text-[1.7rem] font-semibold tracking-[-0.04em] text-white">Sample computation</h3>
                     <p className="mt-2 text-sm leading-7 text-white/72">Use this as a quick reference for reservation, down payment, balance, and monthly terms shown in the supplied material.</p>
                   </div>
                   <div className="grid divide-y divide-[#e7dcc8]">
@@ -355,11 +355,11 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
           </div>
         </div>
 
-        <aside id="inquiry" className="card mt-6 scroll-mt-28 p-5 sm:p-8">
+        <aside id="inquiry" className="card mt-8 scroll-mt-28 p-5 sm:p-8">
           <div className="grid gap-6 xl:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] xl:items-start">
             <div>
               <div className="section-label">Inquiry</div>
-              <h3 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-[#071426]">Speak with our team</h3>
+              <h3 className="mt-4 text-[clamp(2rem,4vw,2.85rem)] font-semibold leading-[1.03] tracking-[-0.05em] text-[#071426]">Speak with our team</h3>
               <p className="mt-3 max-w-2xl text-base leading-8 text-slate-600">Book a private viewing or request more details about this residence. Our sales team can help verify availability, computation, and next steps.</p>
 
               <div className="mt-6 rounded-[1.75rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f0_0%,#ffffff_100%)] p-5">
@@ -419,7 +419,7 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
         </aside>
       </section>
 
-      <div className="fixed bottom-4 left-3 right-3 z-40 rounded-[1.5rem] border border-[#d7be8a]/45 bg-[#071426] p-2.5 shadow-[0_20px_70px_rgba(5,14,30,0.38)] sm:bottom-5 sm:left-auto sm:right-6 sm:w-auto sm:min-w-[430px] sm:rounded-full">
+      <div suppressHydrationWarning className="fixed bottom-4 left-3 right-3 z-40 rounded-[1.5rem] border border-[#d7be8a]/45 bg-[#071426] p-2.5 shadow-[0_20px_70px_rgba(5,14,30,0.38)] sm:bottom-5 sm:left-auto sm:right-6 sm:w-auto sm:min-w-[430px] sm:rounded-full">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
           <div className="px-3 text-white sm:px-5">
             <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f2cf5b]">Interested in this model?</div>

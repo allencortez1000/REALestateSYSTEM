@@ -69,8 +69,8 @@ export default function MessagesExperience() {
   }
 
   return (
-    <div className="mt-10 grid gap-7 lg:grid-cols-[340px_1fr]">
-      <aside className="card p-5">
+    <div className="mt-6 grid gap-6 lg:grid-cols-[340px_1fr]">
+      <aside className="card p-5 shadow-[0_12px_28px_rgba(9,21,64,0.05)]">
         <div className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-500">Conversations</div>
         <div className="grid gap-2">
           {mockMessages.map((msg) => {
@@ -81,7 +81,7 @@ export default function MessagesExperience() {
                 key={msg.id}
                 type="button"
                 onClick={() => setActiveId(msg.id)}
-                className={`flex items-center gap-3 rounded-2xl p-4 text-left transition ${isActive ? 'bg-[#071426] text-white' : 'bg-[#fbf8f0] hover:bg-[#f3f7fc]'}`}
+                className={`flex items-center gap-3 rounded-2xl p-4 text-left transition ${isActive ? 'bg-[#071426] text-white shadow-[0_10px_24px_rgba(7,20,38,0.14)]' : 'bg-[#fbf8f0] hover:bg-[#f3f7fc]'}`}
                 aria-pressed={isActive}
               >
                 <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold ${isActive ? 'bg-white text-[#071426]' : 'bg-[#071426] text-white'}`}>{msg.name.charAt(0)}</div>
@@ -96,7 +96,7 @@ export default function MessagesExperience() {
         </div>
       </aside>
 
-      <div className="card flex flex-col justify-between p-7" style={{ minHeight: '560px' }}>
+      <div className="card flex flex-col justify-between p-7 shadow-[0_14px_34px_rgba(9,21,64,0.06)]" style={{ minHeight: '560px' }}>
         <div>
           <div className="flex items-center gap-3 border-b border-[#e8dfc8] pb-5">
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#071426] text-base font-bold text-white">{activeConversation.name.charAt(0)}</div>
@@ -108,7 +108,7 @@ export default function MessagesExperience() {
           <div className="mt-6 space-y-4" aria-live="polite">
             {chat.map((msg) => (
               <div key={msg.id} className={`flex ${msg.from === 'me' ? 'justify-end' : ''}`}>
-                <div className={`max-w-[75%] rounded-2xl px-5 py-3 text-sm leading-6 ${msg.from === 'me' ? 'bg-[#071426] text-white' : 'bg-[#fbf8f0] text-slate-800'}`}>
+                <div className={`max-w-[75%] rounded-2xl px-5 py-3 text-sm leading-7 ${msg.from === 'me' ? 'bg-[#071426] text-white' : 'bg-[#fbf8f0] text-slate-800'}`}>
                   {msg.text}
                 </div>
               </div>

@@ -20,14 +20,14 @@ export default function ContactForm() {
 
   return (
     <form
-      className="card p-8 md:p-10"
+      className="card p-8 shadow-[0_14px_34px_rgba(9,21,64,0.06)] md:p-10"
       onSubmit={(event) => {
         event.preventDefault();
         setSubmitted(true);
       }}
     >
       <div className="section-label">Send inquiry</div>
-      <h2 className="mt-3 text-[clamp(2rem,4vw,2.8rem)] font-semibold text-[#071426]">Tell us what you need</h2>
+      <h2 className="mt-3 text-[clamp(1.95rem,4vw,2.7rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-[#071426]">Tell us what you need</h2>
       <p className="mt-3 text-sm leading-7 text-slate-600">This frontend-only form validates the key information a real inquiry workflow should collect later.</p>
 
       {submitted ? (
@@ -40,7 +40,7 @@ export default function ContactForm() {
         </div>
       ) : null}
 
-      <div className="mt-7 grid gap-4">
+      <div className="mt-6 grid gap-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="grid gap-2">
             <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">First name</span>
