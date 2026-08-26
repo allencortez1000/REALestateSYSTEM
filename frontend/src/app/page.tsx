@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import HeroSlideshow from '@/components/home/HeroSlideshow';
 import PropertyCard from '@/components/properties/PropertyCard';
@@ -85,6 +84,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-[1500px]">
         <PageHero
           className="bg-[linear-gradient(180deg,#fbf8f1_0%,#f4efe6_100%)] shadow-[0_30px_100px_rgba(5,14,30,0.10)]"
+          innerClassName="xl:grid-cols-[minmax(0,0.98fr)_minmax(500px,1.02fr)]"
           eyebrow={brand.companyName}
           title={
             <>
@@ -93,36 +93,33 @@ export default function HomePage() {
             </>
           }
           description={`${brand.name} presents premium model houses, housing options, and investment-ready residences across the Philippines.`}
-          asideClassName="bg-transparent p-4 pt-0 sm:p-5 xl:p-6 xl:pt-6"
+          contentClassName="xl:flex xl:min-h-[600px] xl:flex-col xl:justify-center xl:px-8 min-[1400px]:px-10"
+          asideClassName="bg-[linear-gradient(180deg,#071426_0%,#13273f_100%)] p-4 sm:p-5 xl:flex xl:min-h-[600px] xl:items-center xl:p-6"
           aside={<HeroSlideshow />}
         >
-          <div className="mt-6 flex items-center gap-3">
-            <Image src={brand.logo} alt={brand.name} width={300} height={130} className="h-20 w-auto object-contain" priority />
-          </div>
-
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/properties" className="btn-primary">Explore residences</Link>
             <Link href="/search" className="btn-outline">Search listings</Link>
           </div>
 
-          <div className="mt-10 grid gap-3 sm:grid-cols-3 xl:grid-cols-1 min-[1400px]:grid-cols-3">
+          <div className="mt-8 grid gap-3 sm:grid-cols-3 xl:grid-cols-1 min-[1400px]:grid-cols-3">
             {[
               ['6', 'Model houses'],
               ['Metro Manila', 'Primary market'],
               ['4.9/5', 'Client rating']
             ].map(([value, label]) => (
-              <div key={label} className="rounded-[1.35rem] border border-[#e7dcc8] bg-white px-4 py-4 shadow-[0_10px_28px_rgba(5,14,30,0.05)]">
+              <div key={label} className="rounded-[1.35rem] border border-[#e7dcc8] bg-white px-4 py-3 shadow-[0_10px_28px_rgba(5,14,30,0.05)]">
                 <div className="break-words text-2xl font-semibold text-[#071426]">{value}</div>
                 <div className="mt-1 text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">{label}</div>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 grid gap-3 border-t border-[rgba(231,220,200,0.9)] pt-5 sm:grid-cols-2 xl:grid-cols-1 min-[1400px]:grid-cols-2">
+          <div className="mt-6 grid gap-3 border-t border-[rgba(231,220,200,0.9)] pt-5 sm:grid-cols-2 xl:grid-cols-1 min-[1400px]:grid-cols-2">
             {featureBullets.map((item, index) => {
               const delays = ['animate-reveal', 'animate-reveal-delay-1', 'animate-reveal-delay-2', 'animate-reveal-delay-3'];
               return (
-                <div key={item.title} className={`rounded-[1.5rem] border border-[rgba(227,235,246,0.95)] bg-white/92 p-5 text-[#071426] shadow-[0_12px_30px_rgba(5,14,30,0.05)] ${delays[index]}`}>
+                <div key={item.title} className={`rounded-[1.35rem] border border-[rgba(227,235,246,0.95)] bg-white/92 p-4 text-[#071426] shadow-[0_12px_30px_rgba(5,14,30,0.05)] ${delays[index]}`}>
                   <div className="text-[10px] uppercase leading-4 tracking-[0.16em] text-[#b98a3d]">0{index + 1}</div>
                   <div className="mt-3 text-sm font-semibold">{item.title}</div>
                   <div className="mt-1 text-xs leading-6 text-slate-500">{item.text}</div>
@@ -182,67 +179,67 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-          <section className="rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(247,243,234,0.88))] p-6 shadow-[0_18px_60px_rgba(5,14,30,0.08)] sm:rounded-[2.35rem] sm:p-8">
-            <div className="section-label">Featured model houses</div>
-            <div className="mt-4 flex items-end justify-between gap-4">
-              <div>
-                <h2 className="section-title text-[clamp(1.8rem,4vw,3rem)] text-[#071426]">Curated residences with editorial confidence.</h2>
+        <div className="mt-6 grid gap-4 lg:grid-cols-[1.08fr_0.92fr] lg:items-stretch">
+          <div className="grid gap-4">
+            <section className="rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(247,243,234,0.88))] p-6 shadow-[0_18px_60px_rgba(5,14,30,0.08)] sm:rounded-[2.35rem] sm:p-8">
+              <div className="section-label">Featured model houses</div>
+              <div className="mt-4 flex items-end justify-between gap-4">
+                <div>
+                  <h2 className="section-title text-[clamp(1.8rem,4vw,3rem)] text-[#071426]">Curated residences with editorial confidence.</h2>
+                </div>
+                <Link href="/properties" className="hidden rounded-full border border-[#e7dcc8] px-4 py-2 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-white md:inline-flex">View all</Link>
               </div>
-              <Link href="/properties" className="hidden rounded-full border border-[#e7dcc8] px-4 py-2 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-white md:inline-flex">View all</Link>
-            </div>
 
-            <div className="mt-6 grid gap-4 md:grid-cols-2 min-[1400px]:grid-cols-3">
-              {homeFeaturedModelHouses.map((community, index) => (
-                <PropertyCard key={community.slug} listing={community} label={`Featured 0${index + 1}`} variant="compact" showFavorite={false} />
-              ))}
-            </div>
-          </section>
-
-          <aside className="grid gap-4">
-            <section className="relative overflow-hidden rounded-[2.35rem] border border-[rgba(215,190,138,0.38)] bg-[radial-gradient(circle_at_top_left,rgba(215,190,138,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_28%),linear-gradient(160deg,#071426_0%,#0d2342_58%,#13273f_100%)] p-6 text-white shadow-[0_24px_80px_rgba(5,14,30,0.18)] sm:p-8">
-              <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full border border-white/10 bg-white/[0.03]" />
-              <div className="pointer-events-none absolute -bottom-24 left-8 h-44 w-44 rounded-full bg-[#d7be8a]/10 blur-3xl" />
-
-              <div className="relative">
-                <div className="inline-flex items-center gap-3 rounded-full border border-white/12 bg-white/[0.07] px-3 py-2 backdrop-blur-md">
-                  <Image src={brand.logo} alt="" width={44} height={44} className="h-8 w-auto rounded-sm bg-white object-contain p-1" />
-                  <span className="text-[10px] font-bold uppercase leading-4 tracking-[0.24em] text-[#d7be8a]">{brand.companyName}</span>
-                </div>
-
-                <h2 className="mt-5 text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.06em] text-white">Turning dreams into possibilities.</h2>
-                <p className="mt-4 text-sm leading-7 text-white/68">Official brand foundation guiding every home, family, and community we serve.</p>
-
-                <div className="mt-7 grid gap-3">
-                  {brandStatements.map((item, index) => (
-                    <article key={item.title} className="group rounded-[1.6rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.055))] p-4 shadow-[0_18px_42px_rgba(0,0,0,0.12)] backdrop-blur-sm transition hover:border-[#d7be8a]/40 hover:bg-white/[0.11] sm:p-5">
-                      <div className="flex items-start gap-4">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d7be8a]/35 bg-[#d7be8a]/14 text-xs font-bold text-[#f2cf5b]">0{index + 1}</div>
-                        <div>
-                          <div className="text-xs font-bold uppercase leading-5 tracking-[0.24em] text-[#d7be8a]">{item.title}</div>
-                          <p className="mt-2 text-sm leading-7 text-white/76">{item.text}</p>
-                        </div>
-                      </div>
-                    </article>
-                  ))}
-                </div>
+              <div className="mt-6 grid gap-4 md:grid-cols-2 min-[1400px]:grid-cols-3">
+                {homeFeaturedModelHouses.map((community, index) => (
+                  <PropertyCard key={community.slug} listing={community} label={`Featured 0${index + 1}`} variant="compact" showFavorite={false} />
+                ))}
               </div>
             </section>
 
             <section className="rounded-[2.35rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(247,243,234,0.88))] p-6 shadow-[0_18px_60px_rgba(5,14,30,0.08)] backdrop-blur-sm sm:p-8">
-              <div className="section-label">How it works</div>
-              <div className="mt-4 grid gap-3">
+              <div className="flex flex-col gap-4 min-[1400px]:flex-row min-[1400px]:items-center min-[1400px]:justify-between">
+                <div>
+                  <div className="section-label">How it works</div>
+                  <h2 className="mt-3 text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-[#071426]">A simple path to your next home.</h2>
+                </div>
+                <Link href="/contact" className="rounded-full border border-[#e7dcc8] bg-white px-5 py-3 text-sm font-semibold text-[#071426] transition hover:border-[#b98a3d] hover:bg-[#fbf8f0]">Talk to sales</Link>
+              </div>
+              <div className="mt-5 grid gap-3 md:grid-cols-3">
                 {processSteps.map((step) => (
                   <div key={step.step} className="rounded-[1.5rem] border border-[rgba(227,235,246,0.95)] bg-white p-4">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e7dcc8] bg-[#fbf8f0] text-xs font-bold text-[#8a6428]">{step.step}</div>
-                      <div>
-                        <div className="text-sm font-semibold text-[#071426]">{step.title}</div>
-                        <p className="mt-1 text-sm leading-6 text-slate-500">{step.text}</p>
-                      </div>
-                    </div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e7dcc8] bg-[#fbf8f0] text-xs font-bold text-[#8a6428]">{step.step}</div>
+                    <div className="mt-4 text-sm font-semibold text-[#071426]">{step.title}</div>
+                    <p className="mt-1 text-sm leading-6 text-slate-500">{step.text}</p>
                   </div>
                 ))}
+              </div>
+            </section>
+          </div>
+
+          <aside className="flex">
+            <section className="relative flex min-h-full flex-col overflow-hidden rounded-[2.35rem] border border-[rgba(215,190,138,0.38)] bg-[radial-gradient(circle_at_top_left,rgba(215,190,138,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_28%),linear-gradient(160deg,#071426_0%,#0d2342_58%,#13273f_100%)] p-6 text-white shadow-[0_24px_80px_rgba(5,14,30,0.18)] sm:p-8 lg:p-10 xl:p-11">
+              <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full border border-white/10 bg-white/[0.03]" />
+              <div className="pointer-events-none absolute -bottom-24 left-8 h-44 w-44 rounded-full bg-[#d7be8a]/10 blur-3xl" />
+
+              <div className="relative flex flex-1 flex-col">
+                <div className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.07] px-4 py-2 backdrop-blur-md">
+                  <span className="text-[10px] font-bold uppercase leading-4 tracking-[0.24em] text-[#d7be8a]">{brand.companyName}</span>
+                </div>
+
+                <h2 className="mt-6 text-[clamp(2.15rem,4.4vw,3.45rem)] font-semibold leading-[1.02] tracking-[-0.065em] text-white">Turning dreams into possibilities.</h2>
+                <p className="mt-5 max-w-2xl text-base leading-8 text-white/70">Official brand foundation guiding every home, family, and community we serve.</p>
+
+                <div className="mt-8 grid flex-1 content-between gap-4">
+                  {brandStatements.map((item, index) => (
+                    <article key={item.title} className="group rounded-[1.85rem] border border-white/14 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.06))] p-5 shadow-[0_18px_42px_rgba(0,0,0,0.12)] backdrop-blur-sm transition hover:border-[#d7be8a]/40 hover:bg-white/[0.11] sm:p-6">
+                      <div>
+                        <div className="text-base font-extrabold uppercase leading-6 tracking-[0.28em] text-[#d7be8a] sm:text-lg">{item.title}</div>
+                        <p className="mt-4 text-[0.95rem] leading-8 text-white/78">{item.text}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
             </section>
           </aside>

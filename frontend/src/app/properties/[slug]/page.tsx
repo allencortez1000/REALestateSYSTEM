@@ -56,11 +56,11 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
   return (
     <main className="relative px-4 pb-40 pt-6 sm:px-6 sm:pb-36 lg:px-8">
       <section className="mx-auto max-w-[1500px]">
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)]">
+        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(420px,1fr)] xl:items-start">
           <div className="space-y-6">
             <div className="overflow-hidden rounded-[2rem] border border-[rgba(231,220,200,0.95)] bg-white/92 shadow-[0_24px_80px_rgba(9,21,64,0.10)] sm:rounded-[2.75rem]">
-              <div className="grid gap-0 lg:grid-cols-[minmax(0,1.12fr)_minmax(300px,0.88fr)]">
-                <div className="relative min-h-[520px] overflow-hidden bg-[#071426] sm:min-h-[600px] lg:min-h-[680px]">
+              <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)]">
+                <div className="relative min-h-[500px] overflow-hidden bg-[#071426] sm:min-h-[580px] lg:min-h-[640px]">
                   <Image
                                       src={listing.image}
                                       alt={listing.title}
@@ -264,70 +264,10 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                 </section>
               </section>
 
-              <aside id="inquiry" className="card scroll-mt-28 p-5 sm:p-8">
-                <div className="section-label">Inquiry</div>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">Speak with our team</h3>
-                <p className="mt-2 text-sm leading-7 text-slate-600">Book a private viewing or request more details about this residence.</p>
-
-                <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)]">
-                  <div className="rounded-[1.5rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f0_0%,#ffffff_100%)] p-4">
-                  <div className="section-label text-[#b98a3d]">Buyer journey</div>
-                  <div className="mt-4 grid gap-3">
-                    {[
-                      ['01', 'Choose model', 'Review the design, features, and size details.'],
-                      ['02', 'Submit inquiry', 'Send your contact details and preferred schedule.'],
-                      ['03', 'Schedule viewing', 'Coordinate a model-house visit with the sales team.'],
-                      ['04', 'Review computation', 'Check reservation, down payment, and monthly terms.'],
-                      ['05', 'Reserve unit', 'Proceed once final terms and availability are confirmed.']
-                    ].map(([step, title, text]) => (
-                      <div key={step} className="grid grid-cols-[auto_1fr] gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-white p-3">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#071426] text-[11px] font-bold text-white">{step}</div>
-                        <div>
-                          <div className="text-sm font-semibold text-[#071426]">{title}</div>
-                          <div className="mt-1 text-xs leading-5 text-slate-500">{text}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  </div>
-
-                  <div>
-                    <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-[rgba(247,243,234,0.82)] p-4">
-                  <div className="text-xs uppercase tracking-[0.3em] text-slate-500">Assigned agent</div>
-                  <div className="mt-2 text-lg font-semibold text-[#071426]">{brand.salesTeamName}</div>
-                  <div className="text-sm text-slate-500">{brand.location}</div>
-                    </div>
-                    <div className="mt-5 grid gap-3">
-                  <label className="grid gap-2">
-                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Your name</span>
-                    <input className="input" name="name" autoComplete="name" placeholder="Juan Dela Cruz" />
-                  </label>
-                  <label className="grid gap-2">
-                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Email address</span>
-                    <input className="input" name="email" type="email" autoComplete="email" placeholder="juan@example.com" />
-                  </label>
-                  <label className="grid gap-2">
-                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Phone number</span>
-                    <input className="input" name="phone" type="tel" autoComplete="tel" placeholder={brand.phone} />
-                  </label>
-                  <label className="grid gap-2">
-                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Preferred viewing date</span>
-                    <input className="input" name="preferredViewingDate" type="date" />
-                  </label>
-                  <button className="btn-primary mt-2 w-full">Schedule viewing</button>
-                  <FavoriteButton slug={listing.slug} className="w-full" />
-                    </div>
-                    <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
-                      <a href={brand.phoneHref} className="btn-gold w-full">Call now</a>
-                      <a href={brand.emailHref} className="btn-outline w-full">Send inquiry</a>
-                    </div>
-                  </div>
-                </div>
-              </aside>
             </div>
           </div>
 
-          <div className="min-w-0 space-y-6 xl:sticky xl:top-28 xl:self-start">
+          <div className="min-w-0 space-y-6">
             <section id="design" className="card scroll-mt-28 p-5 sm:p-8">
               <div className="section-label">Design and package details</div>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[#071426]">What is included</h3>
@@ -414,6 +354,69 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
             ) : null}
           </div>
         </div>
+
+        <aside id="inquiry" className="card mt-6 scroll-mt-28 p-5 sm:p-8">
+          <div className="grid gap-6 xl:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] xl:items-start">
+            <div>
+              <div className="section-label">Inquiry</div>
+              <h3 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-[#071426]">Speak with our team</h3>
+              <p className="mt-3 max-w-2xl text-base leading-8 text-slate-600">Book a private viewing or request more details about this residence. Our sales team can help verify availability, computation, and next steps.</p>
+
+              <div className="mt-6 rounded-[1.75rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f0_0%,#ffffff_100%)] p-5">
+                <div className="section-label text-[#b98a3d]">Buyer journey</div>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {[
+                    ['01', 'Choose model', 'Review the design, features, and size details.'],
+                    ['02', 'Submit inquiry', 'Send your contact details and preferred schedule.'],
+                    ['03', 'Schedule viewing', 'Coordinate a model-house visit with the sales team.'],
+                    ['04', 'Review computation', 'Check reservation, down payment, and monthly terms.'],
+                    ['05', 'Reserve unit', 'Proceed once final terms and availability are confirmed.']
+                  ].map(([step, title, text]) => (
+                    <div key={step} className="grid grid-cols-[auto_1fr] gap-3 rounded-2xl border border-[rgba(231,220,200,0.85)] bg-white p-4">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#071426] text-[11px] font-bold text-white">{step}</div>
+                      <div>
+                        <div className="text-sm font-semibold text-[#071426]">{title}</div>
+                        <div className="mt-1 text-xs leading-5 text-slate-500">{text}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-[1.75rem] border border-[#e7dcc8] bg-[linear-gradient(180deg,#fbf8f0_0%,#ffffff_100%)] p-5 sm:p-6">
+              <div className="rounded-[1.5rem] border border-[rgba(231,220,200,0.95)] bg-white p-4">
+                <div className="text-xs uppercase tracking-[0.3em] text-slate-500">Assigned agent</div>
+                <div className="mt-2 text-lg font-semibold text-[#071426]">{brand.salesTeamName}</div>
+                <div className="text-sm text-slate-500">{brand.location}</div>
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <label className="grid gap-2">
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Your name</span>
+                  <input className="input" name="name" autoComplete="name" placeholder="Juan Dela Cruz" />
+                </label>
+                <label className="grid gap-2">
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Email address</span>
+                  <input className="input" name="email" type="email" autoComplete="email" placeholder="juan@example.com" />
+                </label>
+                <label className="grid gap-2">
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Phone number</span>
+                  <input className="input" name="phone" type="tel" autoComplete="tel" placeholder={brand.phone} />
+                </label>
+                <label className="grid gap-2">
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Preferred viewing date</span>
+                  <input className="input" name="preferredViewingDate" type="date" />
+                </label>
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <button className="btn-primary w-full">Schedule viewing</button>
+                <FavoriteButton slug={listing.slug} className="w-full" />
+                <a href={brand.phoneHref} className="btn-gold w-full">Call now</a>
+                <a href={brand.emailHref} className="btn-outline w-full">Send inquiry</a>
+              </div>
+            </div>
+          </div>
+        </aside>
       </section>
 
       <div className="fixed bottom-4 left-3 right-3 z-40 rounded-[1.5rem] border border-[#d7be8a]/45 bg-[#071426] p-2.5 shadow-[0_20px_70px_rgba(5,14,30,0.38)] sm:bottom-5 sm:left-auto sm:right-6 sm:w-auto sm:min-w-[430px] sm:rounded-full">

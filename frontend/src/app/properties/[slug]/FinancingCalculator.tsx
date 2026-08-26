@@ -49,8 +49,8 @@ export default function FinancingCalculator({ price }: FinancingCalculatorProps)
         </p>
       </div>
 
-      <div className="grid gap-0 2xl:grid-cols-[minmax(0,1fr)_minmax(260px,0.9fr)]">
-        <div className="grid gap-4 border-b border-[#e7dcc8] p-5 sm:p-6 2xl:border-b-0 2xl:border-r">
+      <div className="grid gap-0 min-[1400px]:grid-cols-[minmax(0,1fr)_minmax(280px,0.9fr)]">
+        <div className="grid gap-4 border-b border-[#e7dcc8] p-5 sm:p-6 min-[1400px]:border-b-0 min-[1400px]:border-r">
           <label className="grid gap-2">
             <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 sm:text-xs sm:tracking-[0.28em]">Total price</span>
             <input
@@ -73,7 +73,7 @@ export default function FinancingCalculator({ price }: FinancingCalculatorProps)
             />
           </label>
 
-          <div className="grid gap-4 sm:grid-cols-3 2xl:grid-cols-1 min-[1700px]:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-3 min-[1400px]:grid-cols-1 min-[1700px]:grid-cols-3">
             <label className="grid gap-2">
               <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500 sm:text-xs sm:tracking-[0.22em]">Down payment</span>
               <select className="input" value={downPaymentRate} onChange={(event) => setDownPaymentRate(Number(event.target.value))}>
