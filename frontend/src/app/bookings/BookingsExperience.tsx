@@ -1,18 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
-import { mockBookings } from '@/data/mockData';
+import { useState } from 'react';
 import { modelHouseOptions } from '@/data/modelHouses';
-
-type Booking = {
-  id: string;
-  propertyTitle: string;
-  date: string;
-  time: string;
-  status: string;
-};
-
-const LOCAL_BOOKINGS_KEY = 'amicaLocalBookings';
+import { useBookings } from '@/hooks/useBookings';
 
 const statusColor: Record<string, string> = {
   confirmed: 'bg-emerald-100 text-emerald-700',
@@ -21,65 +11,24 @@ const statusColor: Record<string, string> = {
   requested: 'bg-[#fbf8f0] text-[#8a6428]'
 };
 
-function readLocalBookings() {
-  if (typeof window === 'undefined') return mockBookings;
-
-  try {
-    const raw = window.localStorage.getItem(LOCAL_BOOKINGS_KEY);
-    const parsed = raw ? JSON.parse(raw) : null;
-    return Array.isArray(parsed) ? parsed as Booking[] : mockBookings;
-  } catch {
-    return mockBookings;
-  }
-}
-
 export default function BookingsExperience() {
-  const [bookings, setBookings] = useState<Booking[]>(mockBookings);
   const [propertyTitle, setPropertyTitle] = useState('');
   const [viewingDate, setViewingDate] = useState('');
   const [viewingTime, setViewingTime] = useState('');
-  const [lastCreatedId, setLastCreatedId] = useState<string | null>(null);
+  const { bookings, upcomingCount, lastCreatedId, createBooking, cancelBooking, markRescheduled } = useBookings();
 
-  const upcomingCount = useMemo(() => bookings.filter((booking) => booking.status !== 'cancelled').length, [bookings]);
-
-  useEffect(() => {
-    setBookings(readLocalBookings());
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem(LOCAL_BOOKINGS_KEY, JSON.stringify(bookings));
-  }, [bookings]);
-
-  function createBooking(event: React.FormEvent<HTMLFormElement>) {
+  function handleCreateBooking(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const id = `local-booking-${Date.now()}`;
-    const newBooking = {
-      id,
-      propertyTitle,
-      date: viewingDate,
-      time: viewingTime,
-      status: 'requested'
-    };
-
-    setBookings((current) => [newBooking, ...current]);
-    setLastCreatedId(id);
+    createBooking(propertyTitle, viewingDate, viewingTime);
     setPropertyTitle('');
     setViewingDate('');
     setViewingTime('');
   }
 
-  function cancelBooking(id: string) {
-    setBookings((current) => current.filter((booking) => booking.id !== id));
-  }
-
-  function markRescheduled(id: string) {
-    setBookings((current) => current.map((booking) => booking.id === id ? { ...booking, status: 'rescheduled' } : booking));
-  }
-
   return (
     <div className="mt-6 grid gap-6 md:grid-cols-2">
-      <form className="card p-7 shadow-[0_14px_34px_rgba(9,21,64,0.06)] md:col-span-2" onSubmit={createBooking}>
+      <form className="card p-7 shadow-[0_14px_34px_rgba(9,21,64,0.06)] md:col-span-2" onSubmit={handleCreateBooking}>
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="section-label">Schedule a new viewing</div>

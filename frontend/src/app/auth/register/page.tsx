@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { brand } from '@/data/brand';
+import { customerRegisterContent } from '@/data/content/secondaryPages';
 import { signInMockUser } from '@/lib/mockAuth';
 
 export default function RegisterPage() {
@@ -15,16 +16,12 @@ export default function RegisterPage() {
           <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_58%,#b98a3d_180%)] p-8 text-white sm:p-10 lg:p-12">
               <Image src={brand.logo} alt={brand.name} width={280} height={92} className="h-16 w-auto object-contain" priority />
-              <div className="mt-10 text-xs uppercase tracking-[0.26em] text-[#f2cf5b]">New account</div>
-              <h1 className="mt-4 text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.94] tracking-[-0.08em] text-white">Create your Amica Residences account.</h1>
-              <p className="mt-5 max-w-lg text-base leading-8 text-white/74">Start browsing premium model houses, saving favorites, and scheduling private viewings in seconds.</p>
+              <div className="mt-10 text-xs uppercase tracking-[0.26em] text-[#f2cf5b]">{customerRegisterContent.eyebrow}</div>
+              <h1 className="mt-4 text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.94] tracking-[-0.08em] text-white">{customerRegisterContent.title}</h1>
+              <p className="mt-5 max-w-lg text-base leading-8 text-white/74">{customerRegisterContent.description}</p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                {[
-                  ['Fast onboarding', 'Create an account in minutes'],
-                  ['Curated listings', 'Browse premium model houses'],
-                  ['Personal workspace', 'Save, compare, and inquire']
-                ].map(([title, text]) => (
+                {customerRegisterContent.features.map(([title, text]) => (
                   <div key={title} className="rounded-[1.4rem] border border-white/10 bg-white/[0.07] p-4 backdrop-blur-sm">
                     <div className="text-sm font-semibold text-white">{title}</div>
                     <div className="mt-1 text-sm leading-6 text-white/65">{text}</div>
@@ -41,9 +38,9 @@ export default function RegisterPage() {
                 router.push('/dashboard/customer');
               }}
             >
-              <span className="badge bg-white/80 shadow-soft">Join Amica Residences</span>
-              <h2 className="mt-6 text-[clamp(1.95rem,4vw,3.1rem)] font-semibold leading-[1.04] tracking-[-0.055em] text-[#08122c]">Create account</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600">Set up a customer profile to start saving model houses and booking private viewings.</p>
+              <span className="badge bg-white/80 shadow-soft">{customerRegisterContent.badge}</span>
+              <h2 className="mt-6 text-[clamp(1.95rem,4vw,3.1rem)] font-semibold leading-[1.04] tracking-[-0.055em] text-[#08122c]">{customerRegisterContent.formTitle}</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">{customerRegisterContent.formDescription}</p>
 
               <div className="mt-8 grid gap-4">
                 <label className="grid gap-2">

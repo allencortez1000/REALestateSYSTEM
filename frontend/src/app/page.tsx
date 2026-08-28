@@ -1,82 +1,12 @@
 import Link from 'next/link';
+import SectionHeader from '@/components/marketing/SectionHeader';
 import HeroSlideshow from '@/components/home/HeroSlideshow';
 import PropertyCard from '@/components/properties/PropertyCard';
 import PageHero from '@/components/ui/PageHero';
 import ResponsiveGrid from '@/components/ui/ResponsiveGrid';
 import { brand } from '@/data/brand';
-import { getModelHouseHref, homeFeaturedModelHouses, homePaymentPreviews } from '@/data/modelHouses';
-
-const featureBullets = [
-  { title: 'Premium residences', text: 'Curated homes across key Philippine markets.' },
-  { title: 'Guided service', text: 'Private viewings and buyer support with a human touch.' },
-  { title: 'Investor ready', text: 'Clear pricing, strategic locations, and polished presentation.' },
-  { title: 'Amica standard', text: 'A more refined and trustworthy digital experience.' }
-];
-
-
-const homeTypes = [
-  {
-    title: 'Luxury Residence',
-    bestFor: 'Prestige-focused buyers',
-    text: 'Premium exterior presentation and elevated design details for buyers who value architecture and status.',
-    example: 'ATHENA MODEL HOUSE'
-  },
-  {
-    title: 'House Only',
-    bestFor: 'Lot owners and practical buyers',
-    text: 'Model-house packages focused on the structure and core living spaces, with sample in-house computations.',
-    example: 'KASANDRA / JOYCE'
-  },
-  {
-    title: 'House & Lot',
-    bestFor: 'Move-in focused families',
-    text: 'Combined home and lot options for buyers who want a more complete ownership package.',
-    example: 'MELVIN MODEL HOUSE'
-  },
-  {
-    title: 'Low-Cost Housing',
-    bestFor: 'Starting families',
-    text: 'Affordable bungalow and duplex bungalow options with flexible payment references.',
-    example: 'LOW COST HOUSING PROJECT'
-  },
-  {
-    title: 'Model House',
-    bestFor: 'Growing families',
-    text: 'Full model-house references with key features, size details, and buyer-friendly presentation.',
-    example: 'HERA MODEL HOUSE'
-  }
-];
-
-const brandStatements = [
-  {
-    title: 'Vision',
-    text: 'To be a trusted leader in homebuilding and community development, transforming the dreams of Filipino families into lasting possibilities through innovative, quality, and sustainable homes.'
-  },
-  {
-    title: 'Mission',
-    text: 'Rabino Home Builders Corporation is committed to turning dreams into possibilities by providing quality homes, innovative construction solutions, and exceptional customer service. We strive to build communities that inspire growth, create lasting value, and improve the lives of every family we serve.'
-  },
-  {
-    title: 'Core message',
-    text: 'At Rabino Home Builders Corporation, we believe that every family deserves a place to call home. Through integrity, excellence, and innovation, we turn dreams into possibilities — one home, one family, and one community at a time.'
-  }
-];
-
-
-const processSteps = [
-  { step: '01', title: 'Discover', text: 'Browse curated model houses matched to your budget and lifestyle.' },
-  { step: '02', title: 'Compare', text: 'Review amenities, locations, pricing, and the details that matter most.' },
-  { step: '03', title: 'Close', text: 'Move from interest to action with guided support and a clear process.' }
-];
-
-const buyerJourney = [
-  { step: '01', title: 'Choose a model', text: 'Review HERA, ATHENA, KASANDRA, MELVIN, JOYCE, or Low Cost Housing options.' },
-  { step: '02', title: 'Check the details', text: 'Understand price, lot area, floor area, features, and sample computation.' },
-  { step: '03', title: 'Compare options', text: 'Use the comparison page to see which model fits your needs and budget.' },
-  { step: '04', title: 'Schedule a viewing', text: 'Request a model-house viewing or ask the sales team for clarification.' },
-  { step: '05', title: 'Prepare documents', text: 'Prepare your valid ID, proof of income, and reservation requirements before final confirmation.' },
-  { step: '06', title: 'Reserve your unit', text: 'Proceed once availability, computation, and final terms are confirmed.' }
-];
+import { brandStatements, buyerJourney, homeFeatureBullets, homeHeroStats, homeTypes, processSteps } from '@/data/content/home';
+import { homeFeaturedModelHouses, homePaymentPreviews } from '@/data/modelHouses';
 
 export default function HomePage() {
   return (
@@ -103,11 +33,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-7 grid gap-3 sm:grid-cols-3 xl:grid-cols-1 min-[1400px]:grid-cols-3">
-            {[
-              ['6', 'Model houses'],
-              ['Metro Manila', 'Primary market'],
-              ['4.9/5', 'Client rating']
-            ].map(([value, label]) => (
+            {homeHeroStats.map(([value, label]) => (
               <div key={label} className="rounded-[1.35rem] border border-[#e7dcc8] bg-white/96 px-4 py-3 shadow-[0_8px_22px_rgba(5,14,30,0.04)]">
                 <div className="break-words text-2xl font-semibold text-[#071426]">{value}</div>
                 <div className="mt-1 text-xs uppercase leading-5 tracking-[0.16em] text-slate-500">{label}</div>
@@ -116,7 +42,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-6 grid gap-3 border-t border-[rgba(231,220,200,0.9)] pt-5 sm:grid-cols-2 xl:grid-cols-1 min-[1400px]:grid-cols-2">
-            {featureBullets.map((item, index) => {
+            {homeFeatureBullets.map((item, index) => {
               const delays = ['animate-reveal', 'animate-reveal-delay-1', 'animate-reveal-delay-2', 'animate-reveal-delay-3'];
               return (
                 <div key={item.title} className={`rounded-[1.35rem] border border-[rgba(227,235,246,0.95)] bg-white/92 p-4 text-[#071426] shadow-[0_10px_24px_rgba(5,14,30,0.04)] ${delays[index]}`}>
@@ -130,13 +56,12 @@ export default function HomePage() {
         </PageHero>
 
         <section className="mt-6 rounded-[1.75rem] border border-[rgba(231,220,200,0.95)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,243,234,0.88))] p-6 shadow-[0_14px_34px_rgba(5,14,30,0.06)] sm:rounded-[2.35rem] sm:p-8">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <div className="section-label text-[#b98a3d]">Choose your home type</div>
-              <h2 className="mt-4 max-w-3xl text-[clamp(1.95rem,4vw,3rem)] font-semibold leading-[1.04] tracking-[-0.055em] text-[#071426]">Find the category that matches your budget and lifestyle.</h2>
-            </div>
-            <Link href="/compare" className="btn-outline">Compare all models</Link>
-          </div>
+          <SectionHeader
+            eyebrow="Choose your home type"
+            title="Find the category that matches your budget and lifestyle."
+            action={<Link href="/compare" className="btn-outline">Compare all models</Link>}
+            className="gap-4"
+          />
 
           <ResponsiveGrid columns="auto" className="mt-7 xl:grid-cols-3 min-[1500px]:grid-cols-5">
             {homeTypes.map((type, index) => (

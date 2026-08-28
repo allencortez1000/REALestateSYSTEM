@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
 import { brand } from '@/data/brand';
+import { comparePageContent } from '@/data/content/publicPages';
 import CompareExperience from './CompareExperience';
 
 export const metadata: Metadata = {
@@ -15,13 +16,13 @@ export default function ComparePage() {
         <PageHero
           eyebrow="Side by side"
           title="Compare model houses."
-          description="A clearer comparison view for buyers who want to quickly understand price, fit, size, and package type."
+          description={comparePageContent.heroDescription}
           aside={
             <div className="flex min-h-[220px] items-end">
               <div className="max-w-sm">
-                <div className="section-label text-[#f2cf5b]">RHBC compare</div>
-                <div className="mt-4 text-3xl font-semibold leading-tight">Choose based on lifestyle, budget, and home type.</div>
-                <p className="mt-4 text-sm leading-7 text-white/72">Use the selector and comparison table below to find the model that best matches your needs.</p>
+                <div className="section-label text-[#f2cf5b]">{comparePageContent.asideLabel}</div>
+                <div className="mt-4 text-3xl font-semibold leading-tight">{comparePageContent.asideTitle}</div>
+                <p className="mt-4 text-sm leading-7 text-white/72">{comparePageContent.asideText}</p>
               </div>
             </div>
           }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
 import { brand } from '@/data/brand';
+import { searchPageContent } from '@/data/content/publicPages';
 import { featuredModelHouses } from '@/data/modelHouses';
 import SearchExperience from './SearchExperience';
 
@@ -17,13 +18,13 @@ export default function SearchPage() {
         <PageHero
           eyebrow="Search"
           title="Find the right home, faster."
-          description={`Browse only the current ${brand.shortName} model-house listings featured in the portfolio.`}
+          description={searchPageContent.heroDescription}
           asideClassName="p-4 sm:p-6 lg:p-8"
           aside={
             <div className="rounded-[1.85rem] border border-white/12 bg-[rgba(255,255,255,0.08)] p-5 text-white backdrop-blur-xl sm:p-6">
               <div>
-                <div className="section-label text-[#d7be8a]">Interactive search</div>
-                <p className="mt-3 text-sm leading-7 text-white/72">Search by model name, package type, budget range, and buyer fit. Results update instantly.</p>
+                <div className="section-label text-[#d7be8a]">{searchPageContent.asideLabel}</div>
+                <p className="mt-3 text-sm leading-7 text-white/72">{searchPageContent.asideText}</p>
               </div>
 
               <div className="mt-5 grid gap-3 sm:grid-cols-2 min-[1400px]:grid-cols-3">
@@ -39,7 +40,7 @@ export default function SearchPage() {
             </div>
           }
         >
-          <p className="mt-8 max-w-2xl text-sm leading-7 text-slate-600">Use the filters below to narrow the current portfolio quickly and clearly.</p>
+          <p className="mt-8 max-w-2xl text-sm leading-7 text-slate-600">{searchPageContent.heroSupport}</p>
         </PageHero>
 
         <SearchExperience />

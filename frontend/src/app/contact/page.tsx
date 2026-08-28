@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
 import { inquiryTopics } from '@/data/contact';
+import { contactPageContent } from '@/data/content/publicPages';
 import { brand } from '@/data/brand';
 import ContactForm from './ContactForm';
 
@@ -29,12 +30,12 @@ export default function ContactPage() {
         <PageHero
           eyebrow="Model-house inquiry"
           title="Ask about a model house."
-          description={`Ask about viewing schedules, payment computations, requirements, or which ${brand.companyName} model best fits your needs.`}
+          description={contactPageContent.heroDescription}
           aside={
             <>
-              <div className="section-label text-[#d7be8a]">Concierge support</div>
-              <div className="mt-4 text-3xl font-semibold leading-tight">Clear guidance from inquiry to viewing.</div>
-              <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">We help buyers understand model options, sample computations, and next steps before reservation.</p>
+              <div className="section-label text-[#d7be8a]">{contactPageContent.asideLabel}</div>
+              <div className="mt-4 text-3xl font-semibold leading-tight">{contactPageContent.asideTitle}</div>
+              <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">{contactPageContent.asideText}</p>
               <div className="mt-7 grid gap-3">
                 {responseSteps.map((item) => (
                   <div key={item.step} className="rounded-[1.35rem] border border-white/10 bg-white/[0.07] p-4">
@@ -47,7 +48,7 @@ export default function ContactPage() {
             </>
           }
         >
-          <p className="mt-7 max-w-2xl text-sm leading-7 text-slate-600">We’ll help with viewings, payment questions, buyer requirements, and model recommendations.</p>
+          <p className="mt-7 max-w-2xl text-sm leading-7 text-slate-600">{contactPageContent.heroSupport}</p>
         </PageHero>
 
         <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,0.9fr)_minmax(360px,1.1fr)]">

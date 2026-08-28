@@ -1,71 +1,15 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
 import { mockMessages } from '@/data/mockData';
-
-const LOCAL_MESSAGES_KEY = 'amicaLocalMessages';
-
-const initialChat = [
-  { id: 1, from: 'them', text: "Hello! I'm interested in the BGC property." },
-  { id: 2, from: 'me', text: 'Hi! Great choice. When would you like to visit?' },
-  { id: 3, from: 'them', text: 'This Saturday if possible — around 3 PM?' },
-  { id: 4, from: 'me', text: "Perfect. I'll confirm the booking for you now." }
-];
-
-type ChatMessage = {
-  id: number;
-  from: string;
-  text: string;
-};
-
-type ChatMap = Record<string, ChatMessage[]>;
-
-function createInitialChatMap() {
-  return Object.fromEntries(mockMessages.map((message) => [message.id, initialChat])) as ChatMap;
-}
-
-function readLocalChats() {
-  if (typeof window === 'undefined') return createInitialChatMap();
-
-  try {
-    const raw = window.localStorage.getItem(LOCAL_MESSAGES_KEY);
-    const parsed = raw ? JSON.parse(raw) : null;
-    return parsed && typeof parsed === 'object' ? { ...createInitialChatMap(), ...parsed } as ChatMap : createInitialChatMap();
-  } catch {
-    return createInitialChatMap();
-  }
-}
+import { useMessages } from '@/hooks/useMessages';
 
 export default function MessagesExperience() {
-  const [activeId, setActiveId] = useState(mockMessages[0]?.id ?? 'msg-1');
-  const [chats, setChats] = useState<ChatMap>(createInitialChatMap());
-  const [message, setMessage] = useState('');
-  const chat = chats[activeId] ?? initialChat;
+  const { activeId, setActiveId, activeConversation, chat, message, setMessage, sendMessage } = useMessages();
 
-  const activeConversation = useMemo(
-    () => mockMessages.find((item) => item.id === activeId) ?? mockMessages[0],
-    [activeId]
-  );
-
-  useEffect(() => {
-    setChats(readLocalChats());
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem(LOCAL_MESSAGES_KEY, JSON.stringify(chats));
-  }, [chats]);
-
-  function sendMessage(event: React.FormEvent<HTMLFormElement>) {
+  function handleSendMessage(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const trimmed = message.trim();
-    if (!trimmed) return;
-
-    setChats((current) => ({
-      ...current,
-      [activeId]: [...(current[activeId] ?? initialChat), { id: Date.now(), from: 'me', text: trimmed }]
-    }));
-    setMessage('');
+    sendMessage();
   }
 
   return (
@@ -115,7 +59,7 @@ export default function MessagesExperience() {
             ))}
           </div>
         </div>
-        <form className="mt-6 flex gap-3" onSubmit={sendMessage}>
+        <form className="mt-6 flex gap-3" onSubmit={handleSendMessage}>
           <label className="sr-only" htmlFor="message-input">Type a message</label>
           <input id="message-input" name="message" className="input flex-1" placeholder="Type a message…" value={message} onChange={(event) => setMessage(event.target.value)} />
           <button className="btn-primary px-6">Send</button>

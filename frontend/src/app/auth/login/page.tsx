@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { brand } from '@/data/brand';
+import { customerLoginContent } from '@/data/content/secondaryPages';
 import { signInMockUser } from '@/lib/mockAuth';
 
 export default function LoginPage() {
@@ -21,16 +22,12 @@ export default function LoginPage() {
           <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_58%,#b98a3d_180%)] p-8 text-white sm:p-10 lg:p-12">
               <Image src={brand.logo} alt={brand.name} width={280} height={92} className="h-16 w-auto object-contain" priority />
-              <div className="mt-10 text-xs uppercase tracking-[0.26em] text-[#f2cf5b]">Customer access</div>
-              <h1 className="mt-4 text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.94] tracking-[-0.08em] text-white">Sign in to your Amica Residences workspace.</h1>
-              <p className="mt-5 max-w-lg text-base leading-8 text-white/74">Access saved homes, inquiries, viewings, and messages through a clean, premium portal experience.</p>
+              <div className="mt-10 text-xs uppercase tracking-[0.26em] text-[#f2cf5b]">{customerLoginContent.eyebrow}</div>
+              <h1 className="mt-4 text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.94] tracking-[-0.08em] text-white">{customerLoginContent.title}</h1>
+              <p className="mt-5 max-w-lg text-base leading-8 text-white/74">{customerLoginContent.description}</p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                {[
-                  ['Secure access', 'Private customer login'],
-                  ['Saved homes', 'Compare and review later'],
-                  ['Viewing support', 'Book and manage tours']
-                ].map(([title, text]) => (
+                {customerLoginContent.features.map(([title, text]) => (
                   <div key={title} className="rounded-[1.4rem] border border-white/10 bg-white/[0.07] p-4 backdrop-blur-sm">
                     <div className="text-sm font-semibold text-white">{title}</div>
                     <div className="mt-1 text-sm leading-6 text-white/65">{text}</div>
@@ -46,9 +43,9 @@ export default function LoginPage() {
                 handleSignIn();
               }}
             >
-              <span className="badge bg-white/80 shadow-soft">Welcome back</span>
-              <h2 className="mt-6 text-[clamp(1.95rem,4vw,3.1rem)] font-semibold leading-[1.04] tracking-[-0.055em] text-[#08122c]">Customer sign in</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600">Use your customer account to manage model houses, bookings, and conversations across Metro Manila and beyond.</p>
+              <span className="badge bg-white/80 shadow-soft">{customerLoginContent.badge}</span>
+              <h2 className="mt-6 text-[clamp(1.95rem,4vw,3.1rem)] font-semibold leading-[1.04] tracking-[-0.055em] text-[#08122c]">{customerLoginContent.formTitle}</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">{customerLoginContent.formDescription}</p>
 
               <div className="mt-6 rounded-[1.5rem] border border-[#dbe5f2] bg-[#f8fbff] p-4 text-sm leading-7 text-slate-600">
                 <div className="font-semibold text-[#08122c]">Demo customer account</div>

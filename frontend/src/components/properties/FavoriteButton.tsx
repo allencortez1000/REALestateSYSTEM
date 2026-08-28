@@ -1,30 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
-const FAVORITES_KEY = 'amicaFavoriteModelHouses';
-
-function readFavorites() {
-  if (typeof window === 'undefined') return [] as string[];
-
-  try {
-    const raw = window.localStorage.getItem(FAVORITES_KEY);
-    const parsed = raw ? JSON.parse(raw) : [];
-    return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === 'string') : [];
-  } catch {
-    return [];
-  }
-}
-
-function hasStoredFavorites() {
-  if (typeof window === 'undefined') return false;
-  return window.localStorage.getItem(FAVORITES_KEY) !== null;
-}
-
-function writeFavorites(slugs: string[]) {
-  window.localStorage.setItem(FAVORITES_KEY, JSON.stringify(Array.from(new Set(slugs))));
-  window.dispatchEvent(new Event('amica:favorites-updated'));
-}
+import { useFavorites, FAVORITES_KEY, hasStoredFavorites, readFavorites, writeFavorites } from '@/hooks/useFavorites';
 
 type FavoriteButtonProps = {
   slug: string;
@@ -33,30 +9,8 @@ type FavoriteButtonProps = {
 };
 
 export default function FavoriteButton({ slug, variant = 'outline', className = '' }: FavoriteButtonProps) {
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  useEffect(() => {
-    const sync = () => setIsFavorite(readFavorites().includes(slug));
-
-    sync();
-    window.addEventListener('storage', sync);
-    window.addEventListener('amica:favorites-updated', sync);
-
-    return () => {
-      window.removeEventListener('storage', sync);
-      window.removeEventListener('amica:favorites-updated', sync);
-    };
-  }, [slug]);
-
-  function toggleFavorite() {
-    const current = readFavorites();
-    const next = current.includes(slug)
-      ? current.filter((item) => item !== slug)
-      : [...current, slug];
-
-    writeFavorites(next);
-    setIsFavorite(next.includes(slug));
-  }
+  const { favorites, toggleFavorite } = useFavorites();
+  const isFavorite = favorites.includes(slug);
 
   const baseClass = variant === 'primary'
     ? 'btn-primary'
@@ -65,7 +19,7 @@ export default function FavoriteButton({ slug, variant = 'outline', className = 
       : 'btn-outline';
 
   return (
-    <button type="button" onClick={toggleFavorite} className={`${baseClass} ${className}`} aria-pressed={isFavorite}>
+    <button type="button" onClick={() => toggleFavorite(slug)} className={`${baseClass} ${className}`} aria-pressed={isFavorite}>
       {isFavorite ? '♥ Saved' : '♡ Save'}
     </button>
   );

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { adminRegisterContent } from '@/data/content/secondaryPages';
 import { brand } from '@/data/brand';
 import { signInMockUser } from '@/lib/mockAuth';
 
@@ -16,16 +17,12 @@ export default function AdminRegisterPage() {
           <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_58%,#b98a3d_180%)] p-8 text-white sm:p-10 lg:p-12">
               <Image src={brand.logo} alt={brand.name} width={280} height={92} className="h-16 w-auto object-contain" priority />
-              <div className="mt-10 text-xs uppercase tracking-[0.26em] text-[#f2cf5b]">Admin setup</div>
-              <h1 className="mt-4 text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.94] tracking-[-0.08em] text-white">Create admin access.</h1>
-              <p className="mt-5 max-w-lg text-base leading-8 text-white/74">Register an internal admin profile for Amica Residences model-house oversight and management.</p>
+              <div className="mt-10 text-xs uppercase tracking-[0.26em] text-[#f2cf5b]">{adminRegisterContent.eyebrow}</div>
+              <h1 className="mt-4 text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.94] tracking-[-0.08em] text-white">{adminRegisterContent.title}</h1>
+              <p className="mt-5 max-w-lg text-base leading-8 text-white/74">{adminRegisterContent.description}</p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                {[
-                  ['Internal only', 'Restricted to staff use'],
-                  ['Role-based', 'Assign admin permissions safely'],
-                  ['Platform control', 'Manage model-house content and reports'],
-                ].map(([title, text]) => (
+                {adminRegisterContent.features.map(([title, text]) => (
                   <div key={title} className="rounded-[1.4rem] border border-white/10 bg-white/[0.07] p-4 backdrop-blur-sm">
                     <div className="text-sm font-semibold text-white">{title}</div>
                     <div className="mt-1 text-sm leading-6 text-white/65">{text}</div>
@@ -42,9 +39,9 @@ export default function AdminRegisterPage() {
                 router.push('/dashboard/admin');
               }}
             >
-              <span className="badge bg-white/80 shadow-soft">Admin registration</span>
-              <h2 className="mt-6 text-[clamp(1.95rem,4vw,3.1rem)] font-semibold leading-[1.04] tracking-[-0.055em] text-[#08122c]">Create admin account</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600">Set up an internal admin profile for the Amica Residences portal and management team.</p>
+              <span className="badge bg-white/80 shadow-soft">{adminRegisterContent.badge}</span>
+              <h2 className="mt-6 text-[clamp(1.95rem,4vw,3.1rem)] font-semibold leading-[1.04] tracking-[-0.055em] text-[#08122c]">{adminRegisterContent.formTitle}</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">{adminRegisterContent.formDescription}</p>
 
               <div className="mt-8 grid gap-4">
                 <label className="grid gap-2">
