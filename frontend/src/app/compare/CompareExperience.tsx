@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
 import ResponsiveGrid from '@/components/ui/ResponsiveGrid';
 import { comparisonModelHouses } from '@/data/modelHouses';
+import { useCompareSelections } from '@/hooks/useCompareSelections';
 
 const featureRows = [
   ['Best for', 'bestFor'],
@@ -12,51 +12,8 @@ const featureRows = [
   ['Key features', 'features']
 ] as const;
 
-const COMPARE_SELECTION_KEY = 'amicaCompareSelections';
-const defaultSelected = comparisonModelHouses.slice(0, 4).map((property) => property.title);
-
-function readSelectedModels() {
-  if (typeof window === 'undefined') return defaultSelected;
-
-  try {
-    const raw = window.localStorage.getItem(COMPARE_SELECTION_KEY);
-    const parsed = raw ? JSON.parse(raw) : null;
-    const validTitles = comparisonModelHouses.map((property) => property.title);
-    const selected = Array.isArray(parsed) ? parsed.filter((title): title is string => typeof title === 'string' && validTitles.includes(title)) : [];
-    return selected.length > 0 ? selected : defaultSelected;
-  } catch {
-    return defaultSelected;
-  }
-}
-
 export default function CompareExperience() {
-  const [selectedTitles, setSelectedTitles] = useState(defaultSelected);
-    const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setSelectedTitles(readSelectedModels());
-    setHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hydrated) return;
-    window.localStorage.setItem(COMPARE_SELECTION_KEY, JSON.stringify(selectedTitles));
-  }, [hydrated, selectedTitles]);
-
-  const selectedListings = useMemo(
-    () => comparisonModelHouses.filter((property) => selectedTitles.includes(property.title)),
-    [selectedTitles]
-  );
-
-  function toggleModel(title: string) {
-    setSelectedTitles((current) => {
-      if (current.includes(title)) {
-        return current.length === 1 ? current : current.filter((item) => item !== title);
-      }
-
-      return [...current, title];
-    });
-  }
+  const { selectedTitles, selectedListings, hydrated, toggleModel, selectAll } = useCompareSelections();
 
   if (!hydrated) {
     return (
@@ -85,11 +42,7 @@ export default function CompareExperience() {
             <h2 className="mt-3 text-[clamp(1.9rem,4vw,2.7rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-[#071426]">Select models to compare</h2>
             <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">Pick at least one model. The side-by-side table updates instantly from the shared model-house data.</p>
           </div>
-          <button
-            type="button"
-            onClick={() => setSelectedTitles(comparisonModelHouses.map((property) => property.title))}
-            className="btn-outline"
-          >
+          <button type="button" onClick={selectAll} className="btn-outline">
             Select all
           </button>
         </div>

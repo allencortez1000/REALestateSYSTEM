@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import HeroAsideIntro from '@/components/marketing/HeroAsideIntro';
 import PropertyCard from '@/components/properties/PropertyCard';
 import SectionHeader from '@/components/marketing/SectionHeader';
 import PageHero from '@/components/ui/PageHero';
@@ -22,13 +23,11 @@ export default function PropertiesPage() {
           title="Curated residences with an Amica Residences signature."
           description={propertiesPageContent.heroDescription}
           aside={
-            <div className="flex min-h-[220px] items-end">
-              <div className="max-w-sm">
-                <div className="section-label text-[#d7be8a]">{propertiesPageContent.heroAsideLabel}</div>
-                <div className="mt-4 text-3xl font-semibold leading-tight">{propertiesPageContent.heroAsideTitle}</div>
-                <p className="mt-4 text-sm leading-7 text-white/72">{propertiesPageContent.heroAsideText}</p>
-              </div>
-            </div>
+            <HeroAsideIntro
+              eyebrow={propertiesPageContent.heroAsideLabel}
+              title={propertiesPageContent.heroAsideTitle}
+              description={propertiesPageContent.heroAsideText}
+            />
           }
         >
           <p className="mt-8 max-w-2xl text-sm leading-7 text-slate-600">{propertiesPageContent.heroSupport}</p>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import HeroAsideIntro from '@/components/marketing/HeroAsideIntro';
 import PageHero from '@/components/ui/PageHero';
 import { brand } from '@/data/brand';
 import { comparePageContent } from '@/data/content/publicPages';
@@ -18,13 +19,12 @@ export default function ComparePage() {
           title="Compare model houses."
           description={comparePageContent.heroDescription}
           aside={
-            <div className="flex min-h-[220px] items-end">
-              <div className="max-w-sm">
-                <div className="section-label text-[#f2cf5b]">{comparePageContent.asideLabel}</div>
-                <div className="mt-4 text-3xl font-semibold leading-tight">{comparePageContent.asideTitle}</div>
-                <p className="mt-4 text-sm leading-7 text-white/72">{comparePageContent.asideText}</p>
-              </div>
-            </div>
+            <HeroAsideIntro
+              eyebrow={comparePageContent.asideLabel}
+              title={comparePageContent.asideTitle}
+              description={comparePageContent.asideText}
+              eyebrowClassName="text-[#f2cf5b]"
+            />
           }
         />
 

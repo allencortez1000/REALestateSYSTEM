@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import HeroAsideSteps from '@/components/marketing/HeroAsideSteps';
+import InfoCard from '@/components/ui/InfoCard';
 import PageHero from '@/components/ui/PageHero';
 import { inquiryTopics } from '@/data/contact';
 import { contactPageContent } from '@/data/content/publicPages';
@@ -10,19 +12,6 @@ export const metadata: Metadata = {
   description: 'Send a model-house inquiry, ask about payment computations, schedule viewings, or request buyer guidance.'
 };
 
-
-const contactMethods = [
-  { label: 'Email', value: brand.email, note: 'Send model-house and document inquiries anytime.' },
-  { label: 'Phone', value: brand.phone, note: 'Call for viewing schedules and quick computation questions.' },
-  { label: 'Location', value: brand.location, note: 'Serving buyers across Metro Manila and nearby key cities.' }
-];
-
-const responseSteps = [
-  { step: '01', title: 'Submit inquiry', text: 'Tell us which model or housing project you are interested in.' },
-  { step: '02', title: 'Sales review', text: 'Our team reviews your preferred schedule, budget, and questions.' },
-  { step: '03', title: 'Get guidance', text: 'Receive next steps for viewing, computation, documents, or reservation.' }
-];
-
 export default function ContactPage() {
   return (
     <main className="px-4 pb-10 pt-6 sm:px-6 lg:px-8">
@@ -32,20 +21,12 @@ export default function ContactPage() {
           title="Ask about a model house."
           description={contactPageContent.heroDescription}
           aside={
-            <>
-              <div className="section-label text-[#d7be8a]">{contactPageContent.asideLabel}</div>
-              <div className="mt-4 text-3xl font-semibold leading-tight">{contactPageContent.asideTitle}</div>
-              <p className="mt-4 max-w-lg text-sm leading-7 text-white/72">{contactPageContent.asideText}</p>
-              <div className="mt-7 grid gap-3">
-                {responseSteps.map((item) => (
-                  <div key={item.step} className="rounded-[1.35rem] border border-white/10 bg-white/[0.07] p-4">
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#d7be8a]">{item.step}</div>
-                    <div className="mt-2 text-sm font-semibold text-white">{item.title}</div>
-                    <p className="mt-1 text-sm leading-6 text-white/68">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-            </>
+            <HeroAsideSteps
+              eyebrow={contactPageContent.asideLabel}
+              title={contactPageContent.asideTitle}
+              description={contactPageContent.asideText}
+              steps={contactPageContent.responseSteps}
+            />
           }
         >
           <p className="mt-7 max-w-2xl text-sm leading-7 text-slate-600">{contactPageContent.heroSupport}</p>
@@ -53,16 +34,18 @@ export default function ContactPage() {
 
         <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,0.9fr)_minmax(360px,1.1fr)]">
           <div className="space-y-4">
-            {contactMethods.map((item) => (
-              <div key={item.label} className="card p-6 shadow-[0_10px_24px_rgba(9,21,64,0.04)]">
-                <div className="section-label">{item.label}</div>
-                <div className="mt-2 text-lg font-semibold text-[#071426]">{item.value}</div>
-                <p className="mt-2 text-sm leading-6 text-slate-500">{item.note}</p>
-              </div>
+            {contactPageContent.contactMethods.map((item) => (
+              <InfoCard
+                key={item.label}
+                label={item.label}
+                value={item.label === 'Email' ? brand.email : item.label === 'Phone' ? brand.phone : brand.location}
+                note={item.note}
+                className="card p-6 shadow-[0_10px_24px_rgba(9,21,64,0.04)]"
+              />
             ))}
 
             <div className="rounded-[1.75rem] border border-[#e7dcc8] bg-[linear-gradient(135deg,#071426_0%,#0d2342_100%)] p-6 text-white shadow-[0_14px_34px_rgba(9,21,64,0.07)]">
-              <div className="section-label text-[#d7be8a]">Common inquiry topics</div>
+              <div className="section-label text-[#d7be8a]">{contactPageContent.inquiryTopicsTitle}</div>
               <div className="mt-4 grid gap-2">
                 {inquiryTopics.map((topic) => (
                   <div key={topic} className="rounded-2xl border border-white/8 bg-white/[0.06] px-4 py-3 text-sm text-white/76">{topic}</div>

@@ -33,5 +33,16 @@ export const contactPageContent = {
   heroSupport: 'We’ll help with viewings, payment questions, buyer requirements, and model recommendations.',
   asideLabel: 'Concierge support',
   asideTitle: 'Clear guidance from inquiry to viewing.',
-  asideText: 'We help buyers understand model options, sample computations, and next steps before reservation.'
+  asideText: 'We help buyers understand model options, sample computations, and next steps before reservation.',
+  responseSteps: [
+    { step: '01', title: 'Submit inquiry', text: 'Tell us which model or housing project you are interested in.' },
+    { step: '02', title: 'Sales review', text: 'Our team reviews your preferred schedule, budget, and questions.' },
+    { step: '03', title: 'Get guidance', text: 'Receive next steps for viewing, computation, documents, or reservation.' }
+  ],
+  contactMethods: [
+    { label: 'Email', note: 'Send model-house and document inquiries anytime.' },
+    { label: 'Phone', note: 'Call for viewing schedules and quick computation questions.' },
+    { label: 'Location', note: 'Serving buyers across Metro Manila and nearby key cities.' }
+  ],
+  inquiryTopicsTitle: 'Common inquiry topics'
 };

@@ -1,59 +1,13 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
-import { brand } from '@/data/brand';
-
-const LOCAL_PROFILE_KEY = 'amicaLocalProfile';
-
-const initialProfile = {
-  firstName: 'Amica Residences',
-  lastName: 'Admin',
-  email: 'admin@rabinohomebuilders.com',
-  phone: brand.phone,
-  address: brand.location,
-  currentPassword: '',
-  newPassword: ''
-};
-
-function readLocalProfile() {
-  if (typeof window === 'undefined') return initialProfile;
-
-  try {
-    const raw = window.localStorage.getItem(LOCAL_PROFILE_KEY);
-    const parsed = raw ? JSON.parse(raw) : null;
-    return parsed && typeof parsed === 'object' ? { ...initialProfile, ...parsed, currentPassword: '', newPassword: '' } : initialProfile;
-  } catch {
-    return initialProfile;
-  }
-}
+import { useProfileState } from '@/hooks/useProfileState';
 
 export default function ProfileExperience() {
-  const [profile, setProfile] = useState(initialProfile);
-  const [savedAt, setSavedAt] = useState<string | null>(null);
+  const { profile, hydrated, savedAt, initials, fullName, updateProfile, saveProfile } = useProfileState();
 
-  const initials = useMemo(() => {
-    const first = profile.firstName.trim().charAt(0);
-    const last = profile.lastName.trim().charAt(0);
-    return `${first}${last}`.trim() || 'A';
-  }, [profile.firstName, profile.lastName]);
-
-  const fullName = `${profile.firstName} ${profile.lastName}`.trim() || 'Amica Residences Admin';
-
-  useEffect(() => {
-    setProfile(readLocalProfile());
-  }, []);
-
-  function updateProfile(field: keyof typeof profile, value: string) {
-    setProfile((current) => ({ ...current, [field]: value }));
-    setSavedAt(null);
-  }
-
-  function saveProfile(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const sanitizedProfile = { ...profile, currentPassword: '', newPassword: '' };
-    window.localStorage.setItem(LOCAL_PROFILE_KEY, JSON.stringify(sanitizedProfile));
-    setSavedAt(new Date().toLocaleTimeString('en-PH', { hour: '2-digit', minute: '2-digit' }));
-    setProfile(sanitizedProfile);
+    saveProfile();
   }
 
   return (
@@ -66,7 +20,7 @@ export default function ProfileExperience() {
         <button type="button" className="btn-outline mt-5 w-full py-2 text-xs">Upload photo</button>
       </div>
 
-      <form className="card p-8 md:p-10" onSubmit={saveProfile}>
+      <form className="card p-8 md:p-10" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <div className="section-label">Personal information</div>

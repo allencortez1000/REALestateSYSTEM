@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import HeroAsideIntro from '@/components/marketing/HeroAsideIntro';
 import PageHero from '@/components/ui/PageHero';
 import { bookingsPageContent } from '@/data/content/secondaryPages';
 import BookingsExperience from './BookingsExperience';
@@ -17,13 +18,11 @@ export default function BookingsPage() {
           title={bookingsPageContent.title}
           description={bookingsPageContent.description}
           aside={
-            <div className="flex min-h-[220px] items-end">
-              <div className="max-w-sm">
-                <div className="section-label text-[#d7be8a]">{bookingsPageContent.asideEyebrow}</div>
-                <div className="mt-4 text-3xl font-semibold leading-tight">{bookingsPageContent.asideTitle}</div>
-                <p className="mt-4 text-sm leading-7 text-white/72">{bookingsPageContent.asideDescription}</p>
-              </div>
-            </div>
+            <HeroAsideIntro
+              eyebrow={bookingsPageContent.asideEyebrow}
+              title={bookingsPageContent.asideTitle}
+              description={bookingsPageContent.asideDescription}
+            />
           }
         />
 

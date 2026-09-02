@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { blogDetailContent } from '@/data/content/detailPages';
 import { mockBlogPosts } from '@/data/mockData';
 
 const posts = Object.fromEntries(mockBlogPosts.map((post) => [post.slug, post]));
@@ -39,8 +39,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     return (
       <main className="flex min-h-[60vh] items-center justify-center px-6">
         <div className="card p-14 text-center">
-          <h1 className="section-title">Post not found</h1>
-          <Link href="/blog" className="btn-primary mt-6 inline-flex">← Back to Journal</Link>
+          <h1 className="section-title">{blogDetailContent.notFound.title}</h1>
+          <Link href="/blog" className="btn-primary mt-6 inline-flex">{blogDetailContent.notFound.backLabel}</Link>
         </div>
       </main>
     );
@@ -53,21 +53,21 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           <div className="bg-[linear-gradient(135deg,#071426_0%,#0d2342_55%,#b98a3d_180%)] p-6 text-white sm:p-8 lg:p-10">
             <div className="flex items-center gap-3">
               <span className="badge bg-white/80 shadow-soft">{post.category}</span>
-              <span className="text-xs uppercase tracking-[0.24em] text-white/70">Editorial feature</span>
+              <span className="text-xs uppercase tracking-[0.24em] text-white/70">{blogDetailContent.hero.editionLabel}</span>
             </div>
             <h1 className="mt-6 text-[clamp(2.4rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.07em] text-white">{post.title}</h1>
-            <p className="mt-5 max-w-3xl text-base leading-8 text-white/76">A polished journal article formatted like a premium real-estate magazine feature.</p>
+            <p className="mt-5 max-w-3xl text-base leading-8 text-white/76">{blogDetailContent.hero.description}</p>
           </div>
           <div className="p-6 sm:p-8 lg:p-10">
             <p className="text-lg leading-8 text-slate-600">{post.excerpt}</p>
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
               <div className="rounded-[1.5rem] border border-[#efe5c3] bg-[#fbf8f0] p-5">
-                <div className="section-label">Read time</div>
-                <div className="mt-2 text-2xl font-semibold text-[#071426]">5 min read</div>
+                <div className="section-label">{blogDetailContent.meta.readTimeLabel}</div>
+                <div className="mt-2 text-2xl font-semibold text-[#071426]">{blogDetailContent.meta.readTimeValue}</div>
               </div>
               <div className="rounded-[1.5rem] border border-[#efe5c3] bg-[#fbf8f0] p-5">
-                <div className="section-label">Published</div>
-                <div className="mt-2 text-2xl font-semibold text-[#071426]">Premium edition</div>
+                <div className="section-label">{blogDetailContent.meta.publishedLabel}</div>
+                <div className="mt-2 text-2xl font-semibold text-[#071426]">{blogDetailContent.meta.publishedValue}</div>
               </div>
             </div>
           </div>
